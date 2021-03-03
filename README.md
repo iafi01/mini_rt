@@ -28,16 +28,16 @@ La riflessione avviene mediante la superficie di un corpo riflettente detto spec
 punto luminoso ma in realtá é soltanto un'immagine dell'oggetto prodotta dalla riflessione della luce emessa dal corpo<br>
 <hr>
 <h3>Le basi per capire il ray tracing</h3>
-<b>SCENE</b><br> é una collezione di oggetti e di sorgenti luminose visualizzabili da una telecamera detta osservatore <br>
-<b>OBJECTS</b><br> oggetto é un qualsiasi elemento dalla scena, nonostante il ray tracing possa elaborare solo oggetti<br>
+<br><b>SCENE</b><br> é una collezione di oggetti e di sorgenti luminose visualizzabili da una telecamera detta osservatore <br>
+<br><b>OBJECTS</b><br> oggetto é un qualsiasi elemento dalla scena, nonostante il ray tracing possa elaborare solo oggetti<br>
 matematicamente descrivibili (Sfera, cilindro, cono e piano) possiamo<br>
 conmbinarli tra loro per sviluppare oggetti piú compressi, inoltre ognuno di<br>
 essi ha caratteristiche quali : colore, lucentezza e rugositá.<br>
-<b>LIGHT SOURCES</b><br> Sono elementi che emettono sorgenti luminose in qualunque punto della scena<br>
+<br><b>LIGHT SOURCES</b><br> Sono elementi che emettono sorgenti luminose in qualunque punto della scena<br>
  dopo aver individuato la posizione, va stabilita l'intensitá del raggio.<br>
 <b>CAMERA</b><br> E'il punto di osservazione della scena, similmente ad una fotocamera che per scattare<br>
  una foto ad un determinato oggetto necessita di luce.<br>
-<b>RAY CASTING</b><br> : Si tratta di un metodo nel quale le superfici visibili degli oggetti <br>
+<br><b>RAY CASTING</b><br> : Si tratta di un metodo nel quale le superfici visibili degli oggetti <br>
  vengono colpiti dai raggi di luce dall'osservatore della scena<br>
  paragoniamo che la pellicola é come se fosse lo schermo del pc<br>
  l'obiettivo é l'occhio dell'osservatore, l'unitá piú piccola di luce<br>
@@ -45,4 +45,4 @@ essi ha caratteristiche quali : colore, lucentezza e rugositá.<br>
  Le risoluzioni odierne sono molto piú prestanti, a ciascun pixel é<br>
  possibile associare un solo colore nell'unitá di tempo e nel ray tracing<br>
  esso rappresenta il colore della luce che passando sull'oggetto, attraversa<br>
- l pixel stesso fino a farlo arrivare all'occhio.
+ il pixel stesso fino a farlo arrivare all'occhio.
