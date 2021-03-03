@@ -80,4 +80,10 @@ un certo numero di fotoni viaggeranno lungo tale via. In caso negativo significa
 superficie opaca (cioè non trasparente) si interpone tra voi e la sorgente luminosa, rendendovi così in ombra rispetto alla sorgente stessa.<br>
 Una volta determinata una intersezione le ombre possono venire calcolate inviando i vari raggi verso le sorgenti luminose.<br>
 Nel caso si incontri una superficie opaca significa che nessun fascio luminoso può<br>
-raggiungere il primo oggetto, per cui la superficie risulterà in ombra.
+raggiungere il primo oggetto, per cui la superficie risulterà in ombra.<br>
+<hr>
+<ul>
+ <li>
+ Ogni componente deve avere delle strutture che ne gestiscono i settings
+ </li>
+</ul>
