@@ -51,3 +51,11 @@ Si tratta di un metodo nel quale le superfici visibili degli oggetti <br>
  possibile associare un solo colore nell'unitá di tempo e nel ray tracing<br>
  esso rappresenta il colore della luce che passando sull'oggetto, attraversa<br>
  il pixel stesso fino a farlo arrivare all'occhio.
+<br><b>RAY</b><br>
+Sono sottili linee che determinano quali oggetti saranno visualizzati e come saranno visualizzati<br>
+<br><b>RAYTRACING</b><br>
+Rispetto al ray casting che si preoccupa di determinare solo quali siano le superfici<br>
+visibili degli oggetti, il ray tracing estende tale valutazione cercando di stabilire<br>
+come debbano apparire le superfici stesse. I programmi di ray tracing consentono infatti<br>
+all’utente di impostare diversi effetti per rendere maggiormente realistichele immagini, come ombre,<br>
+trasparenze e riflessioni, che sarebbero difficilmente ottenibili applicando altri metodi.<br>
