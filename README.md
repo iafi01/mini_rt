@@ -84,6 +84,9 @@ raggiungere il primo oggetto, per cui la superficie risulterà in ombra.<br>
 <hr>
 <ul>
  <li>
-  Ogni componente deve avere delle strutture che ne gestiscono i settings
+  Ogni componente deve avere delle strutture che ne gestiscono i settings generali
  </li>
+ <li>
+  C'é bisogno di un file di settings per la scena e gli oggetti che ci saranno (punti direzioni)
+  </li>
 </ul>
