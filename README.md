@@ -84,6 +84,6 @@ raggiungere il primo oggetto, per cui la superficie risulterà in ombra.<br>
 <hr>
 <ul>
  <li>
- Ogni componente deve avere delle strutture che ne gestiscono i settings
+  Ogni componente deve avere delle strutture che ne gestiscono i settings
  </li>
 </ul>
