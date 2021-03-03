@@ -89,4 +89,13 @@ raggiungere il primo oggetto, per cui la superficie risulterà in ombra.<br>
  <li>
   C'é bisogno di un file di settings per la scena e gli oggetti che ci saranno (punti direzioni)
   </li>
+  <li>
+Capire cosa fanno le funzioni che si possono utilizzare<br>
+open, close, read, write,<br>
+printf, malloc, free, perror,<br>
+strerror, exit<br>
+• All functions of the math<br>
+library (-lm man man 3 math)<br>
+• All functions of the MinilibX<br>
+ </li>
 </ul>
