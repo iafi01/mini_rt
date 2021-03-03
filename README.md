@@ -28,7 +28,7 @@ La riflessione avviene mediante la superficie di un corpo riflettente detto spec
 punto luminoso ma in realtá é soltanto un'immagine dell'oggetto prodotta dalla riflessione della luce emessa dal corpo<br>
 <hr>
 <h3>Le basi per capire il ray tracing</h3>
-<b>SCENE</b> é una collezione di oggetti e di sorgenti luminose visualizzabili da una telecamera detta osservatore <br>
-<b>OBJECTS</b> oggetto é un qualsiasi elemento dalla scena, nonostante il ray tracing possa elaborare solo oggetti<br>
-matematicamente descrivibili (Sfera, cilindro, cono e piano) possiamo conmbinarli tra loro per sviluppare oggetti piú compressi.
-Ognuno di essi ha caratteristiche quali : colore, lucentezza e rugositá.
+<b>SCENE</b> : é una collezione di oggetti e di sorgenti luminose visualizzabili da una telecamera detta osservatore <br>
+<b>OBJECTS</b> : oggetto é un qualsiasi elemento dalla scena, nonostante il ray tracing possa elaborare solo oggetti<br>
+matematicamente descrivibili (Sfera, cilindro, cono e piano) possiamo conmbinarli tra loro per sviluppare oggetti piú compressi.<br>
+Ognuno di essi ha caratteristiche quali : colore, lucentezza e rugositá.<br>
