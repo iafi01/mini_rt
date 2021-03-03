@@ -94,8 +94,8 @@ Capire cosa fanno le funzioni che si possono utilizzare<br>
 open, close, read, write,<br>
 printf, malloc, free, perror,<br>
 strerror, exit<br>
-• All functions of the math<br>
+All functions of the math<br>
 library (-lm man man 3 math)<br>
-• All functions of the MinilibX<br>
+All functions of the MinilibX<br>
  </li>
 </ul>
