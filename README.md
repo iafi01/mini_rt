@@ -12,3 +12,10 @@ provenienti da altri punti ed oggetti, che determinano le proprietà dei pixel (
 visualizzare. Si può facilmente intuire come una tecnica tanto semplice richieda al tempo stesso una potenza<br>
 di elaborazione notevole, in quanto anche in presenza di scene non complesse il numero di raggi da calcolare è elevatissimo.<br>
 <hr>
+<h3>Differenza tra riflessione e rifrazione</h3>
+La riflessione e la rifrazione della luce si possono spiegare utilmente supponendo che la luce si propaghi sotto forma<br>
+di raggi rettilinei (ottica geometrica). Quando un raggio di luce che viaggia in un mezzo materiale <br>
+trasparente - come, per esempio, l'aria - incontra una superficie di separazione con un altro mezzo<br>
+trasparente - per esempio, l'acqua - si divide normalmente in due raggi: uno viene riflesso dalla superficie<br>
+e l'altro entra nel secondo mezzo variando la sua direzione di propagazione, cioè viene rifratto<br>
+<hr>
