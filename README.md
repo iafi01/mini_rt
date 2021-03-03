@@ -69,3 +69,8 @@ con la differenza fondamentale che il raggio attraversa in parte la superficie d
 uscendone poi inclinato secondo il principio della rifrazione.<br>
 Un tipico esempio di rifrazione è quello che consiste nell’introdurre una penna in un bicchiere d’acqua:<br>
 osservando il bicchiere dall’alto la penna apparirà come piegata nella zona in cui si immerge nell’acqua stessa.<br>
+Ciascun corpo è quindi caratterizzato da un determinato indice di rifrazione, che può essere definito come un valore <br>
+che descrive la velocità con cui la luce lo attraversa, rispetto alla velocità con cui la luce viaggia nel vuoto.<br>
+Siccome l’indice di rifrazione del vetro è superiore a quello dell’acqua, la luce risulterà maggiormente deviata rispetto all’acqua.<br>
+
+
