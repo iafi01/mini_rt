@@ -24,3 +24,6 @@ altro, per la differenza della velocità di propagazione nei due mezzi, ma quest
 La legge della rifrazione stabilisce che l'angolo di incidenza e l'angolo di rifrazione giacciono sullo <br>
 stesso piano e sono legati tra loro dalla relazione:n1 sen i = n2 sen rdove n1 e n2 sono gli indici di rifrazione assoluti dei due mezzi.<br>
 <hr>
+La riflessione avviene mediante la superficie di un corpo riflettente detto specchio, sembra che all'interno di esso ci sia un<br>
+punto luminoso ma in realtá é soltanto un'immagine dell'oggetto prodotta dalla riflessione della luce emessa dal corpo<br>
+<hr>
