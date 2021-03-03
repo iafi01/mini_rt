@@ -72,5 +72,12 @@ osservando il bicchiere dall’alto la penna apparirà come piegata nella zona i
 Ciascun corpo è quindi caratterizzato da un determinato indice di rifrazione, che può essere definito come un valore <br>
 che descrive la velocità con cui la luce lo attraversa, rispetto alla velocità con cui la luce viaggia nel vuoto.<br>
 Siccome l’indice di rifrazione del vetro è superiore a quello dell’acqua, la luce risulterà maggiormente deviata rispetto all’acqua.<br>
-
-
+<br><b>SHADOWS</b><br>
+Per cercare di capire come debbano essere calcolate, si può cercare di immaginare di essere sulla superficie di un certo corpo.<br>
+Si tratterà quindi di verificare se si scorgano o meno fasci luminosi provenienti dalle sorgenti di luce.<br>
+In caso affermativo significa che sarà possibile individuare un chiaro percorso fra voi e la sorgente e quindi<br>
+un certo numero di fotoni viaggeranno lungo tale via. In caso negativo significa che almeno un oggetto con la<br>
+superficie opaca (cioè non trasparente) si interpone tra voi e la sorgente luminosa, rendendovi così in ombra rispetto alla sorgente stessa.<br>
+Una volta determinata una intersezione le ombre possono venire calcolate inviando i vari raggi verso le sorgenti luminose.<br>
+Nel caso si incontri una superficie opaca significa che nessun fascio luminoso può<br>
+raggiungere il primo oggetto, per cui la superficie risulterà in ombra.
