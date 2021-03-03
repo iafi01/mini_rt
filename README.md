@@ -67,3 +67,5 @@ dei colori degli oggetti che si riflettono nel punto stesso.<br>
 Il ragionamento relativo alla trasparenza è simile a quello appena descritto per la riflessione,<br>
 con la differenza fondamentale che il raggio attraversa in parte la superficie del corpo trasparente<br>
 uscendone poi inclinato secondo il principio della rifrazione.<br>
+Un tipico esempio di rifrazione è quello che consiste nell’introdurre una penna in un bicchiere d’acqua:<br>
+osservando il bicchiere dall’alto la penna apparirà come piegata nella zona in cui si immerge nell’acqua stessa.<br>
