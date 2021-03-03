@@ -59,7 +59,11 @@ visibili degli oggetti, il ray tracing estende tale valutazione cercando di stab
 come debbano apparire le superfici stesse. I programmi di ray tracing consentono infatti<br>
 all’utente di impostare diversi effetti per rendere maggiormente realistichele immagini, come ombre,<br>
 trasparenze e riflessioni, che sarebbero difficilmente ottenibili applicando altri metodi.<br>
-<br><b>RIFLECTION</b><br>
+<br><b>REFLECTION</b><br>
+Se la superficie colpita dal raggio luminoso è riflettente, come uno specchio, il ray tracer <br>
+deve determinare il colore in quel punto, tenendo conto non solo del colore della superficie, ma anche<br>
+dei colori degli oggetti che si riflettono nel punto stesso.<br>
+<br><b>TRASPARENCY</b><br>
 Il ragionamento relativo alla trasparenza è simile a quello appena descritto per la riflessione,<br>
 con la differenza fondamentale che il raggio attraversa in parte la superficie del corpo trasparente<br>
 uscendone poi inclinato secondo il principio della rifrazione.<br>
