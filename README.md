@@ -21,3 +21,6 @@ e l'altro entra nel secondo mezzo variando la sua direzione di propagazione, cio
 La rifrazione è la deviazione che un raggio luminoso subisce nel passare da un mezzo trasparente a un<br>
 altro, per la differenza della velocità di propagazione nei due mezzi, ma questo é dipeso dalla densitá dei due corpi.<br>
 <hr>
+La legge della rifrazione stabilisce che l'angolo di incidenza e l'angolo di rifrazione giacciono sullo <br>
+stesso piano e sono legati tra loro dalla relazione:n1 sen i = n2 sen rdove n1 e n2 sono gli indici di rifrazione assoluti dei due mezzi.<br>
+<hr>
