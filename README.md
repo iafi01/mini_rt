@@ -38,7 +38,7 @@ essi ha caratteristiche quali : colore, lucentezza e rugositá.<br>
 <br><b>LIGHT SOURCES</b><br>
 Sono elementi che emettono sorgenti luminose in qualunque punto della scena<br>
  dopo aver individuato la posizione, va stabilita l'intensitá del raggio.<br>
-<b>CAMERA</b><br>
+<br><b>CAMERA</b><br>
 E'il punto di osservazione della scena, similmente ad una fotocamera che per scattare<br>
  una foto ad un determinato oggetto necessita di luce.<br>
 <br><b>RAY CASTING</b><br>
