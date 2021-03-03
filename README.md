@@ -33,3 +33,16 @@ punto luminoso ma in realtá é soltanto un'immagine dell'oggetto prodotta dalla
 &emsp;&emsp;&emsp;&emsp;&emsp; matematicamente descrivibili (Sfera, cilindro, cono e piano) possiamo<br>
 &emsp;&emsp;&emsp;&emsp;&emsp; conmbinarli tra loro per sviluppare oggetti piú compressi, inoltre ognuno di<br>
 &emsp;&emsp;&emsp;&emsp;&emsp; essi ha caratteristiche quali : colore, lucentezza e rugositá.<br>
+<b>LIGHT SOURCES</b> : Sono elementi che emettono sorgenti luminose in qualunque punto della scena<br>
+&emsp;&emsp;&emsp;&emsp;&emsp; dopo aver individuato la posizione, va stabilita l'intensitá del raggio.<br>
+<b>CAMERA</b> : E'il punto di osservazione della scena, similmente ad una fotocamera che per scattare<br>
+&emsp;&emsp;&emsp;&emsp;&emsp; una foto ad un determinato oggetto necessita di luce.<br>
+<b>RAY CASTING</b> : Si tratta di un metodo nel quale le superfici visibili degli oggetti <br>
+&emsp;&emsp;&emsp;&emsp;&emsp; vengono colpiti dai raggi di luce dall'osservatore della scena<br>
+&emsp;&emsp;&emsp;&emsp;&emsp; paragoniamo che la pellicola é come se fosse lo schermo del pc<br>
+&emsp;&emsp;&emsp;&emsp;&emsp; l'obiettivo é l'occhio dell'osservatore, l'unitá piú piccola di luce<br>
+&emsp;&emsp;&emsp;&emsp;&emsp; é detta pixel, che puó assumere forme circolari ed ellissoidali.<br>
+&emsp;&emsp;&emsp;&emsp;&emsp; Le risoluzioni odierne sono molto piú prestanti, a ciascun pixel é<br>
+&emsp;&emsp;&emsp;&emsp;&emsp; possibile associare un solo colore nell'unitá di tempo e nel ray tracing<br>
+&emsp;&emsp;&emsp;&emsp;&emsp; esso rappresenta il colore della luce che passando sull'oggetto, attraversa<br>
+&emsp;&emsp;&emsp;&emsp;&emsp; il pixel stesso fino a farlo arrivare all'occhio.
