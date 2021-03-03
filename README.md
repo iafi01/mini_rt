@@ -31,5 +31,5 @@ punto luminoso ma in realtá é soltanto un'immagine dell'oggetto prodotta dalla
 <b>SCENE</b> : é una collezione di oggetti e di sorgenti luminose visualizzabili da una telecamera detta osservatore <br>
 <b>OBJECTS</b> : oggetto é un qualsiasi elemento dalla scena, nonostante il ray tracing possa elaborare solo oggetti<br>
 &emsp;&emsp;&emsp;&emsp;&emsp; matematicamente descrivibili (Sfera, cilindro, cono e piano) possiamo<br>
-&emsp;&emsp;&emsp;&emsp;&emsp; conmbinarli tra loro per sviluppare oggetti piú compressi, inoltre
-ognuno di essi ha caratteristiche quali : colore, lucentezza e rugositá.<br>
+&emsp;&emsp;&emsp;&emsp;&emsp; conmbinarli tra loro per sviluppare oggetti<br>
+&emsp;&emsp;&emsp;&emsp;&emsp; piú compressi, inoltre ognuno di essi ha caratteristiche quali : colore, lucentezza e rugositá.<br>
