@@ -17,5 +17,7 @@ La riflessione e la rifrazione della luce si possono spiegare utilmente supponen
 di raggi rettilinei (ottica geometrica). Quando un raggio di luce che viaggia in un mezzo materiale <br>
 trasparente - come, per esempio, l'aria - incontra una superficie di separazione con un altro mezzo<br>
 trasparente - per esempio, l'acqua - si divide normalmente in due raggi: uno viene riflesso dalla superficie<br>
-e l'altro entra nel secondo mezzo variando la sua direzione di propagazione, cioè viene rifratto<br>
+e l'altro entra nel secondo mezzo variando la sua direzione di propagazione, cioè viene rifratto<br><br>
+La rifrazione è la deviazione che un raggio luminoso subisce nel passare da un mezzo trasparente a un<br>
+altro, per la differenza della velocità di propagazione nei due mezzi, ma questo é dipeso dalla densitá dei due corpi.<br>
 <hr>
