@@ -43,6 +43,7 @@ int             main(void)
 			my_mlx_pixel_put(&img, j, i, color);
         }
     }
+    //rettangolo finestra che emette luce
     x = width-50;
     while (x != width)
     {
@@ -50,6 +51,21 @@ int             main(void)
         while (y < height)
         {
             my_mlx_pixel_put(&img, x, y, 0x00449988);
+            y++;
+        }
+        x++;
+    }
+    //cerchio
+    int max = 200;
+     x = 100;
+    while (x != max)
+    {
+        y = 100;
+        while (y < max)
+        {
+            my_mlx_pixel_put(&img, x, y, 0x00449988);
+            if (x == max-50 || y == max-50)
+                my_mlx_pixel_put(&img, x, y, 0x00665544);
             y++;
         }
         x++;
