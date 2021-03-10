@@ -15,6 +15,13 @@ typedef struct s_global{
      int color;
 }t_global;
 
+typedef struct s_vector
+{
+    int x;
+    int y;
+    int z;
+}t_vector;
+
 typedef struct s_viewport
 {
 	t_vector lower_left_corner;
@@ -47,14 +54,10 @@ t_vector ver_div_float(t_vector v1, float v2);
 float vec_dot(t_vector v1, t_vector v2);
 float vec_sqrt(t_vector v);
 t_vector    vec_cross(t_vector v1, t_vector v2);
+void setup_window(t_global a, t_imgdata img);
+void setup_viewport(t_viewport *vp);
+void    main_print(t_global a, t_imgdata img);
 
-
-typedef struct s_vector
-{
-    int x;
-    int y;
-    int z;
-}t_vector;
 
 typedef struct s_color
 {

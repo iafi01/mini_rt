@@ -4,9 +4,9 @@
 t_vector create_vec(float x, float y, float z)
 {
     t_vector v;
-    v.x;
-    v.y;
-    v.z;
+    v.x = x;
+    v.y = y;
+    v.z = z;
     return (v);
 }
 

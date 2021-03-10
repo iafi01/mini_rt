@@ -1,4 +1,5 @@
 #include "../includes/mini_rt.h"
+
 void setup_window(t_global a, t_imgdata img)
 {
     a.mlx_win = mlx_new_window(a.mlx, a.width, a.height, "IAFI");
