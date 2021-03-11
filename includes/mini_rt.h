@@ -67,6 +67,23 @@ typedef struct s_color
     int b;
 }t_color;
 
+typedef struct s_ray
+{
+    t_vector origin;
+    t_vector dir;
+}t_ray;
+
+typedef struct s_calc
+{
+	float a;
+	float b;
+	float c;
+	float delta;
+	float t1;
+	float t2;
+	t_vector sub;
+}t_calc;
+
 typedef struct s_resolution
 {
     int x;

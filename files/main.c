@@ -9,7 +9,6 @@ int             main(void)
     
     a.mlx = mlx_init();
     
-
     setup_window(&a,&vp,&img);
     setup_viewport(&vp);
 
