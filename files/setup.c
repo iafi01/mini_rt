@@ -1,11 +1,14 @@
 #include "../includes/mini_rt.h"
 
-void setup_window(t_global a, t_imgdata img)
+void setup_window(t_global *a, t_viewport *vp, t_imgdata *img)
 {
-    a.mlx_win = mlx_new_window(a.mlx, a.width, a.height, "IAFI");
-        img.img = mlx_new_image(a.mlx, a.width, a.height);
-        img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-                                    &img.endian);
+    a->width = 1920;
+    a->height = 1080;
+
+    a->mlx_win = mlx_new_window(a->mlx, a->width, a->height, "IAFI");
+        img->img = mlx_new_image(a->mlx, a->width, a->height);
+        img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length,
+                                    &img->endian);
 }
 
 void setup_viewport(t_viewport *vp)

@@ -3,13 +3,17 @@
 int             main(void)
 {
    
-    t_global a;
-    t_imgdata  img;
+    t_global    a;
+    t_imgdata   img;
+    t_viewport  vp;
     
     a.mlx = mlx_init();
-    setup_window(a,img);
+    
 
-    main_print(a,img);
+    setup_window(&a,&vp,&img);
+    setup_viewport(&vp);
+
+    main_print(&a, &vp, &img);
 
     mlx_put_image_to_window(a.mlx, a.mlx_win, img.img, 0, 0);
     mlx_loop(a.mlx);

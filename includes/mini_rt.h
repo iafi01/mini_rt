@@ -54,9 +54,9 @@ t_vector ver_div_float(t_vector v1, float v2);
 float vec_dot(t_vector v1, t_vector v2);
 float vec_sqrt(t_vector v);
 t_vector    vec_cross(t_vector v1, t_vector v2);
-void setup_window(t_global a, t_imgdata img);
+void setup_window(t_global *a, t_viewport *vp, t_imgdata *img);
 void setup_viewport(t_viewport *vp);
-void    main_print(t_global a, t_imgdata img);
+void    main_print(t_global *a, t_viewport *vp, t_imgdata *img);
 
 
 typedef struct s_color
