@@ -14,8 +14,8 @@ void setup_window(t_global *a, t_viewport *vp, t_imgdata *img)
 
 void setup_viewport(t_viewport *vp)
 {
-    vp->lower_left_corner = create_vec(-1,-1,-1);
-    vp->hor_axis = create_vec(4,0,0);
-    vp->ver_axis = create_vec(0,2,0);
-    vp->origin = create_vec(0,0,0);
+    vp->lower_left_corner = create_vector(-1,-1,-1);
+    vp->hor_axis = create_vector(4,0,0);
+    vp->ver_axis = create_vector(0,2,0);
+    vp->origin = create_vector(0,0,0);
 }

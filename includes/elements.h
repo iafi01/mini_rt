@@ -6,9 +6,14 @@ typedef struct s_global{
      void    *mlx_win;
      int      width;
      int      height;
-     int color;
+     int        color;
+     int        color2;
+     float       t;
+
 }t_global;
 
+//questo é un punto, un vettore é formato
+// da due punti (scelta convenzionale)
 typedef struct s_vector
 {
     int x;
@@ -85,14 +90,14 @@ typedef struct s_light
 typedef struct s_sphere
 {
     t_vector origin;
-    int ray;
+    float ray;
     t_color color;
 }t_sphere;
 
 typedef struct s_plane
 {
     t_vector center;
-    float orientaion; //-1 to 1
+    t_vector orientation; //-1 to 1
     t_color color;
 }t_plane;
 
@@ -115,9 +120,9 @@ typedef struct s_cylinder
 
 typedef struct s_triangle
 {
-    t_vector first;
-    t_vector second;
-    t_vector third;
+    t_vector p1;
+    t_vector p2;
+    t_vector p3;
     t_color color;
 }t_triangle;
 

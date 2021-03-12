@@ -1,7 +1,7 @@
 #include "../includes/mini_rt.h"
 
 //crea un vettore (punto di tre coordinate)
-t_vector create_vec(float x, float y, float z)
+t_vector create_vector(float x, float y, float z)
 {
     t_vector v;
     v.x = x;

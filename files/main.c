@@ -21,5 +21,5 @@ int             main(void)
     mlx_loop(a.mlx);
 }
 /*
-gcc -lmlx -framework OpenGL -framework AppKit files/main.c files/color.c files/pixel.c files/math.c files/setup.c && ./a.out
+gcc -lmlx -framework OpenGL -framework AppKit files/*.c && ./a.out
 */

@@ -11,10 +11,10 @@
 int		create_trgb(int t, int r, int g, int b);
 void    my_mlx_pixel_put(t_imgdata *data, int x, int y, int color);
 int     create_color(float r, float g, float b);
-float create_sphere(t_global *a, t_sphere sph, t_ray r);
+float   create_sphere(t_global *a, t_sphere sph, t_ray r);
 
 //vectors
-t_vector create_vec(float x, float y, float z);
+t_vector create_vector(float x, float y, float z);
 t_vector ver_sum(t_vector v1, t_vector v2);
 t_vector vec_sub(t_vector v1, t_vector v2);
 t_vector vec_per(t_vector v1, t_vector v2);
