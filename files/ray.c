@@ -8,7 +8,7 @@ t_ray create_ray(t_vector origin, t_vector dir)
     return (ray);
 }
 
-// la formula matematica  Pt = A + tB (retta)
+// la formula matematica  Pt = tB + A (retta) oppure-> y = mx + p
 t_vector find_point(t_ray ray, float t)
 {
     return (vec_add(vec_per_float(ray.dir, t)), ray.origin);
@@ -32,11 +32,16 @@ t_vector ray_color(t_ray r, t_global *a)
     pl.orientation = create_vector(-1.5,-1.5,-1.5);
 
     a->t = create_sphere(a, sph, r);
-    if (a->t > 0)
-    {
-        //controlla l'intersezione raggio sfera
-    }
-
-    a->color = create_color(1.0,1.0,1.0);
-    a->color2 = create_color(0.5,0.7,1.0);
+    if(a->t > 0.0)
+	{
+		a->point = find_point(r, a->t); // Calcola il punto in cui ha colpito la sfera
+		sph.color = vec_normalize(vec_div_float(vec_sub(a->point, sph.origin), sph.ray)); //La normale va sempre calcolata per lo shading
+		sph.color = vec_sum_float(sph.color, 1.0);
+		return vec_per_float(sph.color, 0.5); //Qui stiamo mappando x/y/z a valori RGB per creare il gradient
+	}
+    a->color = create_vector(1.0, 1.0, 1.0);
+	a->color2 = create_vector(0.5, 0.7, 1.0);
+	norm = (r.dir); // Mettiamo a norma la direzione del raggio
+	a->t = 0.5 * (norm.y + 1.0); // Qui la t ha sempre un range [0, 1]
+	return(vec_sum(vec_per_float(a->color, (1.0 - a->t)), vec_per_float(a->color2, a->t)));
 }

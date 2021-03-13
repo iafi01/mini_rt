@@ -47,7 +47,7 @@ t_vector vec_div(t_vector v1, t_vector v2)
     return (v);
 }
 //le quattro operazioni con un vettore ed un float
-t_vector ver_sum_float(t_vector v1, float v2)
+t_vector vec_sum_float(t_vector v1, float v2)
 {
     t_vector v;
     v.x = v1.x + v2;
@@ -56,7 +56,7 @@ t_vector ver_sum_float(t_vector v1, float v2)
     return (v);
 }
 
-t_vector ver_sub_float(t_vector v1, float v2)
+t_vector vec_sub_float(t_vector v1, float v2)
 {
     t_vector v;
     v.x = v1.x - v2;
@@ -65,7 +65,7 @@ t_vector ver_sub_float(t_vector v1, float v2)
     return (v);
 }
 
-t_vector ver_per_float(t_vector v1, float v2)
+t_vector vec_per_float(t_vector v1, float v2)
 {
     t_vector v;
     v.x = v1.x * v2;
@@ -74,7 +74,7 @@ t_vector ver_per_float(t_vector v1, float v2)
     return (v);
 }
 
-t_vector ver_div_float(t_vector v1, float v2)
+t_vector vec_div_float(t_vector v1, float v2)
 {
     t_vector v;
     v.x = v1.x / v2;
@@ -89,9 +89,25 @@ float vec_dot(t_vector v1, t_vector v2)
     return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
 }
 
-float vec_sqrt(t_vector v)
+float vec_lenght_squared(t_vector v)
 {
     return (v.x * v.x + v.y * v.y + v.z * v.z);
+}
+
+float vec_lenght(t_vector v)
+{
+    return (sqrt(vec_lenght_squared(v)));
+}
+
+t_vector vec_normalize(t_vector v)
+{
+    t_vector normalized;
+    float len = vec_length(v);
+
+    normalized.x = v.x / len;
+    normalized.y = v.y / len;
+    normalized.z = v.z / len;
+	return(normalized);
 }
 
 t_vector    vec_cross(t_vector v1, t_vector v2)

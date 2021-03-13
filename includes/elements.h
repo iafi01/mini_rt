@@ -6,10 +6,10 @@ typedef struct s_global{
      void    *mlx_win;
      int      width;
      int      height;
-     int        color;
-     int        color2;
+     t_vector        color;
+     t_vector        color2;
      float       t;
-
+     t_vector point;
 }t_global;
 
 //questo é un punto, un vettore é formato
@@ -91,7 +91,7 @@ typedef struct s_sphere
 {
     t_vector origin;
     float ray;
-    t_color color;
+    t_vector color;
 }t_sphere;
 
 typedef struct s_plane

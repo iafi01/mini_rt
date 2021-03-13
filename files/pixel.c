@@ -9,15 +9,25 @@ void            my_mlx_pixel_put(t_imgdata *data, int x, int y, int color)
 
 void    main_print(t_global *a, t_viewport *vp, t_imgdata *img)
 {
-    for (int j = 0; j <= a->width; ++j)
-	{
-		for (int i = 0; i < a->height; ++i)
-		{
-			float r = (float)(i) / (float)(a->height);
-            float g = (float)(i) / (float)(a->height);             
-            float b = 1;
-            a->color = create_color(r,g,b);
-			my_mlx_pixel_put(img->img, j, i, a->color);
+    t_ray r;
+
+    int j = a->height;
+    int i;
+
+    while (j > 0)
+    {
+        i = 0;
+        while (i < a->width)
+        {
+            float u = (float)i / a->width;
+            float v = (float)j / a->height;
+            r = create_ray(vp->origin, vec_sum(vec_sum(vec_per_float(vp->hor_axis, u),
+            vec_per_float(vp->ver_axis, v)), vp->lower_left_corner));
+            t_vector temp = ray_color(r, a);
+            int colors = create_color(temp.x, temp.y, temp.z);
+            my_mlx_pixel_put(img, i , j, colors);
+            i++;
         }
+        j--;
     }
 }
