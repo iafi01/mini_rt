@@ -102,7 +102,7 @@ float vec_lenght(t_vector v)
 t_vector vec_normalize(t_vector v)
 {
     t_vector normalized;
-    float len = vec_length(v);
+    float len = vec_lenght(v);
 
     normalized.x = v.x / len;
     normalized.y = v.y / len;

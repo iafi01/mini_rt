@@ -1,6 +1,16 @@
 #ifndef ELEMENTS
 # define ELEMENTS
 
+
+//questo é un punto, un vettore é formato
+// da due punti (scelta convenzionale)
+typedef struct s_vector
+{
+    int x;
+    int y;
+    int z;
+}t_vector;
+
 typedef struct s_global{
      void    *mlx;
      void    *mlx_win;
@@ -11,15 +21,6 @@ typedef struct s_global{
      float       t;
      t_vector point;
 }t_global;
-
-//questo é un punto, un vettore é formato
-// da due punti (scelta convenzionale)
-typedef struct s_vector
-{
-    int x;
-    int y;
-    int z;
-}t_vector;
 
 typedef struct s_viewport
 {

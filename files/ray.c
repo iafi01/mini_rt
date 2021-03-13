@@ -1,4 +1,4 @@
-#include "mini_rt.h"
+#include "../includes/mini_rt.h"
 
 t_ray create_ray(t_vector origin, t_vector dir)
 {
@@ -11,7 +11,7 @@ t_ray create_ray(t_vector origin, t_vector dir)
 // la formula matematica  Pt = tB + A (retta) oppure-> y = mx + p
 t_vector find_point(t_ray ray, float t)
 {
-    return (vec_add(vec_per_float(ray.dir, t)), ray.origin);
+    return (vec_sum(vec_per_float(ray.dir, t), ray.origin));
 }
 
 t_vector ray_color(t_ray r, t_global *a)
