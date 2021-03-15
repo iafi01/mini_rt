@@ -43,9 +43,6 @@ all:			$(NAME)
 $(NAME):		$(OBJS)
 				@$(CC) $(CFLAGS) $(LFLAGS) -I $(HEADER) $(OBJS) -o $(NAME)
 
-.c:.o
-				@$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $(<:.c=.o)
-
 clean:
 				@$(RM) $(OBJS)
 
