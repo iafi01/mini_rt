@@ -4,7 +4,7 @@
 
 //   gcc -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit files/*.c includes/*.h minilibx/mlx.h && ./a.out
 
-
+#include <stdio.h>
 int             main(void)
 {
    
@@ -12,16 +12,16 @@ int             main(void)
     t_imgdata   img;
     t_viewport  vp;
     
-    //t_sphere sph;
-    //t_ray r;
-
+    printf("a\n");
     a.mlx = mlx_init();
-    
+    printf("b\n");
     setup_window(&a, &img);
+    printf("c\n");
     setup_viewport(&vp);
-
+    printf("d\n");
     main_print(&a, &vp, &img);
-    //create_sphere(&a, sph, r);
+    printf("e\n");
     mlx_put_image_to_window(a.mlx, a.mlx_win, img.img, 0, 0);
+    printf("f\n");
     mlx_loop(a.mlx);
 }

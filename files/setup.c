@@ -9,7 +9,6 @@ void setup_window(t_global *a, t_imgdata *img)
         img->img = mlx_new_image(a->mlx, a->width, a->height);
         img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length,
                                     &img->endian);
-
 }
 
 void setup_viewport(t_viewport *vp)

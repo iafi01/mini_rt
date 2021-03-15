@@ -11,7 +11,7 @@ void    main_print(t_global *a, t_viewport *vp, t_imgdata *img)
 {
     t_ray r;
 
-    int j = a->height;
+    int j = a->height -1;
     int i;
 
     while (j > 0)
