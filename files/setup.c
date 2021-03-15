@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   setup.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/15 16:57:36 by liafigli          #+#    #+#             */
+/*   Updated: 2021/03/15 17:17:20 by liafigli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/mini_rt.h"
 
 void setup_window(t_global *a, t_imgdata *img)
 {
-    a->width = 1920;
-    a->height = 1080;
+    a->width = 2000;
+    a->height = 1000;
 
     a->mlx_win = mlx_new_window(a->mlx, a->width, a->height, "IAFI");
         img->img = mlx_new_image(a->mlx, a->width, a->height);
@@ -13,8 +25,8 @@ void setup_window(t_global *a, t_imgdata *img)
 
 void setup_viewport(t_viewport *vp)
 {
-    vp->lower_left_corner = create_vector(-1,-1,-1);
-    vp->hor_axis = create_vector(4,0,0);
-    vp->ver_axis = create_vector(0,2,0);
-    vp->origin = create_vector(0,0,0);
+    vp->lower_left_corner = create_vector(4.5, 2.5, 0.0);
+    vp->hor_axis = create_vector(4.0,0.0,0.0);
+    vp->ver_axis = create_vector(0.0,2.0,0.0);
+    vp->origin = create_vector(0.0,0.0,0.0);
 }

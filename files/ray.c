@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ray.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/15 16:57:19 by liafigli          #+#    #+#             */
+/*   Updated: 2021/03/15 17:25:52 by liafigli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/mini_rt.h"
 
 t_ray create_ray(t_vector origin, t_vector dir)
@@ -21,15 +33,15 @@ t_vector ray_color(t_ray r, t_global *a)
     t_plane pl;
     t_vector norm;
 
-    sph.origin = create_vector(0.0,0.0,-1.7);
-    sph.ray = 0.7;
+    sph.origin = create_vector(0.0,0.0,-1.5);
+    sph.ray = 0.5;
 
-    tr.p1 = create_vector(-1.0,-1.0,-2.0);
-    tr.p2 = create_vector(-1.5,-1.5,-2.0);
-    tr.p3 = create_vector(-2.0,-2.0,-2.0);
+    tr.p1 = create_vector(-1.5, 0.5, -1.7);
+    tr.p2 = create_vector(0.40, -0.75, -5.0);
+    tr.p3 = create_vector(0.75, 0.36, -1.7);
 
-    pl.center = create_vector(-0.5,-0.5,-1.0);
-    pl.orientation = create_vector(-1.5,-1.5,-1.5);
+    pl.center = create_vector(1.0, 0.5, -1.0);
+    pl.orientation = create_vector(1.25, 0.75, -1.0);
 
     a->t = create_sphere(sph, r);
     if(a->t > 0.0)
@@ -40,7 +52,7 @@ t_vector ray_color(t_ray r, t_global *a)
 		return vec_per_float(sph.color, 0.5); //Qui stiamo mappando x/y/z a valori RGB per creare il gradient
 	}
     a->color = create_vector(1.0, 1.0, 1.0);
-	a->color2 = create_vector(0.5, 0.7, 1.0);
+	a->color2 = create_vector(0.5, 1.0, 1.0);
 	norm = (r.dir); // Mettiamo a norma la direzione del raggio
 	a->t = 0.5 * (norm.y + 1.0); // Qui la t ha sempre un range [0, 1]
 	return(vec_sum(vec_per_float(a->color, (1.0 - a->t)), vec_per_float(a->color2, a->t)));
