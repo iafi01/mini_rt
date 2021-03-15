@@ -1,6 +1,6 @@
 #include "../includes/mini_rt.h"
 
-void setup_window(t_global *a, t_viewport *vp, t_imgdata *img)
+void setup_window(t_global *a, t_imgdata *img)
 {
     a->width = 1920;
     a->height = 1080;

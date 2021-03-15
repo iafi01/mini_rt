@@ -31,7 +31,7 @@ t_vector ray_color(t_ray r, t_global *a)
     pl.center = create_vector(-0.5,-0.5,-1.0);
     pl.orientation = create_vector(-1.5,-1.5,-1.5);
 
-    a->t = create_sphere(a, sph, r);
+    a->t = create_sphere(sph, r);
     if(a->t > 0.0)
 	{
 		a->point = find_point(r, a->t); // Calcola il punto in cui ha colpito la sfera

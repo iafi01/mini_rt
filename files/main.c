@@ -2,6 +2,8 @@
 
 //  gcc -lmlx -framework OpenGL -framework AppKit files/*.c && ./a.out
 
+//   gcc -Wall -Wextra -Werror -framework OpenGL -framework AppKit files/*.c includes/*.h
+
 
 int             main(void)
 {
@@ -15,10 +17,10 @@ int             main(void)
 
     a.mlx = mlx_init();
     
-    setup_window(&a,&vp,&img);
+    setup_window(&a, &img);
     setup_viewport(&vp);
 
-    main_print(&vp, &img);
+    main_print(&a, &vp, &img);
     //create_sphere(&a, sph, r);
     mlx_put_image_to_window(a.mlx, a.mlx_win, img.img, 0, 0);
     mlx_loop(a.mlx);

@@ -32,11 +32,11 @@ t_vector vec_normalize(t_vector v);
 t_vector    vec_cross(t_vector v1, t_vector v2);
 
 //SETUP
-void setup_window(t_global *a, t_viewport *vp, t_imgdata *img);
+void setup_window(t_global *a, t_imgdata *img);
 void setup_viewport(t_viewport *vp);
 
 //PIXEL
-void    main_print(t_viewport *vp, t_imgdata *img);
+void    main_print(t_global *a, t_viewport *vp, t_imgdata *img);
 void    my_mlx_pixel_put(t_imgdata *data, int x, int y, int color);
 
 //RAY
