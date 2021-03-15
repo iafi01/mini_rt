@@ -34,25 +34,25 @@ MLX 			= minilibx
 CC				= gcc
 CFLAGS 			= -Wall -Wextra -Werror
 
-LFLAGS			= -framework OpenGL -framework AppKit
+LFLAGS			= -lmlx -framework OpenGL -framework AppKit
 
 RM				= rm -f
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				@make -s -C $(MLX)
 				@$(CC) $(CFLAGS) $(LFLAGS) -I $(HEADER) $(OBJS) -o $(NAME)
 
 .c:.o
-				@$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $(<:.c=.o)
+				@$(CC) $(CFLAGS) -I$(HEADER) -c $< -o $(<:.c=.o)
 
 clean:
 				@$(RM) $(OBJS)
-				@make clean -C $(MLX)
 
 fclean:			clean
 				@$(RM) $(NAME)
+				@$(RM) $(MLX)/mlx.h.gch
+				@$(RM) $(HEADER)/elements.h.gch $(HEADER)/mini_rt.h.gch
 
 re:				fclean all
 

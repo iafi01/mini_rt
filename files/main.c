@@ -2,7 +2,7 @@
 
 //  gcc -lmlx -framework OpenGL -framework AppKit files/*.c && ./a.out
 
-//   gcc -Wall -Wextra -Werror -framework OpenGL -framework AppKit files/*.c includes/*.h
+//   gcc -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit files/*.c includes/*.h minilibx/mlx.h && ./a.out
 
 
 int             main(void)

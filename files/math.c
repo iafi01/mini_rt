@@ -11,7 +11,7 @@ t_vector create_vector(float x, float y, float z)
 }
 
 //le quattro operazioni con i due vettori
-t_vector ver_sum(t_vector v1, t_vector v2)
+t_vector vec_sum(t_vector v1, t_vector v2)
 {
     t_vector v;
     v.x = v1.x + v2.x;

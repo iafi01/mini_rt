@@ -8,6 +8,7 @@
 # include <math.h>
 # include "elements.h"
 
+
 //COLOR
 int		create_trgb(int t, int r, int g, int b);
 int     create_color(float r, float g, float b);
