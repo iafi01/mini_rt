@@ -29,6 +29,7 @@ OBJS			= ${SRCS:.c=.o}
 HEADER			= includes
 FOLDER			= files
 
+LIB				= libft
 MLX 			= minilibx
 
 CC				= gcc
@@ -42,14 +43,17 @@ all:			$(NAME)
 
 $(NAME):		$(OBJS)
 				@$(CC) $(CFLAGS) $(LFLAGS) -I $(HEADER) $(OBJS) -o $(NAME)
+				@make -C ./libft
 
 clean:
 				@$(RM) $(OBJS)
+				@make clean -C ./libft
 
 fclean:			clean
 				@$(RM) $(NAME)
 				@$(RM) $(MLX)/mlx.h.gch
 				@$(RM) $(HEADER)/elements.h.gch $(HEADER)/mini_rt.h.gch
+				@make fclean -C ./libft
 
 re:				fclean all
 
