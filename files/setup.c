@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:36 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/15 17:17:20 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/16 10:03:07 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void setup_window(t_global *a, t_imgdata *img)
 
 void setup_viewport(t_viewport *vp)
 {
-    vp->lower_left_corner = create_vector(4.5, 2.5, 0.0);
+    vp->lower_left_corner = create_vector(2.5, 2.5, 0.0);
     vp->hor_axis = create_vector(4.0,0.0,0.0);
     vp->ver_axis = create_vector(0.0,2.0,0.0);
     vp->origin = create_vector(0.0,0.0,0.0);
