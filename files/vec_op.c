@@ -1,6 +1,6 @@
 #include "minirt.h"
 
-// Somma di due vettori
+// Somma di due vettori.
 
 t_vector		sum_vec_vec(t_vector v1, t_vector v2)
 {
