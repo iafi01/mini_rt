@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   setup.c                                            :+:      :+:    :+:   */
+/*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:36 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 15:24:56 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/19 15:25:53 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_rt.h"
 
-void setup_window(t_global *a, t_imgdata *img)
+t_ray create_ray(t_point origin, t_vector dir)
 {
-    a->width = 2000;
-    a->height = 1000;
-
-    a->mlx_win = mlx_new_window(a->mlx, a->width, a->height, "IAFI");
-        img->img = mlx_new_image(a->mlx, a->width, a->height);
-        img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel, &img->line_length,
-                                    &img->endian);
-}
-
-void setup_viewport(t_viewport *vp)
-{
-    vp->lower_left_corner = create_p(0, 0, 0.0);
-    vp->hor_axis = create_v(4.0,0.0,0.0);
-    vp->ver_axis = create_v(0.0,2.0,0.0);
-    vp->origin = create_p(0.0,0.0,0.0);
+    t_ray ray;
+    ray.origin = origin;
+    ray.dir = dir;
+    return (ray);
 }

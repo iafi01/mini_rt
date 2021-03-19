@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 11:50:36 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/19 14:54:59 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 //COLOR
 int		create_trgb(int t, int r, int g, int b);
 int     create_color(float r, float g, float b);
+float   invert_color(float v);
 
 //FIGURES
 
@@ -46,8 +47,8 @@ void        setup_window(global *a, imgdata *img);
 void        setup_viewport(viewport *vp);
 
 //PIXEL
-void    main_print(global *a, viewport *vp, imgdata *img);
-void    my_mlx_pixel_put(imgdata *data, int x, int y, int color);
+void        main_print(global *a, viewport *vp, imgdata *img);
+void        my_mlx_pixel_put(imgdata *data, int x, int y, int color);
 
 //RAY
 
