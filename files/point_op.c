@@ -1,29 +1,29 @@
-#include "minirt.h"
+#include "includes/mini_rt.h"
 
 // Somma tra un punto e un vettore
 
-t_point			sum_p_vec(t_point p, t_vector v)
+point			sum_p_vec(point p, vector v)
 {
 	return(create_p(p.x + v.x, p.y + v.y, p.z + v.z));
 }
 
 // Differenza tra un punto e un vettore
 
-t_point			diff_p_vec(t_point p, t_vector v)
+point			diff_p_vec(point p, vector v)
 {
 	return(create_p(p.x - v.x, p.y - v.y, p.z - v.z));
 }
 
 // Moltiplicazione di un punto per uno scalare
 
-t_point			mult_point_scal(t_point p, float a)
+point			mult_point_scal(point p, float a)
 {
 	return(create_p(p.x * a, p.y * a, p.z * a));
 }
 
 // Negare un punto
 
-t_point			neg_point(t_point p)
+point			neg_point(point p)
 {
 	return(mult_point_scal(p, (-1.0)));
 }
