@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/15 16:57:45 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/19 11:50:36 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,30 @@ int		create_trgb(int t, int r, int g, int b);
 int     create_color(float r, float g, float b);
 
 //FIGURES
-float   create_sphere(t_sphere sph, t_ray r);
 
 //MATH
-t_vector create_vector(float x, float y, float z);
-t_vector vec_sum(t_vector v1, t_vector v2);
-t_vector vec_sub(t_vector v1, t_vector v2);
-t_vector vec_per(t_vector v1, t_vector v2);
-t_vector vec_div(t_vector v1, t_vector v2);
-t_vector vec_sum_float(t_vector v1, float v2);
-t_vector vec_sub_float(t_vector v1, float v2);
-t_vector vec_per_float(t_vector v1, float v2);
-t_vector vec_div_float(t_vector v1, float v2);
-float vec_dot(t_vector v1, t_vector v2);
-float vec_lenght_squared(t_vector v);
-float vec_lenght(t_vector v);
-t_vector vec_normalize(t_vector v);
-t_vector    vec_cross(t_vector v1, t_vector v2);
+point		create_p(float x, float y, float z);
+vector	    create_v(float x, float y, float z);
+vector		sum_vec_vec(vector v1, vector v2);
+vector		diff_p_p(point p1, point p2);
+vector		diff_vec_vec(vector v1, vector v2);
+vector		mult_vec_scal(vector v, float a);
+vector		div_vec_scal(vector v, float a);
+vector		neg_vec(vector v);
+float		magnitude_v(vector v);
+vector		normalize_v(vector v);
+float		dot_vec(vector v1, vector v2);
+vector		cross_vec(vector v1, vector v2);
 
 //SETUP
-void setup_window(t_global *a, t_imgdata *img);
-void setup_viewport(t_viewport *vp);
+void        setup_window(global *a, imgdata *img);
+void        setup_viewport(viewport *vp);
 
 //PIXEL
-void    main_print(t_global *a, t_viewport *vp, t_imgdata *img);
-void    my_mlx_pixel_put(t_imgdata *data, int x, int y, int color);
+void    main_print(global *a, viewport *vp, imgdata *img);
+void    my_mlx_pixel_put(imgdata *data, int x, int y, int color);
 
 //RAY
-t_ray create_ray(t_vector origin, t_vector dir);
-t_vector find_point(t_ray ray, float t);
-t_vector ray_color(t_ray r, t_global *a);
+
 
 #endif
