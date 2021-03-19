@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 11:19:35 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/19 11:47:52 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,19 @@ typedef struct s_vector
     float z;
 }vector;
 
+typedef struct s_color
+{
+    int t;
+    int r;
+    int g;
+    int b;
+}color;
+
 typedef struct s_global{
      void    *mlx;
      void    *mlx_win;
      int      width;
-     int      height;
+     int          height;
      color        color;
      color        color2;
      float       t;
@@ -53,14 +61,6 @@ typedef struct  s_imgdata {
     int         line_length;
     int         endian;
 }               imgdata;
-
-typedef struct s_color
-{
-    int t;
-    int r;
-    int g;
-    int b;
-}color;
 
 typedef struct s_ray
 {

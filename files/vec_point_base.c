@@ -1,4 +1,4 @@
-#include "includes/mini_rt.h"
+#include "../includes/mini_rt.h"
 
 point		create_p(float x, float y, float z)
 {

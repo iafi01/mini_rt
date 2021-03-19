@@ -1,4 +1,4 @@
-#include "includes/mini_rt.h"
+#include "../includes/mini_rt.h"
 
 // Somma di due vettori.
 

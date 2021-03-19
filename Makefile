@@ -16,10 +16,10 @@ NAME			= miniRT
 SRCS_LIST		= \
 					main.c \
 					color.c \
-					figures.c \
-					math.c \
 					pixel.c \
-					ray.c \
+					point_op.c \
+					vec_op.c \
+					vec_point_base.c \
 					setup.c \
 
 SRCS			= $(addprefix ${FOLDER}/, ${SRCS_LIST})
