@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:25 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 11:52:51 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/19 15:33:52 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 #include <stdlib.h>
 
 
-int		close_function(const global *a)
+int		close_function(const t_global *a)
 {
 	mlx_clear_window(a->mlx, a->mlx_win);
 	mlx_destroy_window(a->mlx, a->mlx_win);
     exit(0);
 }
 
-int		key_function(const int keycode, const global *a)
+int		key_function(const int keycode, const t_global *a)
 {
 	if (keycode == 53)
 		close_function(a);
@@ -35,9 +35,9 @@ int		key_function(const int keycode, const global *a)
 int             main()
 {
    
-    global    a;
-    imgdata   img;
-    viewport  vp;
+    t_global    a;
+    t_imgdata   img;
+    t_viewport  vp;
 
     a.mlx = mlx_init();
 

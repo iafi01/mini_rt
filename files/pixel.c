@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:27 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 15:25:18 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/19 15:34:06 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void            my_mlx_pixel_put(t_imgdata *data, int x, int y, int color)
 
 void    main_print(t_global *a, t_viewport *vp, t_imgdata *img)
 {
-    t_ray r;
+    //t_ray r;
 
-    int j = 0;
+    int j = a->height - 1;
     int i;
 
-    while (j < a->height - 1)
+    while (j > 0)
     {
         i = 0;
         while (i < a->width)
@@ -39,6 +39,6 @@ void    main_print(t_global *a, t_viewport *vp, t_imgdata *img)
             my_mlx_pixel_put(img, i , j, colors);
             i++;
         }
-        j++;
+        j--;
     }
 }
