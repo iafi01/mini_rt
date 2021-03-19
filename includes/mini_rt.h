@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 15:33:27 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/19 16:49:55 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,26 @@ float   invert_color(float v);
 
 //FIGURES
 
-//MATH
-t_point		create_p(float x, float y, float z);
+//MATH VEC_POINT_BASE
+t_point		    create_p(float x, float y, float z);
 t_vector	    create_v(float x, float y, float z);
+
+//MATH POINT_OP
+t_point			sum_p_vec(t_point p, t_vector v);
+t_point			diff_p_vec(t_point p, t_vector v);
+t_point			mult_t_point_scal(t_point p, float a);
+t_point			neg_point(t_point p);
+
+// MATH VEC_OP
 t_vector		sum_vec_vec(t_vector v1, t_vector v2);
 t_vector		diff_p_p(t_point p1, t_point p2);
 t_vector		diff_vec_vec(t_vector v1, t_vector v2);
 t_vector		mult_vec_scal(t_vector v, float a);
 t_vector		div_vec_scal(t_vector v, float a);
 t_vector		neg_vec(t_vector v);
-float		magnitude_v(t_vector v);
+float			magnitude_v(t_vector v);
 t_vector		normalize_v(t_vector v);
-float		dot_vec(t_vector v1, t_vector v2);
+float			dot_vec(t_vector v1, t_vector v2);
 t_vector		cross_vec(t_vector v1, t_vector v2);
 
 //SETUP
