@@ -6,53 +6,41 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 11:47:52 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/15 16:57:45 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ELEMENTS
 # define ELEMENTS
 
-typedef struct s_point
-{
-    float x;
-    float y;
-    float z;
-}point;
 
+//questo é un punto, un vettore é formato
+// da due punti (scelta convenzionale)
 typedef struct s_vector
 {
-    float x;
-    float y;
-    float z;
-}vector;
-
-typedef struct s_color
-{
-    int t;
-    int r;
-    int g;
-    int b;
-}color;
+    int x;
+    int y;
+    int z;
+}t_vector;
 
 typedef struct s_global{
      void    *mlx;
      void    *mlx_win;
      int      width;
-     int          height;
-     color        color;
-     color        color2;
+     int      height;
+     t_vector        color;
+     t_vector        color2;
      float       t;
-     point point;
-}global;
+     t_vector point;
+}t_global;
 
 typedef struct s_viewport
 {
-	point lower_left_corner;
-	vector hor_axis;
-	vector ver_axis;
-	point origin;
-}				viewport;
+	t_vector lower_left_corner;
+	t_vector hor_axis;
+	t_vector ver_axis;
+	t_vector origin;
+}				t_viewport;
 
 typedef struct  s_imgdata {
     void        *img;
@@ -60,13 +48,21 @@ typedef struct  s_imgdata {
     int         bits_per_pixel;
     int         line_length;
     int         endian;
-}               imgdata;
+}               t_imgdata;
+
+typedef struct s_color
+{
+    int t;
+    int r;
+    int g;
+    int b;
+}t_color;
 
 typedef struct s_ray
 {
-    point origin;
-    vector dir;
-}ray;
+    t_vector origin;
+    t_vector dir;
+}t_ray;
 
 typedef struct s_calc
 {
@@ -76,71 +72,71 @@ typedef struct s_calc
 	float delta;
 	float t1;
 	float t2;
-	point sub;
-}calc;
+	t_vector sub;
+}t_calc;
 
 typedef struct s_resolution
 {
     int x;
     int y;
-}resolution;
+}t_resolution;
 
 typedef struct s_ambient
 {
     float range;
-    color color;
-}ambient;
+    t_color color;
+}t_ambient;
 
 typedef struct s_camera
 {
-    point position;
+    t_vector position;
     int fov;
-}camera;
+}t_camera;
 
 typedef struct s_light
 {
-    point origin;
+    t_vector origin;
     float   range;
-    color color;
-}light;
+    t_color color;
+}t_light;
 
 typedef struct s_sphere
 {
-    point origin;
+    t_vector origin;
     float ray;
-    vector color;
-}sphere;
+    t_vector color;
+}t_sphere;
 
 typedef struct s_plane
 {
-    point center;
-    vector orientation; //-1 to 1
-    color color;
-}plane;
+    t_vector center;
+    t_vector orientation; //-1 to 1
+    t_color color;
+}t_plane;
 
 typedef struct s_square
 {
-    point center;
+    t_vector center;
     float range;
     float side;
-    color color;
-}square;
+    t_color color;
+}t_square;
 
 typedef struct s_cylinder
 {
-    point center;
+    t_vector center;
     float range;
     float diameter;
     float height;
-    color color;
-}cylinder;
+    t_color color;
+}t_cylinder;
 
 typedef struct s_triangle
 {
-    point p1;
-    point p2;
-    point p3;
-    color color;
-}triangle;
+    t_vector p1;
+    t_vector p2;
+    t_vector p3;
+    t_color color;
+}t_triangle;
 
 #endif
