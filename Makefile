@@ -42,18 +42,20 @@ RM				= rm -f
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
+				@make -s -C $(LIB)
 				@$(CC) $(CFLAGS) $(LFLAGS) -I $(HEADER) $(OBJS) -o $(NAME)
-				@make -C ./libft
+				
 
 clean:
 				@$(RM) $(OBJS)
-				@make clean -C ./libft
+				@make clean -C $(LIB)
+				@$(RM) minirt.a
 
 fclean:			clean
 				@$(RM) $(NAME)
 				@$(RM) $(MLX)/mlx.h.gch
 				@$(RM) $(HEADER)/elements.h.gch $(HEADER)/mini_rt.h.gch
-				@make fclean -C ./libft
+				@make fclean -C $(LIB)
 
 re:				fclean all
 

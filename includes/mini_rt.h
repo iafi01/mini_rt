@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 16:49:55 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/20 15:01:46 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 # include <math.h>
 # include "elements.h"
+# include "../libft/libft.h"
 
 
 //COLOR

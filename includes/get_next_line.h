@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 15:26:22 by liafigli          #+#    #+#             */
-/*   Updated: 2021/02/09 15:56:24 by liafigli         ###   ########.fr       */
+/*   Created: 2019/10/18 10:29:57 by rchallie          #+#    #+#             */
+/*   Updated: 2021/03/19 16:58:07 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	srcsize;
-	size_t	i;
+# include <unistd.h>
+# include <stdlib.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 300
+# endif
 
-	if (!dst || !src)
-		return (0);
-	srcsize = ft_strlen(src);
-	i = 0;
-	if (dstsize != 0)
-	{
-		while (src[i] != '\0' && i < (dstsize - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (srcsize);
-}
+int					get_next_line(int fd, char **line);
+int					checkln(char *str);
+size_t			    ft_strlen(const char *s);
+char				*ft_strjoin(const char *s1, const char *s2);
+void		        *ft_memmove(void *dst, const void *src, size_t len);
+
+#endif

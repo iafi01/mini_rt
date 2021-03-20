@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:25 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 15:33:52 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/20 15:00:17 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ int             main()
     t_imgdata   img;
     t_viewport  vp;
 
-    a.mlx = mlx_init();
+    //if (argc != 2 && !(argc == 3 && ft_strncmp(argv[2], "save", 4 == 0)))
+        //ft_putstr_fd("Error number of params!",1);
 
+    a.mlx = mlx_init();
     setup_window(&a, &img);
     setup_viewport(&vp);
 
