@@ -6,7 +6,7 @@
 #    By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/15 10:39:22 by liafigli          #+#    #+#              #
-#    Updated: 2021/03/21 11:27:17 by liafigli         ###   ########.fr        #
+#    Updated: 2021/03/21 13:06:59 by liafigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,10 +36,7 @@ BONUSS	=	$(BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(FILESS)
-	ar -rc $(NAME) $^
-
-bonus: $(FILESS) $(BONUSS)
+$(NAME): $(FILESS) $(BONUSS)
 	ar -rc $(NAME) $^
 
 .c.o:
@@ -53,4 +50,4 @@ fclean: clean
 
 re: fclean all
 
-rebonus: fclean bonus
+rebonus: fclean

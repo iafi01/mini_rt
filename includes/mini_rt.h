@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/21 11:31:17 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/21 12:43:49 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 # include "elements.h"
 # include "../libft/libft.h"
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 //COLOR
 int		create_trgb(int t, int r, int g, int b);
