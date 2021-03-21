@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:25 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/20 15:00:17 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/21 12:12:09 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,19 @@ int		key_function(const int keycode, const t_global *a)
 	return (0);
 }
 
-int             main()
+
+// risolvere errore di link in libft
+  
+#include <stdio.h>
+int             main(int argc, char **argv)
 {
    
     t_global    a;
     t_imgdata   img;
     t_viewport  vp;
 
-    //if (argc != 2 && !(argc == 3 && ft_strncmp(argv[2], "save", 4 == 0)))
-        //ft_putstr_fd("Error number of params!",1);
+    if (argc != 2 && (argc != 3 || ft_strncmp(argv[2], "--save", 6) != 0))
+        ft_putstr("Error number of params!");
 
     a.mlx = mlx_init();
     setup_window(&a, &img);

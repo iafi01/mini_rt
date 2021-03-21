@@ -43,7 +43,7 @@ all:			$(NAME)
 
 $(NAME):		$(OBJS)
 				@make -s -C $(LIB)
-				@$(CC) $(CFLAGS) $(LFLAGS) -I $(HEADER) $(OBJS) -o $(NAME)
+				@$(CC) $(CFLAGS) $(LFLAGS) -I $(HEADER) $(LIB)/libft.a $(OBJS) -o $(NAME)
 				
 
 clean:
