@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:40:18 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/22 18:56:59 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/22 19:34:05 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,21 @@ int parse_resolution(t_global *a, char **words)
 }
 ///cleean to make
 int parse_ambient(t_global *a, char **words)
-{
+{   words = 0;
     a->t = 1;
-    words = 0;
+
+    //qualcosa aborta il mondoooo
+    /*char **split;
+    t_color col;
+    
+    a->range = ft_atof(words[1]);
+    split = ft_split(words[2], ',');
+    col.r = ft_atof(split[0]) / 255;
+	col.g = ft_atof(split[1]) / 255;
+	col.b = ft_atof(split[2]) / 255;
+    a->color = col;
+    if (a->range > 1 || a->range < 0)
+        ft_putstr("Error ambient in rt file");*/
     return (0);
 }
 

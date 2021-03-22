@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/22 18:55:07 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/22 19:23:56 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,6 @@ typedef struct s_global{
     float      range;
     t_color    color;
 
-    t_point position;
-    int fov;
-
-    t_point origin;
-    //float   range;
-    //t_color color;
 }t_global;
 
 typedef struct s_viewport
