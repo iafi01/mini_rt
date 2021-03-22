@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 15:23:41 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/22 18:55:07 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,33 @@ typedef struct s_color
     int b;
 }t_color;
 
+//MLX_RESOURCES/COLORS/PARSING/RESOLUTION/AMBIENT/CAMERA/LIGHT
+
 typedef struct s_global{
-     void    *mlx;
-     void    *mlx_win;
-     int      width;
-     int          height;
-     t_color        color;
-     t_color        color2;
-     float       t;
-     t_point point;
+    void       *mlx;
+    void       *mlx_win;
+
+    t_color    color1;
+    t_color    color2;
+    float      t;
+    t_point    point;
+
+    char       *line;
+    char       **split;
+    int        fd;
+    
+    int        width;
+    int        height;
+
+    float      range;
+    t_color    color;
+
+    t_point position;
+    int fov;
+
+    t_point origin;
+    //float   range;
+    //t_color color;
 }t_global;
 
 typedef struct s_viewport

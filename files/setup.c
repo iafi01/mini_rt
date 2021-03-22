@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:36 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 15:24:56 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/22 17:43:23 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void setup_window(t_global *a, t_imgdata *img)
 {
-    a->width = 2000;
-    a->height = 1000;
+  
 
     a->mlx_win = mlx_new_window(a->mlx, a->width, a->height, "IAFI");
         img->img = mlx_new_image(a->mlx, a->width, a->height);

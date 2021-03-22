@@ -6,12 +6,12 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:27 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/20 16:48:23 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/21 13:10:24 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_rt.h"
-#include <stdio.h>
+
 void            my_mlx_pixel_put(t_imgdata *data, int x, int y, int color)
 {
     char    *dst;

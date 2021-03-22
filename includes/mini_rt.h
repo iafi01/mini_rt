@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/21 12:43:49 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/22 18:57:21 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,14 @@
 # include <math.h>
 # include "elements.h"
 # include "../libft/libft.h"
+# include "get_next_line.h"
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+
+# define MAX_WIDTH 2560
+# define MAX_HEIGHT 1440
 
 //COLOR
 int		create_trgb(int t, int r, int g, int b);
@@ -64,5 +68,12 @@ void        my_mlx_pixel_put(t_imgdata *data, int x, int y, int color);
 
 //RAY
 
+//PARSE
+int parse(t_global *a, char *path, int bmp);
+int check_type(t_global *a, char **words);
+int parse_resolution(t_global *a, char **words);
+int parse_ambient(t_global *a, char **words);
+int parse_camera(t_global *a, char **words);
+int parse_light(t_global *a, char **words);
 
 #endif

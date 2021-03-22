@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:25 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/21 12:39:50 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/22 18:30:59 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ int             main(int argc, char **argv)
     if (argc == 3)
         bmp = 1;
 
-
-    //parse(argv[1], bmp);
+    parse(&a, argv[1], bmp);
     
     a.mlx = mlx_init();
     setup_window(&a, &img);

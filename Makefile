@@ -21,6 +21,9 @@ SRCS_LIST		= \
 					vec_op.c \
 					vec_point_base.c \
 					setup.c \
+					parse.c \
+					get_next_line.c \
+					get_next_line_utils.c \
 
 SRCS			= $(addprefix ${FOLDER}/, ${SRCS_LIST})
 
