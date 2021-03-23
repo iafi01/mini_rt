@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:40:18 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/23 12:14:28 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/23 16:34:16 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,10 @@ int parse_resolution(t_global *a, char **words)
 ///si moltiplicherá per la luce, ovvero luce ambientale per luce normale
 int parse_ambient(t_global *a, char **words)
 {   
-        a->t = 0;
-words=0;
-    /*char **split;
+    char **split;
     t_color col;
     
-    a->range = ft_atof(words[1]);
+    a->range = atof(words[1]);
     split = ft_split(words[2], ',');
     
     col.r = atof(split[0]) / 255;
@@ -80,15 +78,14 @@ words=0;
     a->color = col;
     
     if (a->range > 1 || a->range < 0)
-        ft_putstr("Error ambient in rt file");*/
+        ft_putstr("Error ambient in rt file");
     return (0);
 }
 
 int parse_light(t_global *a, char **words)
 {
-        a->t = 0;words=0;
-
-    /*char **origin;
+    a->t=0;
+    char **origin;
     char **color;
     t_color col;
     t_light light;
@@ -97,21 +94,21 @@ int parse_light(t_global *a, char **words)
     light.origin.x = ft_atoi(origin[0]);
     light.origin.y = ft_atoi(origin[1]);
     light.origin.z = ft_atoi(origin[2]);
-    light.range = ft_atof(words[1]);
+    light.range = atof(words[2]);
 
-    color = ft_split(words[2], ',');
+    color = ft_split(words[3], ',');
     
     col.r = atof(color[0]) / 255;
 	col.g = atof(color[1]) / 255;
 	col.b = atof(color[2]) / 255;
-    light.color = col;*/
+    light.color = col;
     return (0);
 }
 
 int parse_camera(t_global *a, char **words)
 {
-    a->t = 0;words=0;
-    /*t_camera camera;
+    a->t=0;
+    t_camera camera;
     char **position;
     char **direction;
 
@@ -125,6 +122,110 @@ int parse_camera(t_global *a, char **words)
     camera.direction.y = ft_atoi(direction[1]);
     camera.direction.z = ft_atoi(direction[2]);
 
-    camera.fov = ft_atoi(words[3]);*/
+    camera.fov = ft_atoi(words[3]);
+    return (0);
+}
+
+int parse_sphere(t_global *a, char **words)
+{
+    a->t=0;
+    t_sphere sph;
+    char **origin;
+    char **color;
+
+    origin = ft_split(words[1], ',');
+    sph.origin.x = ft_atoi(origin[0]);
+    sph.origin.y = ft_atoi(origin[1]);
+    sph.origin.z = ft_atoi(origin[2]);
+
+    sph.ray = atof(words[2]);
+
+    color = ft_split(words[3], ',');
+    sph.color.x = ft_atoi(color[0]);
+    sph.color.y = ft_atoi(color[1]);
+    sph.color.z = ft_atoi(color[2]);
+
+    return (0);
+}
+
+int parse_plane(t_global *a, char **words)
+{
+    a->t=0;
+    t_plane pl;
+    char **center;
+    char **orientation;
+    char **color;
+
+    center = ft_split(words[1], ',');
+    pl.center.x = atof(center[0]);
+    pl.center.y = atof(center[1]);
+    pl.center.z = atof(center[2]);
+
+    orientation = ft_split(words[2], ',');
+    pl.orientation.x = ft_atoi(orientation[0]);
+    pl.orientation.y = ft_atoi(orientation[1]);
+    pl.orientation.z = ft_atoi(orientation[2]);
+
+    color = ft_split(words[3], ',');
+    pl.color.r = ft_atoi(color[0]);
+    pl.color.b = ft_atoi(color[1]);
+    pl.color.g = ft_atoi(color[2]);
+
+    return (0);
+}
+
+int parse_cylinder(t_global *a, char **words)
+{
+    a->t=0;
+    t_cylinder cy;
+    char **center;
+    char **color;
+
+    center = ft_split(words[1], ',');
+    cy.center.x = atof(center[0]);
+    cy.center.y = atof(center[1]);
+    cy.center.z = atof(center[2]);
+
+    cy.range = atof(words[2]);
+    cy.diameter = atof(words[3]);
+    cy.height = atof(words[4]);
+
+    color = ft_split(words[3], ',');
+    cy.color.r = ft_atoi(color[0]);
+    cy.color.b = ft_atoi(color[1]);
+    cy.color.g = ft_atoi(color[2]);
+
+    return (0);
+}
+
+int parse_triangle(t_global *a, char **words)
+{
+    a->t=0;
+    t_triangle tr;
+    char **p1;
+    char **p2;
+    char **p3;
+    char **color;
+
+    p1 = ft_split(words[1], ',');
+    tr.p1.x = atof(p1[0]);
+    tr.p1.y = atof(p1[1]);
+    tr.p1.z = atof(p1[2]);
+
+    p2 = ft_split(words[2], ',');
+    tr.p2.x = atof(p2[0]);
+    tr.p2.y = atof(p2[1]);
+    tr.p2.z = atof(p2[2]);
+
+    p3 = ft_split(words[3], ',');
+    tr.p3.x = atof(p3[0]);
+    tr.p3.y = atof(p3[1]);
+    tr.p3.z = atof(p3[2]);
+
+    color = ft_split(words[4], ',');
+    tr.color.r = atof(p3[0]);
+    tr.color.g = atof(p3[1]);
+    tr.color.b = atof(p3[2]);
+
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/23 11:59:15 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/23 11:50:14 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ typedef struct s_calc
 
 typedef struct s_resolution
 {
-    int width;
-    int height;
+    int x;
+    int y;
 }t_resolution;
 
 typedef struct s_ambient
