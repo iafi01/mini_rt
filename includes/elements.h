@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/22 19:23:56 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/23 11:50:14 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ typedef struct s_vector
 
 typedef struct s_color
 {
-    int t;
-    int r;
-    int g;
-    int b;
+    float r;
+    float g;
+    float b;
 }t_color;
 
 //MLX_RESOURCES/COLORS/PARSING/RESOLUTION/AMBIENT/CAMERA/LIGHT
@@ -106,6 +105,7 @@ typedef struct s_ambient
 typedef struct s_camera
 {
     t_point position;
+    t_vector direction;
     int fov;
 }t_camera;
 
