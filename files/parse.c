@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:40:18 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/23 11:51:39 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/23 12:14:28 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int parse_resolution(t_global *a, char **words)
 {
     int width;
     int height;
-
+    
     width = ft_atoi(words[1]);
     height = ft_atoi(words[2]);
     if (width < 0 || height < 0)
@@ -66,7 +66,9 @@ int parse_resolution(t_global *a, char **words)
 ///si moltiplicherá per la luce, ovvero luce ambientale per luce normale
 int parse_ambient(t_global *a, char **words)
 {   
-    char **split;
+        a->t = 0;
+words=0;
+    /*char **split;
     t_color col;
     
     a->range = ft_atof(words[1]);
@@ -78,13 +80,15 @@ int parse_ambient(t_global *a, char **words)
     a->color = col;
     
     if (a->range > 1 || a->range < 0)
-        ft_putstr("Error ambient in rt file");
+        ft_putstr("Error ambient in rt file");*/
     return (0);
 }
 
 int parse_light(t_global *a, char **words)
 {
-    char **origin;
+        a->t = 0;words=0;
+
+    /*char **origin;
     char **color;
     t_color col;
     t_light light;
@@ -100,13 +104,14 @@ int parse_light(t_global *a, char **words)
     col.r = atof(color[0]) / 255;
 	col.g = atof(color[1]) / 255;
 	col.b = atof(color[2]) / 255;
-    light.color = col;
+    light.color = col;*/
     return (0);
 }
 
 int parse_camera(t_global *a, char **words)
 {
-    t_camera camera;
+    a->t = 0;words=0;
+    /*t_camera camera;
     char **position;
     char **direction;
 
@@ -120,6 +125,6 @@ int parse_camera(t_global *a, char **words)
     camera.direction.y = ft_atoi(direction[1]);
     camera.direction.z = ft_atoi(direction[2]);
 
-    camera.fov = ft_atoi(words[3]);
+    camera.fov = ft_atoi(words[3]);*/
     return (0);
 }

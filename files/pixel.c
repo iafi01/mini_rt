@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:27 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/21 13:10:24 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/23 12:17:52 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int intersect_circle(t_global *a, int x, int y)
 
 void    main_print(t_global *a, t_viewport *vp, t_imgdata *img)
 {
-    //t_ray r;
 
     int j = a->height - 1;
     int i;
