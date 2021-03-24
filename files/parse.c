@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:40:18 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/23 16:34:16 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/24 11:05:16 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,15 @@ int parse_ambient(t_global *a, char **words)
 {   
     char **split;
     t_color col;
-    
-    a->range = atof(words[1]);
+
+    a->range = ft_atof(words[1]);
     split = ft_split(words[2], ',');
     
-    col.r = atof(split[0]) / 255;
-	col.g = atof(split[1]) / 255;
-	col.b = atof(split[2]) / 255;
+    col.r = ft_atof(split[0]) / 255;
+	col.g = ft_atof(split[1]) / 255;
+	col.b = ft_atof(split[2]) / 255;
     a->color = col;
-    
+
     if (a->range > 1 || a->range < 0)
         ft_putstr("Error ambient in rt file");
     return (0);
@@ -94,13 +94,13 @@ int parse_light(t_global *a, char **words)
     light.origin.x = ft_atoi(origin[0]);
     light.origin.y = ft_atoi(origin[1]);
     light.origin.z = ft_atoi(origin[2]);
-    light.range = atof(words[2]);
+    light.range = ft_atof(words[2]);
 
     color = ft_split(words[3], ',');
     
-    col.r = atof(color[0]) / 255;
-	col.g = atof(color[1]) / 255;
-	col.b = atof(color[2]) / 255;
+    col.r = ft_atof(color[0]) / 255;
+	col.g = ft_atof(color[1]) / 255;
+	col.b = ft_atof(color[2]) / 255;
     light.color = col;
     return (0);
 }
@@ -138,7 +138,7 @@ int parse_sphere(t_global *a, char **words)
     sph.origin.y = ft_atoi(origin[1]);
     sph.origin.z = ft_atoi(origin[2]);
 
-    sph.ray = atof(words[2]);
+    sph.ray = ft_atof(words[2]);
 
     color = ft_split(words[3], ',');
     sph.color.x = ft_atoi(color[0]);
@@ -157,9 +157,9 @@ int parse_plane(t_global *a, char **words)
     char **color;
 
     center = ft_split(words[1], ',');
-    pl.center.x = atof(center[0]);
-    pl.center.y = atof(center[1]);
-    pl.center.z = atof(center[2]);
+    pl.center.x = ft_atof(center[0]);
+    pl.center.y = ft_atof(center[1]);
+    pl.center.z = ft_atof(center[2]);
 
     orientation = ft_split(words[2], ',');
     pl.orientation.x = ft_atoi(orientation[0]);
@@ -182,13 +182,13 @@ int parse_cylinder(t_global *a, char **words)
     char **color;
 
     center = ft_split(words[1], ',');
-    cy.center.x = atof(center[0]);
-    cy.center.y = atof(center[1]);
-    cy.center.z = atof(center[2]);
+    cy.center.x = ft_atof(center[0]);
+    cy.center.y = ft_atof(center[1]);
+    cy.center.z = ft_atof(center[2]);
 
-    cy.range = atof(words[2]);
-    cy.diameter = atof(words[3]);
-    cy.height = atof(words[4]);
+    cy.range = ft_atof(words[2]);
+    cy.diameter = ft_atof(words[3]);
+    cy.height = ft_atof(words[4]);
 
     color = ft_split(words[3], ',');
     cy.color.r = ft_atoi(color[0]);
@@ -208,24 +208,24 @@ int parse_triangle(t_global *a, char **words)
     char **color;
 
     p1 = ft_split(words[1], ',');
-    tr.p1.x = atof(p1[0]);
-    tr.p1.y = atof(p1[1]);
-    tr.p1.z = atof(p1[2]);
+    tr.p1.x = ft_atof(p1[0]);
+    tr.p1.y = ft_atof(p1[1]);
+    tr.p1.z = ft_atof(p1[2]);
 
     p2 = ft_split(words[2], ',');
-    tr.p2.x = atof(p2[0]);
-    tr.p2.y = atof(p2[1]);
-    tr.p2.z = atof(p2[2]);
+    tr.p2.x = ft_atof(p2[0]);
+    tr.p2.y = ft_atof(p2[1]);
+    tr.p2.z = ft_atof(p2[2]);
 
     p3 = ft_split(words[3], ',');
-    tr.p3.x = atof(p3[0]);
-    tr.p3.y = atof(p3[1]);
-    tr.p3.z = atof(p3[2]);
+    tr.p3.x = ft_atof(p3[0]);
+    tr.p3.y = ft_atof(p3[1]);
+    tr.p3.z = ft_atof(p3[2]);
 
     color = ft_split(words[4], ',');
-    tr.color.r = atof(p3[0]);
-    tr.color.g = atof(p3[1]);
-    tr.color.b = atof(p3[2]);
+    tr.color.r = ft_atof(p3[0]);
+    tr.color.g = ft_atof(p3[1]);
+    tr.color.b = ft_atof(p3[2]);
 
     return (0);
 }
