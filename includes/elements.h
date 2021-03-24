@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/23 11:50:14 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/24 12:11:48 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_global{
 
     float      range;
     t_color    color;
+    t_list     *lista;
 
 }t_global;
 
