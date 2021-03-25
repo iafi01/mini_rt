@@ -6,11 +6,21 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 14:54:40 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/25 10:57:21 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_rt.h"
+
+t_color		color_average(t_color color1, t_color color2)
+{
+	t_color		color;
+
+	color.r = color1.r * color2.r;
+	color.g = color1.g * color2.g;
+	color.b = color1.b * color2.b;
+	return (color);
+}
 
 int		create_trgb(int t, int r, int g, int b)
 {

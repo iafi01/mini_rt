@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/24 16:01:22 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/25 10:57:48 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 int		create_trgb(int t, int r, int g, int b);
 int     create_color(float r, float g, float b);
 float   invert_color(float v);
+t_color		color_average(t_color color1, t_color color2);
 
 //FIGURES
 
