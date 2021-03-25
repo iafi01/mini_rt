@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/24 14:00:00 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/25 14:35:52 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,6 @@ typedef struct s_color
     float g;
     float b;
 }t_color;
-
-typedef struct s_viewport
-{
-	t_point lower_left_corner;
-	t_vector hor_axis;
-	t_vector ver_axis;
-	t_point origin;
-}				t_viewport;
 
 typedef struct  s_imgdata {
     void        *img;
@@ -96,7 +88,7 @@ typedef struct s_light
 typedef struct s_sphere
 {
     t_point origin;
-    float ray;
+    float diameter;
     t_vector color;
 }t_sphere;
 
@@ -132,11 +124,16 @@ typedef struct s_triangle
     t_color color;
 }t_triangle;
 
-//MLX_RESOURCES/COLORS/PARSING/RESOLUTION/AMBIENT/CAMERA/LIGHT
+//MLX_RESOURCES/VIEWPORT/COLORS/PARSING/RESOLUTION/AMBIENT/CAMERA/LIGHT
 
 typedef struct s_global{
     void       *mlx;
     void       *mlx_win;
+
+    t_point     lower_left_corner;
+    t_vector    hor_axis;
+    t_vector    ver_axis;
+    t_point     origin;
 
     t_color    color1;
     t_color    color2;

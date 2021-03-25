@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:40:18 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/25 11:06:27 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/25 14:27:25 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ int parse_sphere(t_global *a, char **words)
     sph->origin.y = ft_atoi(origin[1]);
     sph->origin.z = ft_atoi(origin[2]);
 
-    sph->ray = ft_atof(words[2]);
+    sph->diameter = ft_atof(words[2]);
 
     color = ft_split(words[3], ',');
     sph->color.x = ft_atoi(color[0]);

@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:25 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/22 19:16:47 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/25 14:36:26 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int             main(int argc, char **argv)
    
     t_global    a;
     t_imgdata   img;
-    t_viewport  vp;
     int         bmp;
     
     bmp = 0;
@@ -53,9 +52,8 @@ int             main(int argc, char **argv)
     
     a.mlx = mlx_init();
     setup_window(&a, &img);
-    setup_viewport(&vp);
 
-    main_print(&a, &vp, &img);
+    main_print(&a, &img);
     mlx_key_hook(a.mlx_win, key_function, &a);
 
     mlx_put_image_to_window(a.mlx, a.mlx_win, img.img, 0, 0);

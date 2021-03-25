@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/25 10:57:48 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/25 14:36:14 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,15 @@ t_vector		cross_vec(t_vector v1, t_vector v2);
 
 //SETUP
 void        setup_window(t_global *a, t_imgdata *img);
-void        setup_viewport(t_viewport *vp);
 
 //PIXEL
-void        main_print(t_global *a, t_viewport *vp, t_imgdata *img);
+void        main_print(t_global *a, t_imgdata *img);
 void        my_mlx_pixel_put(t_imgdata *data, int x, int y, int color);
 
 //RAY
+t_ray create_ray(t_point origin, t_vector dir);
+t_point find_point(t_ray ray, float t);
+
 
 //PARSE
 int parse(t_global *a, char *path, int bmp);

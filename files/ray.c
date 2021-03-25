@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:36 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/19 16:51:43 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/25 14:10:36 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ t_point find_point(t_ray ray, float t)
 {
     return (sum_p_vec(ray.origin, mult_vec_scal(ray.dir, t)));
 }
-

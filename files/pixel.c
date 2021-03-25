@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:27 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/23 12:17:52 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/25 14:36:51 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,24 @@ int intersect_circle(t_global *a, int x, int y)
             return (create_color(v, v, 0.9));
 }
 
-void    main_print(t_global *a, t_viewport *vp, t_imgdata *img)
+
+
+void    main_print(t_global *a, t_imgdata *img)
 {
 
     int j = a->height - 1;
     int i;
+    //t_ray ray;
 
     while (j > 0)
     {
         i = 0;
         while (i < a->width)
         {
-            vp->origin = create_p(0,0,0);
             //float u = (float)i / a->width;
             //float v = (float)j / a->height;
             int colors = intersect_circle(a, i, j);
-            
-            
+            //ray = create_ray();
             my_mlx_pixel_put(img, i , j, colors);
             i++;
         }
