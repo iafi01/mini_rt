@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/22 18:57:21 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/24 16:01:22 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <mlx.h>
 # include <unistd.h>
 # include <math.h>
-# include "elements.h"
 # include "../libft/libft.h"
+# include "elements.h"
 # include "get_next_line.h"
 
 # include <sys/types.h>
@@ -75,5 +75,11 @@ int parse_resolution(t_global *a, char **words);
 int parse_ambient(t_global *a, char **words);
 int parse_camera(t_global *a, char **words);
 int parse_light(t_global *a, char **words);
+
+int parse_sphere(t_global *a, char **words);
+int parse_cylinder(t_global *a, char **words);
+int parse_square(t_global *a, char **words);
+int parse_plane(t_global *a, char **words);
+int parse_triangle(t_global *a, char **words);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/24 12:11:48 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/24 14:00:00 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,30 +33,6 @@ typedef struct s_color
     float g;
     float b;
 }t_color;
-
-//MLX_RESOURCES/COLORS/PARSING/RESOLUTION/AMBIENT/CAMERA/LIGHT
-
-typedef struct s_global{
-    void       *mlx;
-    void       *mlx_win;
-
-    t_color    color1;
-    t_color    color2;
-    float      t;
-    t_point    point;
-
-    char       *line;
-    char       **split;
-    int        fd;
-    
-    int        width;
-    int        height;
-
-    float      range;
-    t_color    color;
-    t_list     *lista;
-
-}t_global;
 
 typedef struct s_viewport
 {
@@ -155,5 +131,37 @@ typedef struct s_triangle
     t_point p3;
     t_color color;
 }t_triangle;
+
+//MLX_RESOURCES/COLORS/PARSING/RESOLUTION/AMBIENT/CAMERA/LIGHT
+
+typedef struct s_global{
+    void       *mlx;
+    void       *mlx_win;
+
+    t_color    color1;
+    t_color    color2;
+    float      t;
+    t_point    point;
+
+    char       *line;
+    char       **split;
+    int        fd;
+    
+    int        width;
+    int        height;
+
+    float      range;
+    t_color    color;
+    t_list     *lista;
+
+    t_light    *light;
+    t_camera   *camera;
+    t_plane    *pl;
+    t_sphere   *sph;
+    t_cylinder *cy;
+    t_triangle *tr;
+    t_square   *sq;
+
+}t_global;
 
 #endif
