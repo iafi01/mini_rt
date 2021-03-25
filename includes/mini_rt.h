@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/25 14:36:14 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/25 17:11:08 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ void        my_mlx_pixel_put(t_imgdata *data, int x, int y, int color);
 //RAY
 t_ray create_ray(t_point origin, t_vector dir);
 t_point find_point(t_ray ray, float t);
-
+int ray_color(t_ray r, t_global *a);
+void create_sphere(t_global *a, t_sphere sph, t_ray ray);
 
 //PARSE
 int parse(t_global *a, char *path, int bmp);

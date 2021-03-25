@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/25 14:35:52 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/25 16:25:57 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_calc
 	float delta;
 	float t1;
 	float t2;
-	t_point sub;
+	t_vector sub;
 }t_calc;
 
 typedef struct s_resolution
