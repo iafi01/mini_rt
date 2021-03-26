@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:40:18 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/25 14:27:25 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/26 10:06:34 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int parse(t_global *a, char *path, int bmp)
     a->line = 0;
     bmp = 0;
     if ((a->fd = open(path, O_RDONLY)) < 0)
-        ft_putstr("Error can't open the scene rt file");
+        error("Error can't open the scene rt file");
     while(get_next_line(a->fd, &a->line) > 0)
     {
         a->split = ft_ssplit(a->line, " \t\v\n\r\f");
@@ -60,10 +60,7 @@ int parse_resolution(t_global *a, char **words)
     width = ft_atoi(words[1]);
     height = ft_atoi(words[2]);
     if (width < 0 || height < 0)
-    {
-        ft_putstr("Error resolution in rt file");
-        exit(0);
-    }
+        error("Error resolution in rt file");
     a->width = width;
     a->height = height;
     if (width > MAX_WIDTH)
@@ -75,31 +72,34 @@ int parse_resolution(t_global *a, char **words)
 ///si moltiplicherá per la luce, ovvero luce ambientale per luce normale
 int parse_ambient(t_global *a, char **words)
 {   
-    char **split;
+    char **color;
     t_color col;
 
     a->range = ft_atof(words[1]);
-    split = ft_split(words[2], ',');
-    
-    col.r = ft_atof(split[0]) / 255;
-	col.g = ft_atof(split[1]) / 255;
-	col.b = ft_atof(split[2]) / 255;
+    color = ft_split(words[2], ',');
+
+    col.r = ft_atoi(color[0]) / 255;
+	col.g = ft_atoi(color[1]) / 255;
+	col.b = ft_atoi(color[2]) / 255;
     a->color = col;
 
+    if (!check_range_color(col))
+        error("Error parse color ambient");
+
     if (a->range > 1 || a->range < 0)
-        ft_putstr("Error ambient in rt file");
+        error("Error ambient in rt file");
     return (0);
 }
 
 int parse_light(t_global *a, char **words)
 {
-    t_light *light = NULL;
+    t_light *light;
     char **origin;
     char **color;
     t_color col;
     
     if (!(light = ft_calloc(1, sizeof(t_light))))
-		ft_putstr("fail to malloc");
+		error("fail to malloc");
     origin = ft_split(words[1], ',');
     light->origin.x = ft_atoi(origin[0]);
     light->origin.y = ft_atoi(origin[1]);
@@ -112,6 +112,13 @@ int parse_light(t_global *a, char **words)
 	col.g = ft_atof(color[1]) / 255;
 	col.b = ft_atof(color[2]) / 255;
     light->color = col;
+
+    if (!check_range_color(col))
+        error("Error parse color ambient");
+
+    if (light->range > 1 || light->range < 0)
+        error("Error ambient in rt file");
+
     ft_lstadd_back(&a->lista, ft_lstnew(light));
     return (0);
 }
@@ -123,7 +130,7 @@ int parse_camera(t_global *a, char **words)
     char **direction;
 
     if (!(camera = ft_calloc(1, sizeof(t_camera))))
-		ft_putstr("fail to malloc");
+		error("fail to malloc");
     position = ft_split(words[1], ',');
     camera->position.x = ft_atoi(position[0]);
     camera->position.y = ft_atoi(position[1]);
@@ -144,9 +151,10 @@ int parse_sphere(t_global *a, char **words)
     t_sphere *sph;
     char **origin;
     char **color;
+    t_color col;
 
     if (!(sph = ft_calloc(1, sizeof(t_sphere))))
-		ft_putstr("fail to malloc");
+		error("fail to malloc");
     origin = ft_split(words[1], ',');
     sph->origin.x = ft_atoi(origin[0]);
     sph->origin.y = ft_atoi(origin[1]);
@@ -155,9 +163,14 @@ int parse_sphere(t_global *a, char **words)
     sph->diameter = ft_atof(words[2]);
 
     color = ft_split(words[3], ',');
-    sph->color.x = ft_atoi(color[0]);
-    sph->color.y = ft_atoi(color[1]);
-    sph->color.z = ft_atoi(color[2]);
+    col.r = ft_atoi(color[0]);
+    col.g = ft_atoi(color[1]);
+    col.b = ft_atoi(color[2]);
+    sph->color = col;
+
+    if (!check_range_color(col))
+        error("Error parse color ambient");
+
     ft_lstadd_back(&a->lista, ft_lstnew(sph));
     return (0);
 }
@@ -168,9 +181,10 @@ int parse_plane(t_global *a, char **words)
     char **center;
     char **orientation;
     char **color;
+    t_color col;
 
     if (!(pl = ft_calloc(1, sizeof(t_plane))))
-		ft_putstr("fail to malloc");
+		error("fail to malloc");
     center = ft_split(words[1], ',');
     pl->center.x = ft_atof(center[0]);
     pl->center.y = ft_atof(center[1]);
@@ -182,9 +196,13 @@ int parse_plane(t_global *a, char **words)
     pl->orientation.z = ft_atoi(orientation[2]);
 
     color = ft_split(words[3], ',');
-    pl->color.r = ft_atoi(color[0]);
-    pl->color.b = ft_atoi(color[1]);
-    pl->color.g = ft_atoi(color[2]);
+    col.r = ft_atoi(color[0]);
+    col.b = ft_atoi(color[1]);
+    col.g = ft_atoi(color[2]);
+
+    if (!check_range_color(col))
+        error("Error parse color ambient");
+
     ft_lstadd_back(&a->lista, ft_lstnew(pl));
     return (0);
 }
@@ -194,9 +212,10 @@ int parse_cylinder(t_global *a, char **words)
     t_cylinder *cy;
     char **center;
     char **color;
+    t_color col;
 
     if (!(cy = ft_calloc(1, sizeof(t_cylinder))))
-		ft_putstr("fail to malloc");
+		error("fail to malloc");
     center = ft_split(words[1], ',');
     cy->center.x = ft_atof(center[0]);
     cy->center.y = ft_atof(center[1]);
@@ -207,9 +226,12 @@ int parse_cylinder(t_global *a, char **words)
     cy->height = ft_atof(words[4]);
 
     color = ft_split(words[3], ',');
-    cy->color.r = ft_atoi(color[0]);
-    cy->color.b = ft_atoi(color[1]);
-    cy->color.g = ft_atoi(color[2]);
+    col.r = ft_atoi(color[0]);
+    col.b = ft_atoi(color[1]);
+    col.g = ft_atoi(color[2]);
+
+    if (!check_range_color(col))
+        error("Error parse color ambient");
     ft_lstadd_back(&a->lista, ft_lstnew(cy));
     return (0);
 }
@@ -219,9 +241,10 @@ int parse_square(t_global *a, char **words)
     t_square *sq;
     char **center;
     char **color;
+    t_color col;
 
     if (!(sq = ft_calloc(1, sizeof(t_square))))
-		ft_putstr("fail to malloc");
+		error("fail to malloc");
     center = ft_split(words[1], ',');
     sq->center.x = ft_atof(center[0]);
     sq->center.y = ft_atof(center[1]);
@@ -232,9 +255,13 @@ int parse_square(t_global *a, char **words)
 
 
     color = ft_split(words[3], ',');
-    sq->color.r = ft_atoi(color[0]);
-    sq->color.b = ft_atoi(color[1]);
-    sq->color.g = ft_atoi(color[2]);
+    col.r = ft_atoi(color[0]);
+    col.b = ft_atoi(color[1]);
+    col.g = ft_atoi(color[2]);
+
+    if (!check_range_color(col))
+        error("Error parse color ambient");
+        
     ft_lstadd_back(&a->lista, ft_lstnew(sq));
     return (0);
 }
@@ -246,9 +273,10 @@ int parse_triangle(t_global *a, char **words)
     char **p2;
     char **p3;
     char **color;
+    t_color col;
 
     if (!(tr = ft_calloc(1, sizeof(t_triangle))))
-		ft_putstr("fail to malloc");
+		error("fail to malloc");
     p1 = ft_split(words[1], ',');
     tr->p1.x = ft_atof(p1[0]);
     tr->p1.y = ft_atof(p1[1]);
@@ -265,9 +293,13 @@ int parse_triangle(t_global *a, char **words)
     tr->p3.z = ft_atof(p3[2]);
 
     color = ft_split(words[4], ',');
-    tr->color.r = ft_atof(p3[0]);
-    tr->color.g = ft_atof(p3[1]);
-    tr->color.b = ft_atof(p3[2]);
+    col.r = ft_atoi(color[0]);
+    col.b = ft_atoi(color[1]);
+    col.g = ft_atoi(color[2]);
+
+    if (!check_range_color(col))
+        error("Error parse color ambient");
+        
     ft_lstadd_back(&a->lista, ft_lstnew(tr));
     return (0);
 }

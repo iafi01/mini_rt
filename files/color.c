@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:16 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/25 10:57:21 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/25 18:07:38 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,15 @@ int create_color(float r, float g, float b)
 	int ib = (int)(255 * b);
 	int color = create_trgb(0, ir, ig, ib);
     return (color);
+}
+
+int check_range_color(t_color color)
+{
+	if (color.r < 0 && color.r > 255)
+			return (0);
+	if (color.g < 0 && color.g > 255)
+			return (0);
+	if (color.b < 0 && color.b > 255)
+			return (0);
+	return (1);
 }

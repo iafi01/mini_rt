@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/25 16:25:57 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/26 10:03:35 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ typedef struct s_sphere
 {
     t_point origin;
     float diameter;
-    t_vector color;
+    t_color color;
 }t_sphere;
 
 typedef struct s_plane
