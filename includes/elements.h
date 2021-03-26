@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/26 10:03:35 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/26 12:20:22 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,8 @@ typedef struct s_triangle
 typedef struct s_global{
     void       *mlx;
     void       *mlx_win;
-
+    float       aspect_ratio;
+    
     t_point     lower_left_corner;
     t_vector    hor_axis;
     t_vector    ver_axis;

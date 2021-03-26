@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:25 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/25 14:36:26 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/26 12:22:21 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int             main(int argc, char **argv)
    
     t_global    a;
     t_imgdata   img;
+    t_camera    camera;
     int         bmp;
     
     bmp = 0;
@@ -48,10 +49,12 @@ int             main(int argc, char **argv)
     if (argc == 3)
         bmp = 1;
 
+    if (estensione(argv[1]))
+        error("Error extension file, i need .rt");
     parse(&a, argv[1], bmp);
     
     a.mlx = mlx_init();
-    setup_window(&a, &img);
+    setup_window(&a, &img, &camera);
 
     main_print(&a, &img);
     mlx_key_hook(a.mlx_win, key_function, &a);

@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/25 18:08:31 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/26 12:21:45 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,9 @@ float			dot_vec(t_vector v1, t_vector v2);
 t_vector		cross_vec(t_vector v1, t_vector v2);
 
 //SETUP
-void        setup_window(t_global *a, t_imgdata *img);
+void        setup_window(t_global *a, t_imgdata *img, t_camera *camera);
 void        error(char *str);
+int         estensione(char *s);
 
 //PIXEL
 void        main_print(t_global *a, t_imgdata *img);
