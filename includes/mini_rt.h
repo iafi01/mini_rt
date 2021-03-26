@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/26 12:21:45 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:21:44 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ t_point			neg_point(t_point p);
 
 // MATH VEC_OP
 t_vector		sum_vec_vec(t_vector v1, t_vector v2);
+t_vector 		sum_vec_scal(t_vector v, float a);
+float		lenght_square(t_vector v);
 t_vector		diff_p_p(t_point p1, t_point p2);
 t_vector		diff_vec_vec(t_vector v1, t_vector v2);
 t_vector		mult_vec_scal(t_vector v, float a);
@@ -73,8 +75,8 @@ void        my_mlx_pixel_put(t_imgdata *data, int x, int y, int color);
 //RAY
 t_ray create_ray(t_point origin, t_vector dir);
 t_point find_point(t_ray ray, float t);
-int ray_color(t_ray r, t_global *a);
-void create_sphere(t_global *a, t_sphere sph, t_ray ray);
+t_vector ray_color(t_ray r, t_global *a);
+float create_sphere(t_global *p, t_sphere sph, t_ray ray);
 
 //PARSE
 int parse(t_global *a, char *path, int bmp);

@@ -37,6 +37,16 @@ t_vector		div_vec_scal(t_vector v, float a)
 
 // Negazione di un vettore
 
+t_vector 		sum_vec_scal(t_vector v, float a)
+{
+	return (create_v(v.x + a, v.y + a, v.z + a));
+}
+
+float		lenght_square(t_vector v)
+{
+	return (v.x * v.x + v.y * v.y + v.z * v.z);
+}
+
 t_vector		neg_vec(t_vector v)
 {
 	return(mult_vec_scal(v, (-1.0)));

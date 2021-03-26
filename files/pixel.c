@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:27 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/26 11:16:55 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:30:18 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ int intersect_circle(t_global *a, int x, int y)
                 return(create_color(v, 0, 0));
             return (create_color(v, v, 0.9));
 }
-
-void create_sphere(t_global *a, t_sphere sph, t_ray r)
+#include <stdio.h>
+float create_sphere(t_global *p, t_sphere sph, t_ray r)
 {
-    t_calc s;
-    
-    s.sub = diff_p_p(r.origin, sph.origin);
-    s.a = dot_vec(r.dir, r.dir);
-    s.b = 2 * dot_vec(r.dir, s.sub);
-    s.c = dot_vec(s.sub, s.sub) - pow(sph.diameter / 2, 2);
+    p->s.sub = diff_p_p(r.origin, sph.origin);
+    p->s.a = dot_vec(r.dir, r.dir);
+    p->s.b = 2 * dot_vec(r.dir, p->s.sub);
+    p->s.c = dot_vec(p->s.sub, p->s.sub) - pow(sph.diameter / 2, 2);
 
-    s.delta = pow(s.b, 2) - 4 * s.a * s.c;
-    if (s.delta < 0)
-        return ;
-    a->t = s.delta;
+    p->s.delta = pow(p->s.b, 2) - 4 * p->s.a * p->s.c;
+    printf("%f/n", p->s.delta);
+    if (p->s.delta < 0)
+    	return (-1);
+	else
+		return(- p->s.b - (sqrt(p->s.delta)) / p->s.a);
 }
 
 void    main_print(t_global *a, t_imgdata *img)
@@ -63,7 +63,8 @@ void    main_print(t_global *a, t_imgdata *img)
             float u = (float)i / a->width - 1;
             float v = (float)j / a->height - 1;
             ray = create_ray(camera.position, diff_p_p(camera.position ,sum_p_vec(a->lower_left_corner, sum_vec_vec(mult_vec_scal(a->hor_axis, u),mult_vec_scal(a->ver_axis, v)))));
-            colors = ray_color(ray, a);
+            t_vector cl = ray_color(ray, a);
+            colors = create_color(cl.x, cl.y, cl.z);
             my_mlx_pixel_put(img, i , j, colors);
             i++;
         }
