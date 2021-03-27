@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:36 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/26 16:30:37 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/27 11:08:23 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ t_vector ray_color(t_ray r, t_global *a)
 		t_vector color = normalize_v(diff_p_p(a->point, sph.origin));
 		return (mult_vec_scal(sum_vec_scal(color, 1.0), 0.5));
 	}
-	return (create_v(0.0, 1.0, 0.0));
+	return (create_v(0.0, 1.0, 0.3));
 }

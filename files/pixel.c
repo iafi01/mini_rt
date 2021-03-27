@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:27 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/26 16:30:18 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/27 11:57:39 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,15 @@ int intersect_circle(t_global *a, int x, int y)
 #include <stdio.h>
 float create_sphere(t_global *p, t_sphere sph, t_ray r)
 {
+    float radius = sph.diameter / 2;
     p->s.sub = diff_p_p(r.origin, sph.origin);
     p->s.a = dot_vec(r.dir, r.dir);
     p->s.b = 2 * dot_vec(r.dir, p->s.sub);
-    p->s.c = dot_vec(p->s.sub, p->s.sub) - pow(sph.diameter / 2, 2);
+    p->s.c = dot_vec(p->s.sub, p->s.sub) - pow(radius, 2);
+    //printf("a:%f-b:%f-c:%f\n", p->s.a,p->s.b,p->s.c);
 
     p->s.delta = pow(p->s.b, 2) - 4 * p->s.a * p->s.c;
-    printf("%f/n", p->s.delta);
+    //printf("delta:%f\n", p->s.delta);
     if (p->s.delta < 0)
     	return (-1);
 	else

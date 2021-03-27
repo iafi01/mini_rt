@@ -22,6 +22,7 @@ SRCS_LIST		= \
 					vec_point_base.c \
 					setup.c \
 					parse.c \
+					parse_obj.c \
 					get_next_line.c \
 					get_next_line_utils.c \
 					ray.c \

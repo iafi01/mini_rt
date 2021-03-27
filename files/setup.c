@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:36 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/26 12:29:54 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/27 11:57:31 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void setup_window(t_global *a, t_imgdata *img, t_camera *camera)
 					div_vec_scal(a->ver_axis, 2)),create_v(0.0, 0.0, 1.0));
         a->hor_axis = mult_vec_scal(normalize_v(create_v(a->width, 0.0, 0.0)), a->aspect_ratio);
         a->ver_axis = normalize_v(create_v(0.0, a->width, 0.0));
-        a->origin = create_p(0.0,0.0,0.0);
 }
 
 void error(char *str)
