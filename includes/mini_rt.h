@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/26 15:21:44 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/29 12:47:13 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void        error(char *str);
 int         estensione(char *s);
 
 //PIXEL
-void        main_print(t_global *a, t_imgdata *img);
+void        main_print(t_global *a, t_imgdata *img, t_camera *camera);
 void        my_mlx_pixel_put(t_imgdata *data, int x, int y, int color);
 
 //RAY

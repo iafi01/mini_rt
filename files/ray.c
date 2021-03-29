@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:36 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/27 11:08:23 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/29 12:39:59 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,23 @@ t_point find_point(t_ray ray, float t)
 t_vector ray_color(t_ray r, t_global *a)
 {
     t_sphere sph;
-
-	sph.origin = create_p(0.7, 0.0, -2);
+	sph.origin = create_p(0.7, 0, -2.0);
 	sph.diameter = 0.5;
-	//ft_putstr("p\n");
 	a->t = create_sphere(a, sph, r);
-	//printf("%f\n", a->t);
 
-	if((a->t = create_sphere(a, sph, r)) > 0.0)
-	{	
-		//ft_putstr("e\n");
+	if (a->t > 0.0)
+	{
 		a->point = find_point(r, a->t);
-		t_vector color = normalize_v(diff_p_p(a->point, sph.origin));
-		return (mult_vec_scal(sum_vec_scal(color, 1.0), 0.5));
+		t_vector v = normalize_v(diff_p_p(a->point, sph.origin));
+		return (mult_vec_scal(sum_vec_scal(v, 1.0), 0.5));
 	}
-	return (create_v(0.0, 1.0, 0.3));
+
+	t_vector norm_dir =  normalize_v(r.dir);
+
+	a->t = 0.5 * (norm_dir.y + 1);
+
+	t_vector color1 = create_v(1.0, 1.0, 1.0);
+	t_vector color2 = create_v(0.5, 0.7, 0.58);
+
+	return (sum_vec_vec((mult_vec_scal(color1, 1.0 - a->t)), (mult_vec_scal(color2, a->t))));
 }
