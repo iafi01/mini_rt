@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:27 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/29 12:56:18 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/29 14:12:34 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,24 @@ int intersect_circle(t_global *a, int x, int y)
 #include <stdio.h>
 float create_sphere(t_global *p, t_sphere sph, t_ray r)
 {
-    float radius = sph.diameter / 2;
-    p->s.sub = diff_p_p(r.origin, sph.origin);
-    p->s.a = dot_vec(r.dir, r.dir);
-    p->s.b = 2.0 * dot_vec(p->s.sub,r.dir);
-    p->s.c = dot_vec(p->s.sub, p->s.sub) - pow(radius, 2);
-    //printf("a:%f-b:%f-c:%f\n", p->s.a,p->s.b,p->s.c);
+    p->fd = 1;
+    float a, b, c, delta;
+	t_vector 	oc;
+	float 	radius = sph.diameter / 2.0;
+	
+	oc = diff_p_p(r.origin, sph.origin);
+	a = lenght_square(r.dir);
+	b = dot_vec(oc, r.dir);
+	c = lenght_square(oc) - (radius * radius);
 
-    p->s.delta = (p->s.b*p->s.b) - (4 * p->s.a * p->s.c);
-    //printf("delta:%f\n", p->s.delta);
-    if (p->s.delta < 0)
-    	return (-1);
+	delta = (b * b) - (a * c);
+
+	if (delta < 0)
+		return (-1);
 	else
-		return(- p->s.b - (sqrt(p->s.delta)) / p->s.a);
+		return (- b - (sqrt(delta))) / a;
 }
-
+//uguale a leo
 void    main_print(t_global *a, t_imgdata *img, t_camera *camera)
 {
 
