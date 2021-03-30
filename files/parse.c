@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:40:18 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/27 12:05:32 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/30 15:52:45 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ int check_type(t_global *a, char **words)
     return (0);
 }
 
-int parse(t_global *a, char *path, int bmp)
+int parse(t_global *a, char *path)
 {
     a->line = 0;
-    bmp = 0;
     if ((a->fd = open(path, O_RDONLY)) < 0)
         error("Error can't open the scene rt file");
     while(get_next_line(a->fd, &a->line) > 0)

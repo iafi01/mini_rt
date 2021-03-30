@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:29 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/29 12:47:13 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/30 15:52:24 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_vector ray_color(t_ray r, t_global *a);
 float create_sphere(t_global *p, t_sphere sph, t_ray ray);
 
 //PARSE
-int parse(t_global *a, char *path, int bmp);
+int parse(t_global *a, char *path);
 int check_type(t_global *a, char **words);
 int parse_resolution(t_global *a, char **words);
 int parse_ambient(t_global *a, char **words);

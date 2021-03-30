@@ -26,6 +26,7 @@ SRCS_LIST		= \
 					get_next_line.c \
 					get_next_line_utils.c \
 					ray.c \
+					bmp.c \
 
 SRCS			= $(addprefix ${FOLDER}/, ${SRCS_LIST})
 

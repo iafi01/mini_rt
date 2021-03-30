@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:36 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/29 17:36:13 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/30 16:44:24 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,14 @@ t_vector ray_color(t_ray r, t_global *a)
 
 	t_vector norm_dir;
 
-	sph.origin = create_p(-1.0, -1.0, -1.5);
+	sph.origin = create_p(0.0, 0.0, -1.0);
 	sph.diameter = 0.5;
-
+	/*t_list *list = a->sph;
+	while (list)
+	{
+		//t_sphere sphr = (t_sphere)a->lista->content;
+		a->lista = a->lista->next;
+	}*/
 	a->t = create_sphere(a, sph, r);
 	if(a->t > 0.0)
 	{

@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/29 12:39:08 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/30 16:54:14 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,7 +159,8 @@ typedef struct s_global{
     t_cylinder *cy;
     t_triangle *tr;
     t_square   *sq;
-
+    
+    t_imgdata *img;
 }t_global;
 
 #endif
