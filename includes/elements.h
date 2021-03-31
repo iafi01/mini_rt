@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:32 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/30 16:54:14 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/31 11:45:25 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_camera
 {
     t_point position;
     t_vector direction;
-    int fov;
+    t_vector fov;
 }t_camera;
 
 typedef struct s_light

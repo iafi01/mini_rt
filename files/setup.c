@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 16:57:36 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/30 12:41:29 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/31 11:57:02 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void setup_window(t_global *a, t_imgdata *img, t_camera *camera)
                                     &img->endian);
         
         camera->position = create_p(0.0,0.0,0.0);
+        a->origin = create_p(0.0,0.0,0.0);
         a->lower_left_corner = diff_p_vec(diff_p_vec(
-				(diff_p_vec(a->origin, div_vec_scal(a->hor_axis, 2))), 
-					div_vec_scal(a->ver_axis, 2)),create_v(0.0, 0.0, 1.0));
+				(diff_p_vec(a->origin, div_vec_scal(a->hor_axis, 0.5))), 
+					div_vec_scal(a->ver_axis, 0.5)),create_v(0.0, 0.0, 1.0));
         a->hor_axis = mult_vec_scal(normalize_v(create_v(a->width, 0.0, 0.0)), a->aspect_ratio);
-        a->ver_axis = normalize_v(create_v(0.0, a->width, 0.0));
+        a->ver_axis = normalize_v(create_v(0.0, a->height, 0.0));
 }
 
 void error(char *str)

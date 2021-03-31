@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 12:40:18 by liafigli          #+#    #+#             */
-/*   Updated: 2021/03/30 15:52:45 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/03/31 11:47:03 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ int parse_camera(t_global *a, char **words)
     camera->direction.y = ft_atoi(direction[1]);
     camera->direction.z = ft_atoi(direction[2]);
 
-    camera->fov = ft_atoi(words[3]);
+    //camera->fov = ft_atoi(words[3]);
     ft_lstadd_back(&a->lista, ft_lstnew(camera));
     return (0);
 }
