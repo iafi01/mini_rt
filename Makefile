@@ -1,13 +1,12 @@
-
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+         #
+#    By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 12:02:19 by sdunckel          #+#    #+#              #
-#    Updated: 2020/01/18 06:40:32 by sdunckel         ###   ########.fr        #
+#    Updated: 2021/04/07 11:47:59 by liafigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,25 +14,14 @@ NAME			= miniRT
 
 SRCS_LIST		= \
 					main.c \
-					color.c \
-					pixel.c \
-					point_op.c \
-					vec_op.c \
-					vec_point_base.c \
-					setup.c \
-					parse.c \
-					parse_obj.c \
-					get_next_line.c \
-					get_next_line_utils.c \
-					ray.c \
-					bmp.c \
+					
 
 SRCS			= $(addprefix ${FOLDER}/, ${SRCS_LIST})
 
 OBJS			= ${SRCS:.c=.o}
 
 HEADER			= includes
-FOLDER			= files
+FOLDER			= srcs
 
 LIB				= libft
 MLX 			= minilibx
@@ -49,7 +37,7 @@ all:			$(NAME)
 
 $(NAME):		$(OBJS)
 				@make -s -C $(LIB)
-				@$(CC) $(CFLAGS) $(LFLAGS) -I $(HEADER) $(LIB)/libft.a $(OBJS) -o $(NAME)
+				@$(CC) $(CFLAGS) $(LFLAGS) -I libft/includes/libft.h libft/libft.a $(OBJS) -o $(NAME)
 				
 
 clean:
@@ -64,4 +52,3 @@ fclean:			clean
 				@make fclean -C $(LIB)
 
 re:				fclean all
-

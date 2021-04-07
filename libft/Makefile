@@ -6,7 +6,7 @@
 #    By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/15 10:39:22 by liafigli          #+#    #+#              #
-#    Updated: 2021/03/21 17:32:06 by liafigli         ###   ########.fr        #
+#    Updated: 2021/04/07 11:51:10 by liafigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,27 +18,29 @@ NAME	=	libft.a
 
 INCLUDE = 	libft.h
 
+FOLDER  =   srcs
+
+
 FILES	=	ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
-			ft_memchr.c ft_memcmp.c ft_strlen.c \
-			ft_strlcpy.c ft_strlcat.c ft_putchar.c ft_putstr.c \
-			ft_strchr.c ft_strrchr.c ft_strnstr.c ft_strncmp.c ft_atoi.c \
-			ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-			ft_toupper.c ft_tolower.c ft_calloc.c ft_strdup.c ft_substr.c \
-			ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
-			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-			ft_atof.c ft_split_set.c \
+	ft_memchr.c ft_memcmp.c ft_strlen.c ft_strlcpy.c ft_strlcat.c \
+	ft_strchr.c ft_strrchr.c ft_strnstr.c ft_strncmp.c ft_atoi.c \
+	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+	ft_toupper.c ft_tolower.c ft_calloc.c ft_strdup.c ft_substr.c \
+	ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
+	ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+	get_next_line.c get_next_line_utils.c ft_putchar.c \
+	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
+	ft_putchar.c ft_putstr.c \
 
-FILESS	=	 $(FILES:.c=.o)
+SRCS		= $(addprefix ${FOLDER}/, ${FILES})
 
-BONUS	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
-ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
-
-BONUSS	=	$(BONUS:.c=.o)
+FILESS	=	 $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(FILESS) $(BONUSS)
-	ar -rc $(NAME) $^
+$(NAME): $(FILESS)
+	ar -rc $(NAME) $(FILESS)
 
 .c.o:
 	gcc $(FLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
@@ -51,4 +53,4 @@ fclean: clean
 
 re: fclean all
 
-rebonus: fclean
+rebonus: fclean bonus
