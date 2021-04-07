@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 10:10:25 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/07 10:10:27 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/07 14:40:48 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,11 @@
 # define KEY_RIGHT 124
 # define KEY_DOWN 125
 # define KEY_UP 126
+
+# define YELLOW  "\033[1;33m"
+# define RESET   "\033[0m"
+# define BLUE  "\e[1;34m"
+# define RED  "\033[1;31m"
+
 
 #endif

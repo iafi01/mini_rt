@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 10:09:22 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/07 10:09:45 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/07 14:39:34 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,5 +206,7 @@ void			create_bmp_image(t_mini_rt *rt, char *file_name);
 t_texture		create_sky(t_mini_rt *rt, char *file_path);
 void			free_sky(t_mini_rt *rt);
 void			progress_bar(t_thread *thread);
+
+void			ft_printf(char *color, char *str);
 
 #endif

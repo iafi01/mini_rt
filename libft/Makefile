@@ -6,7 +6,7 @@
 #    By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/15 10:39:22 by liafigli          #+#    #+#              #
-#    Updated: 2021/04/07 11:51:10 by liafigli         ###   ########.fr        #
+#    Updated: 2021/04/07 14:41:35 by liafigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,16 +40,16 @@ FILESS	=	 $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(FILESS)
-	ar -rc $(NAME) $(FILESS)
+	@ar -rc $(NAME) $(FILESS)
 
 .c.o:
-	gcc $(FLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
+	@gcc $(FLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
 
 clean:
-	$(RM) $(FILESS) $(BONUSS)
+	@$(RM) $(FILESS) $(BONUSS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 
