@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 10:09:22 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/07 14:39:34 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/07 16:45:00 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "elements.h"
 # include "keys.h"
 # include "../libft/includes/libft.h"
+# include "../libft/includes/get_next_line.h"
 # include "../minilibx/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
@@ -24,6 +25,9 @@
 # include <math.h>
 # include <stdio.h>
 # include <pthread.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 # define SPHERE 1
 # define PLANE 2

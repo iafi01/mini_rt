@@ -6,7 +6,7 @@
 #    By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 12:02:19 by sdunckel          #+#    #+#              #
-#    Updated: 2021/04/07 14:45:46 by liafigli         ###   ########.fr        #
+#    Updated: 2021/04/07 15:47:38 by liafigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS_LIST		= \
 					main.c \
 					events.c \
 					ft_printf.c \
+					parse.c \
 					
 
 SRCS			= $(addprefix ${FOLDER}/, ${SRCS_LIST})
