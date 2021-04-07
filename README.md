@@ -2,7 +2,7 @@
 
 Aggiungere:
 
-ft_ssplit.c
-ft_str_c_count.c
-ft_str_end.c
-ft_str_isdigit.c
+ft_ssplit.c <br>
+ft_str_c_count.c<br>
+ft_str_end.c<br>
+ft_str_isdigit.c<br>
