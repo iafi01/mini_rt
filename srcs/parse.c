@@ -6,13 +6,73 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 15:45:26 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/07 17:15:40 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:24:06 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/mini_rt.h"
 
-/*void	parse_rt_file(char *rt_file, t_mini_rt *rt)
+void	parse_res(t_mini_rt *rt)
+{
+	if (count_split(rt->split) != 3 || !check_split(rt->split, 0))
+		handle_error("invalid resolution", rt);
+	rt->res.x = ft_atoi(rt->split[1]);
+	rt->res.y = ft_atoi(rt->split[2]);
+	if (rt->res.x < 1 || rt->res.y < 1)
+		handle_error("resolution too small", rt);
+	rt->res.parsed = 1;
+	rt->res.x > 2560 ? rt->res.x = 2560 : 0;
+	rt->res.y > 1440 ? rt->res.y = 1395 : 0;
+}
+
+void	parse_ambient(t_mini_rt *rt)
+{
+	if (count_split(rt->split) != 3 || !check_split(rt->split, 0))
+		handle_error("invalid ambient light", rt);
+	rt->ambient.ratio = ft_atof(rt->split[1]);
+	rt->ambient.color = split_rgb(rt->split[2], rt);
+	if (rt->ambient.ratio > 1 || rt->ambient.ratio < 0)
+		handle_error("invalid ambient light", rt);
+	rt->ambient.parsed = 1;
+}
+
+void	parse_camera(t_mini_rt *rt)
+{
+	t_camera		*camera;
+
+	if (!(camera = ft_calloc(1, sizeof(t_camera))))
+		handle_error("fail to malloc", rt);
+	if (count_split(rt->split) != 3 || !check_split(rt->split, 0))
+	{
+		free(camera);
+		handle_error("camera parsing error", rt);
+	}
+	camera->pov = split_vec(rt->split[1], rt, 0);
+	camera->orient = split_vec(rt->split[2], rt, 1);
+	ft_lstadd_back(&rt->cam_list, ft_lstnew(camera));
+}
+
+void	parse_light(t_mini_rt *rt)
+{
+	t_element		*light;
+
+	if (!(light = ft_calloc(1, sizeof(t_element))))
+		handle_error("fail to malloc", rt);
+	if (count_split(rt->split) != 4 || !check_split(rt->split, 0))
+	{
+		free(light);
+		handle_error("light parsing error", rt);
+	}
+	light->id = 10;
+	light->point = split_vec(rt->split[1], rt, 0);
+	light->ratio = ft_atof(rt->split[2]);
+	light->color = split_rgb(rt->split[3], rt);
+	ft_lstadd_back(&rt->light_list, ft_lstnew(light));
+	if (light->ratio > 1 || light->ratio < 0)
+		handle_error("light parsing error", rt);
+}
+
+void	parse_rt_file(char *rt_file, t_mini_rt *rt)
 {
 	int		fd;
 
@@ -32,4 +92,4 @@
 		handle_error("no camera available", rt);
 	if (!rt->res.parsed)
 		handle_error("no resolution", rt);
-}*/
+}

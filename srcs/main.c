@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 10:05:17 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/07 17:15:25 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/08 14:36:42 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,13 @@ int		main(int argc, char **argv)
 	t_mini_rt	rt;
 	ft_bzero(&rt, sizeof(t_mini_rt));
 	rt.mlx_ptr = mlx_init();
-	printf(BLUE "Stringa");
 	if (!(rt.mlx_ptr))
 		handle_error("i can't initialize MiniLibX", &rt);
 	if (argc != 2 && (argc != 3 || (ft_strncmp(argv[2], "--save", 6) != 0)))
 		handle_error("wrong arguments", &rt);
 	if (argc == 3 && (ft_strncmp(argv[2], "--save", 6) != 0))
 		rt.save = 1;
-	if (ft_strncmp(argv[1], ".rt", 3) != 0)
+	if (ft_strncmp_last(argv[1], ".rt", 3) != 0)
 		handle_error("wrong file extension", &rt);
 	parse_rt_file(argv[1], &rt);
 	start_mini_rt(&rt);
