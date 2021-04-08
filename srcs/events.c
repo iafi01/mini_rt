@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 12:24:22 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/08 11:11:58 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/08 15:11:15 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,55 @@ void	handle_error(char *str, t_mini_rt *rt)
 	ft_lstclear(&rt->cam_list, free);
 	ft_lstclear(&rt->light_list, free);
 	exit(EXIT_FAILURE);
+}
+
+int		exit_and_free(t_mini_rt *rt)
+{
+	printf("" BOLDGREEN "Exiting miniRT...\n" RESET);
+	free_camera_and_texture(rt);
+	if (rt->sky)
+		free_sky(rt);
+	ft_lstclear(&rt->objs_list, free);
+	ft_lstclear(&rt->cam_list, free);
+	ft_lstclear(&rt->light_list, free);
+	if (!rt->save)
+	{
+		mlx_clear_window(rt->mlx_ptr, rt->win_ptr);
+		mlx_destroy_window(rt->mlx_ptr, rt->win_ptr);
+	}
+	exit(EXIT_SUCCESS);
+	return (1);
+}
+
+char	**free_split(char **split)
+{
+	int		i;
+
+	i = 0;
+	while (split[i])
+	{
+		ft_strdel(&split[i]);
+		i++;
+	}
+	free(split);
+	split = NULL;
+	return (split);
+}
+
+int		get_keypress(int key, t_mini_rt *rt)
+{
+	if (key == KEY_TAB)
+		change_cam(rt);
+	else if (key == KEY_ESC)
+		exit_and_free(rt);
+	if (key == KEY_V)
+	{
+		if (!rt->kb)
+			rt->kb = 1;
+		else
+			rt->kb = 0;
+		show_keybind(rt);
+	}
+	key_hook(key, rt);
+	return (1);
 }

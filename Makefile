@@ -6,7 +6,7 @@
 #    By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 12:02:19 by sdunckel          #+#    #+#              #
-#    Updated: 2021/04/08 13:59:17 by liafigli         ###   ########.fr        #
+#    Updated: 2021/04/08 15:08:45 by liafigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ SRCS_LIST		= \
 					parse.c \
 					parse_utils.c \
 					vec.c vec_2.c \
+					bmp.c parse_objs.c \
+					camera.c \
 					
 
 SRCS			= $(addprefix ${FOLDER}/, ${SRCS_LIST})
