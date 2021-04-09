@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:21:20 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/09 12:03:56 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/09 12:24:46 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_strcmp(const char *s1, const char *s2)
     }
 	if (i == n || !s1 || !s2)
 		return (1);
-	if ((unsigned char)s1[j] - (unsigned char)s2[k])
+	if ((unsigned char)s1[j] == (unsigned char)s2[k])
         return (1);
     return (0);
 }

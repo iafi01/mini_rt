@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/25 14:59:28 by sdunckel          #+#    #+#             */
-/*   Updated: 2021/04/09 11:19:33 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/09 12:04:22 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ int		main(int argc, char **argv)
 		handle_error("wrong arguments", &rt);
 	if (argc == 3 && ft_strcmp(argv[2], "--save"))
 		rt.save = 1;
-	printf("%s==%s", argv[1],".rt");
 	if (!ft_strcmp(argv[1], ".rt"))
 		handle_error("wrong file extension", &rt);
 	parse_rt_file(argv[1], &rt);
