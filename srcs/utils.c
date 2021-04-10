@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/08 02:02:23 by sdunckel          #+#    #+#             */
-/*   Updated: 2021/04/09 10:56:49 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/09 13:33:57 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	build_bar(int percentage, int width)
 		i++;
 	}
 	ft_putstr("] ");
-	printf("%d%%", percentage);
+	//printf("%d%%", percentage);
 }
 
 void	progress_bar(t_thread *thread)

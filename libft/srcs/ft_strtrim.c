@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 16:44:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/07 10:39:12 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/10 11:56:37 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static unsigned int	is_in_set(char c, char const *set)
 	return (0);
 }
 
-char				*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int				i;
 	unsigned int	outstr_size;
@@ -37,7 +37,8 @@ char				*ft_strtrim(char const *s1, char const *set)
 	while (s1[i] && is_in_set(s1[i], set))
 		i++;
 	outstr_start = (char *)&s1[i];
-	if ((i = ft_strlen(s1) - 1) != -1)
+	i = ft_strlen(s1) - 1;
+	if (i != -1)
 		while (i >= 0 && is_in_set(s1[i], set))
 			i--;
 	outstr_end = (char *)&s1[i];
@@ -45,8 +46,8 @@ char				*ft_strtrim(char const *s1, char const *set)
 		outstr_size = 2;
 	else
 		outstr_size = outstr_end - outstr_start + 2;
-	if (!(outstr = malloc(sizeof(char) * outstr_size)))
+	outstr = malloc(sizeof(char) * outstr_size);
+	if (!outstr)
 		return (NULL);
-	ft_strlcpy(outstr, outstr_start, outstr_size);
-	return (outstr);
+	return (ft_strlcpy(outstr, outstr_start, outstr_size));
 }

@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 10:46:20 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/07 10:38:54 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/10 11:46:39 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,14 @@ static int	space(char const *str, int i)
 	return (i);
 }
 
-int			ft_atoi(const char *str)
+static int	ft_check(int sign)
+{
+	if (sign == 1)
+		return (-1);
+	return (0);
+}
+
+int	ft_atoi(const char *str)
 {
 	int					i;
 	int					sign;
@@ -50,6 +57,6 @@ int			ft_atoi(const char *str)
 			break ;
 	}
 	if (i > 19 || sum >= 9223372036854775808ULL)
-		return (sign == 1 ? -1 : 0);
+		return (ft_check(sign));
 	return (sum * sign);
 }

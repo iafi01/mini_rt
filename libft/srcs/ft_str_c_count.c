@@ -6,13 +6,13 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:38:48 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/08 14:39:05 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/10 12:20:12 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_str_c_count(char *str, char c)
+int	ft_str_c_count(char *str, char c)
 {
 	int		i;
 	int		count;

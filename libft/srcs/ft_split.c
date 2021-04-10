@@ -6,16 +6,16 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 14:55:05 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/07 10:39:12 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/10 12:12:55 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-static int		count_words(const char *str, char c)
+static int	count_words(const char *str, char c)
 {
-	int i;
-	int flag;
+	int	i;
+	int	flag;
 
 	i = 0;
 	flag = 0;
@@ -33,7 +33,7 @@ static int		count_words(const char *str, char c)
 	return (i);
 }
 
-static char		*word_dup(const char *str, int start, int finish)
+static char	*word_dup(const char *str, int start, int finish)
 {
 	char	*word;
 	int		i;
@@ -46,7 +46,13 @@ static char		*word_dup(const char *str, int start, int finish)
 	return (word);
 }
 
-char			**ft_split(char const *s, char c)
+static void	ft_close(char **split, int j)
+{
+	split[j] = 0;
+	return (split);
+}
+
+char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -58,7 +64,8 @@ char			**ft_split(char const *s, char c)
 	index = -1;
 	if (!s)
 		return (0);
-	if (!(split = malloc((count_words(s, c) + 1) * sizeof(char *))))
+	split = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!split)
 		return (0);
 	while (i <= ft_strlen(s))
 	{
@@ -71,6 +78,5 @@ char			**ft_split(char const *s, char c)
 		}
 		i++;
 	}
-	split[j] = 0;
-	return (split);
+	ft_close(split, j);
 }

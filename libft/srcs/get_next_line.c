@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:20:38 by rchallie          #+#    #+#             */
-/*   Updated: 2021/04/07 10:39:37 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/10 12:09:56 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ char	*get_arr(char *arr)
 		free(arr);
 		return (0);
 	}
-	if (!(s = malloc(sizeof(char) * ((ft_strlen(arr) - i) + 1))))
+	s = malloc(sizeof(char) * ((ft_strlen(arr) - i) + 1));
+	if (!s)
 		return (0);
 	i++;
 	while (arr[i])
@@ -49,7 +50,8 @@ char	*get_line(char *str)
 		return (0);
 	while (str[i] && str[i] != '\n')
 		i++;
-	if (!(s = malloc(sizeof(char) * (i + 1))))
+	s = malloc(sizeof(char) * (i + 1));
+	if (!s)
 		return (0);
 	i = 0;
 	while (str[i] && str[i] != '\n')
@@ -61,7 +63,13 @@ char	*get_line(char *str)
 	return (s);
 }
 
-int		get_next_line(int fd, char **line)
+static int	ft_close(char *buf)
+{
+	free(buf);
+	return (-1);
+}
+
+int	get_next_line(int fd, char **line)
 {
 	char			*buf;
 	static char		*arr;
@@ -70,15 +78,14 @@ int		get_next_line(int fd, char **line)
 	count = 1;
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	if (!(buf = malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
 		return (-1);
 	while (!checkln(arr) && count != 0)
 	{
-		if ((count = read(fd, buf, BUFFER_SIZE)) == -1)
-		{
-			free(buf);
-			return (-1);
-		}
+		count = read(fd, buf, BUFFER_SIZE);
+		if (count == -1)
+			ft_close(buf);
 		buf[count] = '\0';
 		arr = ft_strjoin(arr, buf);
 	}
