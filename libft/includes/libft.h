@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 18:59:38 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/09 10:55:24 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/10 14:24:16 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 int				ft_putchar(char c);
 int				ft_putstr(char *s);
 void			ft_strdel(char **as);
-char			**ft_ssplit(char const *s, char *set);
+char			**ft_ssplit(char *s, char *set);
 float			ft_atof(char *str);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_str_c_count(char *str, char c);

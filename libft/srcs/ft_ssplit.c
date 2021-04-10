@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:00:22 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/10 12:48:32 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/10 14:24:00 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	*ft_close(char **tab, char *s, char *set)
 	return (tab);
 }
 
-char	**ft_ssplit(char const *s, char *set)
+char	**ft_ssplit(char *s, char *set)
 {
 	char	**tab;
 	int		i;
@@ -98,5 +98,5 @@ char	**ft_ssplit(char const *s, char *set)
 		if ((in_s(s[i], set) && !in_s(s[i + 1], set) && k > 0) == 0)
 			j++;
 	}
-	ft_close(tab, s, set);
+	return (ft_close(tab, s, set));
 }

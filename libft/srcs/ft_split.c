@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 14:55:05 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/10 12:12:55 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/10 14:21:53 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static char	*word_dup(const char *str, int start, int finish)
 	return (word);
 }
 
-static void	ft_close(char **split, int j)
+static char	**ft_close(char **split, int j)
 {
 	split[j] = 0;
 	return (split);
@@ -78,5 +78,5 @@ char	**ft_split(char const *s, char c)
 		}
 		i++;
 	}
-	ft_close(split, j);
+	return (ft_close(split, j));
 }

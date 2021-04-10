@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 16:44:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/10 11:56:37 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/10 14:18:28 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@ static unsigned int	is_in_set(char c, char const *set)
 		set++;
 	}
 	return (0);
+}
+
+static char *ft_close(char *a, char *b, size_t c)
+{
+	ft_strlcpy(a, b, c);
+	return (a);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -49,5 +55,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 	outstr = malloc(sizeof(char) * outstr_size);
 	if (!outstr)
 		return (NULL);
-	return (ft_strlcpy(outstr, outstr_start, outstr_size));
+	return (ft_close(outstr, outstr_start, outstr_size));
 }
