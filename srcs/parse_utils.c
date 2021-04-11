@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 13:41:05 by sdunckel          #+#    #+#             */
-/*   Updated: 2021/04/09 12:27:24 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/11 15:24:13 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void		check_id(t_mini_rt *rt)
 		parse_ambient(rt);
 	else if (ft_strcmp(rt->split[0], "c"))
 		parse_camera(rt);
-	else if (ft_strcmp(rt->split[0], "l"))
+	else if (ft_strncmp(rt->split[0], "l", 1))
 		parse_light(rt);
 	else if (ft_strcmp(rt->split[0], "sp"))
 		parse_sphere(rt);

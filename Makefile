@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+         #
+#    By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/07 12:02:19 by sdunckel          #+#    #+#              #
-#    Updated: 2020/01/18 06:40:32 by sdunckel         ###   ########.fr        #
+#    Updated: 2021/04/11 14:46:43 by liafigli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ LIBFT 			= libft
 MLX 			= minilibx
 
 CC				= gcc
-CFLAGS 			= -Wall -Wextra -Werror
+CFLAGS 			= -Wall -Wextra -Werror -g
 LFLAGS			= -L libft -lft
 
 METAL_MLX		= libmlx.dylib -framework Metal -framework AppKit
