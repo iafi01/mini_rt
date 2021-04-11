@@ -6,15 +6,15 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 14:00:22 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/10 14:24:00 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/11 11:02:01 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-static int	in_s(char c, char *str)
+static int		in_s(char c, char *str)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (str[i])
@@ -28,8 +28,8 @@ static int	in_s(char c, char *str)
 
 static size_t	count_words(char const *s, char *set)
 {
-	int	count;
-	int	is_word;
+	int		count;
+	int		is_word;
 
 	is_word = 0;
 	count = 0;
@@ -62,13 +62,7 @@ static size_t	w_s(char const *s, int pos, char *set)
 	return (len);
 }
 
-static void	*ft_close(char **tab, char *s, char *set)
-{
-	tab[count_words(s, set)] = NULL;
-	return (tab);
-}
-
-char	**ft_ssplit(char *s, char *set)
+char			**ft_ssplit(char *s, char *set)
 {
 	char	**tab;
 	int		i;
@@ -78,25 +72,21 @@ char	**ft_ssplit(char *s, char *set)
 	i = -1;
 	j = 0;
 	k = 0;
-	tab = malloc(sizeof(char *) * (count_words(s, set) + 1));
-	if (!tab)
+	if (!(tab = malloc(sizeof(char*) * (count_words(s, set) + 1))))
 		return (NULL);
 	while (s[++i])
 	{
 		if (!in_s(s[i], set))
 		{
 			if (k == 0)
-			{
-				tab[j] = malloc(sizeof(char) * w_s(s, i, set) + 1);
-				if (!tab)
+				if (!(tab[j] = malloc(sizeof(char) * w_s(s, i, set) + 1)))
 					return (NULL);
-			}
 			tab[j][k] = s[i];
 			tab[j][++k] = '\0';
 		}
-		k = 0;
-		if ((in_s(s[i], set) && !in_s(s[i + 1], set) && k > 0) == 0)
+		if ((in_s(s[i], set) && !in_s(s[i + 1], set) && k > 0) && (k = 0) == 0)
 			j++;
 	}
-	return (ft_close(tab, s, set));
+	tab[count_words(s, set)] = NULL;
+	return (tab);
 }

@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 16:44:00 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/10 14:18:28 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/11 11:08:08 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static unsigned int	is_in_set(char c, char const *set)
 	return (0);
 }
 
-static char *ft_close(char *a, char *b, size_t c)
+static char	*ft_close(char *a, char *b, size_t c)
 {
 	ft_strlcpy(a, b, c);
 	return (a);

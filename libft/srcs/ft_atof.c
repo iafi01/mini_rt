@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 17:10:15 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/10 11:41:01 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/11 10:59:17 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_intlen(int n)
 	return (i);
 }
 
-static int	ft_check(char *str, int i, int fac, int atof)
+static float	ft_check(char *str, int i, int fac, int atof)
 {
 	while (str[i] >= '0' && str[i] <= '9')
 	{

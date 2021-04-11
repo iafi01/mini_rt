@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 17:10:15 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/07 10:39:12 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/11 11:10:27 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	temp = (t_list *)malloc(sizeof(t_list));
 	if (!temp)

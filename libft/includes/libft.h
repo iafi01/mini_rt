@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 18:59:38 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/10 14:24:16 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/11 11:22:26 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -78,8 +78,8 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-							void (*del)(void *));
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), \
+					void (*del)(void *));
 int				ft_putchar(char c);
 int				ft_putstr(char *s);
 void			ft_strdel(char **as);
@@ -87,8 +87,5 @@ char			**ft_ssplit(char *s, char *set);
 float			ft_atof(char *str);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_str_c_count(char *str, char c);
-
-
-
 
 #endif

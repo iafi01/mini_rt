@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 11:11:01 by liafigli          #+#    #+#             */
-/*   Updated: 2021/04/07 11:13:45 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/11 11:07:32 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
-    return (1);
+	return (1);
 }
