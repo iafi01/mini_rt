@@ -6,7 +6,7 @@
 /*   By: liafigli <liafigli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 13:41:05 by sdunckel          #+#    #+#             */
-/*   Updated: 2021/04/11 15:24:13 by liafigli         ###   ########.fr       */
+/*   Updated: 2021/04/12 11:07:17 by liafigli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int			check_id_bonus(t_mini_rt *rt)
 {
-	if (ft_strcmp(rt->split[0], "co"))
+	if (ft_strncmp(rt->split[0], "co", 2))
 		parse_cone(rt);
-	else if (ft_strcmp(rt->split[0], "AA") && !rt->anti_aliasing)
+	else if (ft_strncmp(rt->split[0], "AA", 2) && !rt->anti_aliasing)
 		parse_antialiasing(rt);
-	else if (ft_strcmp(rt->split[0], "SEPIA") && !rt->sepia)
+	else if (ft_strncmp(rt->split[0], "SEPIA", 5) && !rt->sepia)
 		rt->sepia = 1;
-	else if (ft_strcmp(rt->split[0], "STEREO") && !rt->st)
+	else if (ft_strncmp(rt->split[0], "STEREO", 6) && !rt->st)
 		rt->st = 1;
-	else if (ft_strcmp(rt->split[0], "SKY") && !rt->sky)
+	else if (ft_strncmp(rt->split[0], "SKY", 3) && !rt->sky)
 		parse_sky(rt);
-	else if (ft_strcmp(rt->split[0], "dl"))
+	else if (ft_strncmp(rt->split[0], "dl", 2))
 		parse_dir_light(rt);
-	else if (ft_strcmp(rt->split[0], "cb"))
+	else if (ft_strncmp(rt->split[0], "cb", 2))
 		parse_cube(rt);
 	else
 		return (0);
@@ -35,25 +35,25 @@ int			check_id_bonus(t_mini_rt *rt)
 
 void		check_id(t_mini_rt *rt)
 {
-	if (ft_strcmp(rt->split[0], "R") && !rt->res.parsed)
+	if (ft_strncmp(rt->split[0], "R", 1) && !rt->res.parsed)
 		parse_res(rt);
-	else if (ft_strcmp(rt->split[0], "A") && !rt->ambient.parsed)
+	else if (ft_strncmp(rt->split[0], "A", 1) && !rt->ambient.parsed)
 		parse_ambient(rt);
-	else if (ft_strcmp(rt->split[0], "c"))
+	else if (ft_strncmp(rt->split[0], "c", 1))
 		parse_camera(rt);
 	else if (ft_strncmp(rt->split[0], "l", 1))
 		parse_light(rt);
-	else if (ft_strcmp(rt->split[0], "sp"))
+	else if (ft_strncmp(rt->split[0], "sp", 2))
 		parse_sphere(rt);
-	else if (ft_strcmp(rt->split[0], "pl"))
+	else if (ft_strncmp(rt->split[0], "pl", 2))
 		parse_plane(rt);
-	else if (ft_strcmp(rt->split[0], "sq"))
+	else if (ft_strncmp(rt->split[0], "sq", 2))
 		parse_square(rt);
-	else if (ft_strcmp(rt->split[0], "cy"))
+	else if (ft_strncmp(rt->split[0], "cy", 2))
 		parse_cylindre(rt);
-	else if (ft_strcmp(rt->split[0], "tr"))
+	else if (ft_strncmp(rt->split[0], "tr", 2))
 		parse_triangle(rt);
-	else if (rt->split[0][0] == '#' || ft_strcmp(rt->split[0], "#"))
+	else if (rt->split[0][0] == '#' || ft_strncmp(rt->split[0], "#", 1))
 		;
 	else if (check_id_bonus(rt))
 		;
