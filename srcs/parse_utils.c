@@ -39,7 +39,7 @@ void		check_id(t_mini_rt *rt)
 		parse_res(rt);
 	else if (ft_strncmp(rt->split[0], "A", 1) && !rt->ambient.parsed)
 		parse_ambient(rt);
-	else if (ft_strncmp(rt->split[0], "c", 1))
+	else if (ft_strcmp(rt->split[0], "c"))
 		parse_camera(rt);
 	else if (ft_strncmp(rt->split[0], "l", 1))
 		parse_light(rt);
@@ -49,7 +49,7 @@ void		check_id(t_mini_rt *rt)
 		parse_plane(rt);
 	else if (ft_strncmp(rt->split[0], "sq", 2))
 		parse_square(rt);
-	else if (ft_strncmp(rt->split[0], "cy", 2))
+	else if (ft_strcmp(rt->split[0], "cy"))
 		parse_cylindre(rt);
 	else if (ft_strncmp(rt->split[0], "tr", 2))
 		parse_triangle(rt);

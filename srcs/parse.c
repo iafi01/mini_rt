@@ -64,13 +64,19 @@ void	parse_camera(t_mini_rt *rt)
 
 	if (!(camera = ft_calloc(1, sizeof(t_camera))))
 		handle_error("fail to malloc", rt);
-	if (count_split(rt->split) != 3 || !check_split(rt->split, 0))
+	if (count_split(rt->split) != 4 || !check_split(rt->split, 0))
 	{
 		free(camera);
 		handle_error("camera parsing error", rt);
 	}
 	camera->pov = split_vec(rt->split[1], rt, 0);
 	camera->orient = split_vec(rt->split[2], rt, 1);
+	camera->fov = ft_atoi(rt->split[3]);
+	if (camera->fov <= 0 && camera->fov >= 180)
+	{
+		free(camera);
+		handle_error("Il fov amico caro", rt);
+	}
 	ft_lstadd_back(&rt->cam_list, ft_lstnew(camera));
 }
 
