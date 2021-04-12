@@ -6,7 +6,7 @@ AA 1
 
 SKY textures/moondust_lf.xpm textures/moondust_rt.xpm textures/moondust_bk.xpm textures/moondust_ft.xpm textures/moondust_dn.xpm textures/moondust_up.xpm
 
-c 0,0,200 0,0.2,1
+c 0,0,200 0,0.2,1 40
 
 l -100,400,-500 1 255,255,255
 #l 0,0,-200 1 255,255,255

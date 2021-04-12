@@ -6,7 +6,7 @@ AA 1
 
 SKY textures/sandcastle_lf.xpm textures/sandcastle_rt.xpm textures/sandcastle_bk.xpm textures/sandcastle_ft.xpm textures/sandcastle_dn.xpm textures/sandcastle_up.xpm
 
-c 0,0,250 0,-0.3,-1
+c 0,0,250 0,-0.3,-1 40
 
 l 0,-80,20 1 100,0,255
 l 0,-80,-20 1 100,0,255

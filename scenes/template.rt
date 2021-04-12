@@ -1,7 +1,7 @@
 R	x y 										// resolution
 A	ratio	r,g,b 								// ambient light
 
-c	x,y,z	x,y,z 								// camera
+c	x,y,z	x,y,z fov								// camera
 
 sp	x,y,z	diameter	r,g,b 					// sphere
 pl	x,y,z	x,y,z	r,g,b						// plane
