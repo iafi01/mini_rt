@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-static size_t		ft_intlen(intmax_t n)
+static size_t	ft_intlen(intmax_t n)
 {
 	size_t		len;
 
@@ -27,13 +27,27 @@ static size_t		ft_intlen(intmax_t n)
 	return (len);
 }
 
-static size_t		ft_is_space(char c)
+static size_t	ft_is_space(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\v' || c == '\n' || c == '\r'
 		|| c == '\f');
 }
 
-float		ft_atof(char *str)
+static int 	ft_first(char *str, int i, int fac)
+{
+	if (str[i] == '-')
+		return (-1);
+	return (fac);
+}
+
+static int	ft_second(int fac, int i)
+{
+	if (fac == -1)
+		return (++i);
+	return (i);
+}
+
+float	ft_atof(char *str)
 {
 	float	atof;
 	int		atoi;
@@ -45,10 +59,10 @@ float		ft_atof(char *str)
 	i = 0;
 	while (ft_is_space(str[i]))
 		i++;
-	str[i] == '-' ? fac = -1 : 0;
+	fac = ft_first(str, i, fac);
 	atoi = ft_atoi(str);
 	i = ft_intlen(atoi);
-	fac == -1 ? i++ : 0;
+	i = ft_second(fac, i);
 	if (str[i] != '.')
 		return (atoi);
 	i++;
