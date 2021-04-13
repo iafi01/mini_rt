@@ -14,18 +14,20 @@
 
 t_texture	create_sky(t_mini_rt *rt, char *file_path)
 {
-	t_texture tex;
+	t_texture	tex;
 
-	if (!(tex.ptr = mlx_xpm_file_to_image(rt->mlx_ptr, file_path,
-		&tex.width, &tex.height)))
+	tex.ptr = mlx_xpm_file_to_image(rt->mlx_ptr, file_path, \
+		&tex.width, &tex.height);
+	if (!tex.ptr)
 		handle_error("fail creating skybox", rt);
-	if (!(tex.img = mlx_get_data_addr(tex.ptr, &tex.bpp,
-		&tex.size_line, &tex.endian)))
+	tex.img = mlx_get_data_addr(tex.ptr, &tex.bpp, \
+		&tex.size_line, &tex.endian);
+	if (!tex.img)
 		handle_error("fail creating skybox", rt);
 	return (tex);
 }
 
-t_color		get_sky_color(t_texture sky, float x, float y, float max)
+t_color	get_sky_color(t_texture sky, float x, float y, float max)
 {
 	int		i;
 	int		column;
@@ -42,7 +44,7 @@ t_color		get_sky_color(t_texture sky, float x, float y, float max)
 	return (color);
 }
 
-void		free_sky(t_mini_rt *rt)
+void	free_sky(t_mini_rt *rt)
 {
 	int		i;
 
@@ -56,7 +58,7 @@ void		free_sky(t_mini_rt *rt)
 	free(rt->sky);
 }
 
-t_color		get_sky_coord(t_mini_rt *rt)
+t_color	get_sky_coord(t_mini_rt *rt)
 {
 	t_color	color;
 	float	m;

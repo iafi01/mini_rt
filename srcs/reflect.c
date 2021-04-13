@@ -12,7 +12,7 @@
 
 #include "../includes/mini_rt.h"
 
-t_vec		get_cylinder_normal(t_element *cylinder, t_vec p)
+t_vec	get_cylinder_normal(t_element *cylinder, t_vec p)
 {
 	t_element	plan;
 	t_mini_rt	rtt;
@@ -23,15 +23,15 @@ t_vec		get_cylinder_normal(t_element *cylinder, t_vec p)
 	plane(&rtt, &plan, p, cylinder->orient);
 	if (rtt.t != INT_MAX)
 	{
-		return (vec_normalize(vec_sub(p, vec_add(cylinder->point,
+		return (vec_normalize(vec_sub(p, vec_add(cylinder->point, \
 			vec_mul(cylinder->orient, rtt.t * -1)))));
 	}
 	plane(&rtt, &plan, p, vec_mul(cylinder->orient, -1));
-	return (vec_normalize(vec_sub(p, vec_add(cylinder->point,
+	return (vec_normalize(vec_sub(p, vec_add(cylinder->point, \
 		vec_mul(cylinder->orient, rtt.t)))));
 }
 
-t_vec		get_normal_vector(t_mini_rt *rt, t_vec p)
+t_vec	get_normal_vector(t_mini_rt *rt, t_vec p)
 {
 	t_vec	norm_vec;
 
@@ -39,7 +39,7 @@ t_vec		get_normal_vector(t_mini_rt *rt, t_vec p)
 		|| rt->obj->id == TRIANGLE)
 		norm_vec = vec_normalize(rt->obj->orient);
 	else if (rt->obj->id == CONE)
-		norm_vec = vec_normalize(vec_sub(p, vec_add(rt->obj->point,
+		norm_vec = vec_normalize(vec_sub(p, vec_add(rt->obj->point, \
 			vec_mul(rt->obj->orient, vec_len(vec_sub(p, rt->obj->point))
 			* -1))));
 	else if (rt->obj->id == CYLINDER)
@@ -49,7 +49,7 @@ t_vec		get_normal_vector(t_mini_rt *rt, t_vec p)
 	return (norm_vec);
 }
 
-t_color		color_average3(t_color color1, t_color color2, float intens)
+t_color	color_average3(t_color color1, t_color color2, float intens)
 {
 	t_color		color;
 
@@ -61,7 +61,7 @@ t_color		color_average3(t_color color1, t_color color2, float intens)
 	return (color);
 }
 
-void		reflect(t_mini_rt *rt)
+void	reflect(t_mini_rt *rt)
 {
 	t_mini_rt	rtt;
 

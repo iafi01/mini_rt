@@ -12,7 +12,7 @@
 
 #include "../includes/mini_rt.h"
 
-int		objs_count(t_list *lst)
+int	objs_count(t_list *lst)
 {
 	int			count;
 	t_list		*tmp;
@@ -66,7 +66,8 @@ void	select_objs(t_mini_rt *rt)
 	tmp = rt->objs_list;
 	while (tmp)
 	{
-		if (((t_element*)tmp->content)->nm && (tmp = tmp->next))
+		tmp = tmp->next;
+		if (((t_element *)tmp->content)->nm && tmp)
 			continue ;
 		if (rt->cur_obj == count)
 		{

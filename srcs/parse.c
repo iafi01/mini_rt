@@ -16,7 +16,8 @@ void	parse_rt_file(char *rt_file, t_mini_rt *rt)
 {
 	int		fd;
 
-	if ((fd = open(rt_file, O_RDONLY)) < 0)
+	fd = open(rt_file, O_RDONLY);
+	if (fd < 0)
 		handle_error("fail to open scene file", rt);
 	while (get_next_line(fd, &rt->line) > 0)
 	{
@@ -28,7 +29,8 @@ void	parse_rt_file(char *rt_file, t_mini_rt *rt)
 	}
 	close(fd);
 	rt->obj_count = objs_count(rt->objs_list);
-	if (!(rt->cam_count = ft_lstsize(rt->cam_list)))
+	rt->cam_count = ft_lstsize(rt->cam_list);
+	if (!rt->cam_count)
 		handle_error("no camera available", rt);
 	if (!rt->res.parsed)
 		handle_error("no resolution", rt);
@@ -43,8 +45,10 @@ void	parse_res(t_mini_rt *rt)
 	if (rt->res.x < 1 || rt->res.y < 1)
 		handle_error("resolution too small", rt);
 	rt->res.parsed = 1;
-	rt->res.x > 2560 ? rt->res.x = 2560 : 0;
-	rt->res.y > 1440 ? rt->res.y = 1395 : 0;
+	if (rt->res.x > 2560)
+		rt->res.x = 2560;
+	if (rt->res.y > 1440)
+		rt->res.y = 1440;
 }
 
 void	parse_ambient(t_mini_rt *rt)
@@ -62,7 +66,8 @@ void	parse_camera(t_mini_rt *rt)
 {
 	t_camera		*camera;
 
-	if (!(camera = ft_calloc(1, sizeof(t_camera))))
+	camera = ft_calloc(1, sizeof(t_camera));
+	if (!camera)
 		handle_error("fail to malloc", rt);
 	if (count_split(rt->split) != 4 || !check_split(rt->split, 0))
 	{
@@ -84,7 +89,8 @@ void	parse_light(t_mini_rt *rt)
 {
 	t_element		*light;
 
-	if (!(light = ft_calloc(1, sizeof(t_element))))
+	light = ft_calloc(1, sizeof(t_element));
+	if (!light)
 		handle_error("fail to malloc", rt);
 	if (count_split(rt->split) != 4 || !check_split(rt->split, 0))
 	{
