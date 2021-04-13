@@ -15,7 +15,7 @@
 void	build_bar(int percentage, int width)
 {
 	int	i;
-	int ratio;
+	int	ratio;
 
 	i = 0;
 	ratio = 100 / width;
@@ -31,14 +31,13 @@ void	build_bar(int percentage, int width)
 		i++;
 	}
 	ft_putstr("] ");
-	//printf("%d%%", percentage);
 }
 
 void	progress_bar(t_thread *thread)
 {
 	int	pos;
-	int prec;
-	int i;
+	int	prec;
+	int	i;
 
 	pos = 0;
 	prec = 0;

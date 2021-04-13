@@ -12,7 +12,7 @@
 
 #include "../includes/mini_rt.h"
 
-int		key_hook5(int key, t_mini_rt *rt)
+int	key_hook5(int key, t_mini_rt *rt)
 {
 	if (key == KEY_DOWN && rt->move_obj && rt->move_obj->id == TRIANGLE)
 	{
@@ -37,7 +37,7 @@ int		key_hook5(int key, t_mini_rt *rt)
 	return (1);
 }
 
-int		key_hook4(int key, t_mini_rt *rt)
+int	key_hook4(int key, t_mini_rt *rt)
 {
 	if (key == KEY_N && rt->move_obj && rt->move_obj->id == TRIANGLE)
 	{
@@ -64,7 +64,7 @@ int		key_hook4(int key, t_mini_rt *rt)
 	return (1);
 }
 
-int		key_hook3(int key, t_mini_rt *rt)
+int	key_hook3(int key, t_mini_rt *rt)
 {
 	if (key == KEY_I && rt->move_obj)
 		rt->move_obj->orient.y += 0.1;
@@ -91,7 +91,7 @@ int		key_hook3(int key, t_mini_rt *rt)
 	return (1);
 }
 
-int		key_hook2(int key, t_mini_rt *rt)
+int	key_hook2(int key, t_mini_rt *rt)
 {
 	if (key == KEY_T)
 		rt->cam->orient.y += 0.1;
@@ -120,7 +120,7 @@ int		key_hook2(int key, t_mini_rt *rt)
 	return (1);
 }
 
-int		key_hook(int key, t_mini_rt *rt)
+int	key_hook(int key, t_mini_rt *rt)
 {
 	if (key == KEY_W)
 		rt->cam->pov.y++;

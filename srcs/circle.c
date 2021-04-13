@@ -16,11 +16,12 @@ void	create_circle(t_mini_rt *rt, t_element *cylinder, float t, int create)
 {
 	t_element		*circle;
 
-	if (!(circle = ft_calloc(1, sizeof(t_element))))
+	circle = ft_calloc(1, sizeof(t_element));
+	if (!circle)
 		handle_error("fail to malloc", rt);
 	circle->id = 6;
 	circle->nm = 1;
-	circle->point = vec_add(cylinder->point,
+	circle->point = vec_add(cylinder->point, \
 		vec_mul(vec_normalize(cylinder->orient), t));
 	circle->orient = cylinder->orient;
 	circle->diameter = cylinder->diameter;
@@ -34,7 +35,7 @@ void	create_circle(t_mini_rt *rt, t_element *cylinder, float t, int create)
 
 void	circle(t_mini_rt *rt, t_element *circle, t_vec ori, t_vec dir)
 {
-	t_solve s;
+	t_solve	s;
 	t_vec	inter;
 
 	s.a = vec_dot(vec_sub(ori, circle->point), circle->orient);
@@ -47,5 +48,6 @@ void	circle(t_mini_rt *rt, t_element *circle, t_vec ori, t_vec dir)
 	inter = vec_add(ori, vec_mul(dir, s.t1));
 	inter = vec_sub(inter, circle->point);
 	s.det = sqrt(vec_dot(inter, inter));
-	s.det <= circle->diameter / 2 ? rt->t = s.t1 : 0;
+	if (s.det <= circle->diameter / 2)
+		rt->t = s.t1;
 }

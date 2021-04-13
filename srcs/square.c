@@ -16,7 +16,8 @@ void	create_square(t_mini_rt *rt, t_element *cube, t_vec point, t_vec orient)
 {
 	t_element		*square;
 
-	if (!(square = ft_calloc(1, sizeof(t_element))))
+	square = ft_calloc(1, sizeof(t_element));
+	if (!square)
 		handle_error("fail to malloc", rt);
 	square->id = 3;
 	square->nm = 1;

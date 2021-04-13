@@ -31,13 +31,14 @@ static	void	inter(t_mini_rt *rt, t_element *cylinder, t_solve s,
 	plan.point = cylinder->point;
 	rtt.t = INT_MAX;
 	plane(&rtt, &plan, inter, cylinder->orient);
-	rtt.t <= cylinder->height / 2 ? rt->t = t : 0;
+	if (rtt.t <= cylinder->height / 2)
+		rt->t = t;
 	plane(&rtt, &plan, inter, vec_mul(cylinder->orient, -1));
-	rtt.t <= cylinder->height / 2 ? rt->t = t : 0;
+	if (rtt.t <= cylinder->height / 2)
+		rt->t = t;
 }
 
-void			cylinder(t_mini_rt *rt, t_element *cylinder, t_vec ori,
-					t_vec dir)
+void	cylinder(t_mini_rt *rt, t_element *cylinder, t_vec ori, t_vec dir)
 {
 	t_solve		s;
 	t_mini_rt	rtt;
@@ -50,8 +51,8 @@ void			cylinder(t_mini_rt *rt, t_element *cylinder, t_vec ori,
 	cross2 = vec_cross(s.sub, cylinder->orient);
 	s.a = vec_dot(s.cross, s.cross);
 	s.b = 2 * vec_dot(s.cross, cross2);
-	s.c = vec_dot(cross2, cross2) - (pow(cylinder->diameter / 2, 2)
-		* vec_dot(cylinder->orient, cylinder->orient));
+	s.c = vec_dot(cross2, cross2) - (pow(cylinder->diameter / 2, 2) * \
+		vec_dot(cylinder->orient, cylinder->orient));
 	s.det = pow(s.b, 2) - (4 * s.a * s.c);
 	if (s.det < 0)
 		return ;

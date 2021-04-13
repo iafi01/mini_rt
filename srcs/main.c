@@ -24,7 +24,7 @@ void	multi_thread(t_mini_rt *rt)
 		thread[i].cur_thr = i;
 		ft_memcpy(&thread[i].scene, rt, sizeof(t_mini_rt));
 		thread[i].scene.tr = i;
-		pthread_create(&thr[i], NULL, (void*)raytracing, &thread[i]);
+		pthread_create(&thr[i], NULL, (void *)raytracing, &thread[i]);
 		i++;
 	}
 	progress_bar((t_thread*)&thread);
@@ -51,8 +51,9 @@ void	setup_rt(t_mini_rt *rt)
 
 void	create_window(t_mini_rt *rt)
 {
-	if (!(rt->win_ptr = mlx_new_window(rt->mlx_ptr, rt->res.x,
-		rt->res.y, "miniRT")))
+	rt->win_ptr = mlx_new_window(rt->mlx_ptr, rt->res.x, \
+		rt->res.y, "miniRT");
+	if (!rt->win_ptr)
 		handle_error("fail to create Minilibx window", rt);
 	mlx_hook(rt->win_ptr, 2, 0, get_keypress, rt);
 	mlx_hook(rt->win_ptr, 4, 0, mouse_press, rt);
@@ -78,12 +79,13 @@ void	start_mini_rt(t_mini_rt *rt)
 	create_window(rt);
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_mini_rt	rt;
 
 	ft_bzero(&rt, sizeof(t_mini_rt));
-	if (!(rt.mlx_ptr = mlx_init()))
+	rt.mlx_ptr = mlx_init();
+	if (!rt.mlx_ptr)
 		handle_error("fail to initialize Minilibx", &rt);
 	if (argc > 3 || argc == 1 || (argc == 3 && !ft_strcmp(argv[2], "--save")))
 		handle_error("wrong arguments", &rt);

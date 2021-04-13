@@ -12,8 +12,7 @@
 
 #include "../includes/mini_rt.h"
 
-static	int		plane_side(t_mini_rt *rt, t_element *light, t_vec ori,
-					t_vec dir)
+static int	plane_side(t_mini_rt *rt, t_element *light, t_vec ori, t_vec dir)
 {
 	t_element	cam_plane;
 	t_mini_rt	rtt;
@@ -41,7 +40,7 @@ static	int		plane_side(t_mini_rt *rt, t_element *light, t_vec ori,
 	return (0);
 }
 
-t_vec			get_light_vec(t_element *light, t_vec p)
+t_vec	get_light_vec(t_element *light, t_vec p)
 {
 	t_vec	l;
 
@@ -58,7 +57,7 @@ t_vec			get_light_vec(t_element *light, t_vec p)
 	return (l);
 }
 
-t_color			apply_intensity(float intensity, t_color color)
+t_color	apply_intensity(float intensity, t_color color)
 {
 	if (intensity > 1)
 		return (color);
@@ -68,7 +67,7 @@ t_color			apply_intensity(float intensity, t_color color)
 	return (color);
 }
 
-t_color			rotate_color(t_mini_rt *rt, t_vec p, t_vec n, t_color color)
+t_color	rotate_color(t_mini_rt *rt, t_vec p, t_vec n, t_color color)
 {
 	t_list		*tmp;
 	t_element	*light;
@@ -86,9 +85,9 @@ t_color			rotate_color(t_mini_rt *rt, t_vec p, t_vec n, t_color color)
 		{
 			tmp = tmp->next;
 			free(light);
-			continue;
+			continue ;
 		}
-		color = color_add(color, color_average(rt->color,
+		color = color_add(color, color_average(rt->color, \
 			apply_intensity(light->ratio * dot, light->color)), 1);
 		free(light);
 		tmp = tmp->next;
@@ -96,12 +95,12 @@ t_color			rotate_color(t_mini_rt *rt, t_vec p, t_vec n, t_color color)
 	return (color);
 }
 
-t_color			apply_lights(t_mini_rt *rt)
+t_color	apply_lights(t_mini_rt *rt)
 {
 	t_vec		n;
 	t_color		color;
 
-	color = color_average(rt->color,
+	color = color_average(rt->color, \
 		apply_intensity(rt->ambient.ratio, rt->ambient.color));
 	n = get_normal_vector(rt, rt->p);
 	color = rotate_color(rt, rt->p, n, color);

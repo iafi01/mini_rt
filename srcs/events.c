@@ -52,7 +52,7 @@ void	handle_error(char *str, t_mini_rt *rt)
 	exit(EXIT_FAILURE);
 }
 
-int		exit_and_free(t_mini_rt *rt)
+int	exit_and_free(t_mini_rt *rt)
 {
 	printf("" BOLDGREEN "Exiting miniRT...\n" RESET);
 	free_camera_and_texture(rt);
@@ -85,7 +85,7 @@ char	**free_split(char **split)
 	return (split);
 }
 
-int		get_keypress(int key, t_mini_rt *rt)
+int	get_keypress(int key, t_mini_rt *rt)
 {
 	if (key == KEY_TAB)
 		change_cam(rt);

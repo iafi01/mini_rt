@@ -12,7 +12,7 @@
 
 #include "../includes/mini_rt.h"
 
-void		apply_sepia(t_mini_rt *rt)
+void	apply_sepia(t_mini_rt *rt)
 {
 	float		red;
 	float		green;
@@ -35,7 +35,7 @@ void		apply_sepia(t_mini_rt *rt)
 		rt->color.b = blue;
 }
 
-void		color_put(t_mini_rt *rt, int x, int y)
+void	color_put(t_mini_rt *rt, int x, int y)
 {
 	int		i;
 	int		column;
@@ -60,7 +60,7 @@ void		color_put(t_mini_rt *rt, int x, int y)
 	rt->cam->img.add[i + 2] = rt->color.r * 255;
 }
 
-t_color		color_average(t_color color1, t_color color2)
+t_color	color_average(t_color color1, t_color color2)
 {
 	t_color		color;
 
@@ -70,20 +70,23 @@ t_color		color_average(t_color color1, t_color color2)
 	return (color);
 }
 
-t_color		color_add(t_color color1, t_color color2, int cap)
+t_color	color_add(t_color color1, t_color color2, int cap)
 {
 	t_color		color;
 
 	color.r = color1.r + color2.r;
-	color.r > 1 && cap ? color.r = 1 : 0;
+	if (color.r > 1 && cap)
+		color.r = 1;
 	color.g = color1.g + color2.g;
-	color.g > 1 && cap ? color.g = 1 : 0;
+	if (color.g > 1 && cap)
+		color.g = 1;
 	color.b = color1.b + color2.b;
-	color.b > 1 && cap ? color.b = 1 : 0;
+	if (color.b > 1 && cap)
+		color.b = 1;
 	return (color);
 }
 
-t_color		color_div(t_color color, int average)
+t_color	color_div(t_color color, int average)
 {
 	t_color		c;
 

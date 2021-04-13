@@ -12,7 +12,7 @@
 
 #include "../includes/mini_rt.h"
 
-int		get_mouse_pos(int x, int y, t_mini_rt *rt)
+int	get_mouse_pos(int x, int y, t_mini_rt *rt)
 {
 	if (x > 0 && x <= rt->res.x && y > 0 && y < rt->res.y && rt->mouse)
 	{
@@ -30,7 +30,7 @@ int		get_mouse_pos(int x, int y, t_mini_rt *rt)
 	return (1);
 }
 
-int		mouse_press(int button, int x, int y, t_mini_rt *rt)
+int	mouse_press(int button, int x, int y, t_mini_rt *rt)
 {
 	(void)x;
 	(void)y;
@@ -39,7 +39,7 @@ int		mouse_press(int button, int x, int y, t_mini_rt *rt)
 	return (1);
 }
 
-int		mouse_release(int button, int x, int y, t_mini_rt *rt)
+int	mouse_release(int button, int x, int y, t_mini_rt *rt)
 {
 	(void)x;
 	(void)y;

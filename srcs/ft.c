@@ -12,7 +12,7 @@
 
 #include "../includes/mini_rt.h"
 
-int			check_orient(t_vec *orient)
+int	check_orient(t_vec *orient)
 {
 	if (orient->x > 1)
 		orient->x = 1;
@@ -31,7 +31,7 @@ int			check_orient(t_vec *orient)
 	return (0);
 }
 
-int			count_split(char **split)
+int	count_split(char **split)
 {
 	int		i;
 
@@ -41,7 +41,7 @@ int			count_split(char **split)
 	return (i);
 }
 
-void		show_keybind(t_mini_rt *rt)
+void	show_keybind(t_mini_rt *rt)
 {
 	if (rt->kb)
 	{
@@ -65,7 +65,7 @@ void		show_keybind(t_mini_rt *rt)
 			0, 0);
 }
 
-void		redraw_window(t_mini_rt *rt)
+void	redraw_window(t_mini_rt *rt)
 {
 	setup_rt(rt);
 	multi_thread(rt);
@@ -77,7 +77,8 @@ t_element	*element_cpy(t_element *elem, t_mini_rt *rt)
 {
 	t_element	*new_elem;
 
-	if (!(new_elem = ft_calloc(1, sizeof(t_element))))
+	new_elem = ft_calloc(1, sizeof(t_element));
+	if (!new_elem)
 		handle_error("fail to malloc", rt);
 	ft_memcpy(new_elem, elem, sizeof(t_element));
 	return (new_elem);

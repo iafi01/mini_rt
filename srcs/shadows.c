@@ -12,7 +12,7 @@
 
 #include "../includes/mini_rt.h"
 
-int		apply_shadows(t_mini_rt *rt, t_vec ori, t_vec dir, t_element *light)
+int	apply_shadows(t_mini_rt *rt, t_vec ori, t_vec dir, t_element *light)
 {
 	t_list		*tmp;
 	t_element	*obj;
@@ -26,8 +26,10 @@ int		apply_shadows(t_mini_rt *rt, t_vec ori, t_vec dir, t_element *light)
 		obj = tmp->content;
 		if (rt->obj == obj)
 		{
-			rt->obj->id == CYLINDER ? tmp = tmp->next->next : 0;
-			rt->obj->id == CONE ? tmp = tmp->next : 0;
+			if (rt->obj->id == CYLINDER)
+				tmp = tmp->next->next;
+			if (rt->obj->id == CONE)
+				tmp = tmp->next;
 			tmp = tmp->next;
 			continue ;
 		}

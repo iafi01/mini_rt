@@ -17,7 +17,8 @@ void	bitmap_file_header(t_mini_rt *rt, int padding_size, int fd)
 	unsigned char	*file_header;
 	int				file_size;
 
-	if (!(file_header = ft_calloc(BMP_FILE_HEADER_SIZE, sizeof(unsigned char))))
+	file_header = ft_calloc(BMP_FILE_HEADER_SIZE, sizeof(unsigned char));
+	if (!file_header)
 		handle_error("fail to malloc", rt);
 	file_size = BMP_FILE_HEADER_SIZE + BMP_INFO_HEADER_SIZE
 		+ (rt->cam->img.bpp / 8 * rt->res.x + padding_size) * rt->res.y;
@@ -27,17 +28,18 @@ void	bitmap_file_header(t_mini_rt *rt, int padding_size, int fd)
 	file_header[3] = (unsigned char)(file_size >> 8);
 	file_header[4] = (unsigned char)(file_size >> 16);
 	file_header[5] = (unsigned char)(file_size >> 24);
-	file_header[10] = (unsigned char)(BMP_FILE_HEADER_SIZE
-		+ BMP_INFO_HEADER_SIZE);
+	file_header[10] = (unsigned char)(BMP_FILE_HEADER_SIZE + \
+		BMP_INFO_HEADER_SIZE);
 	write(fd, file_header, BMP_FILE_HEADER_SIZE);
-	ft_strdel((char**)&file_header);
+	ft_strdel((char **)&file_header);
 }
 
 void	bitmap_info_header(t_mini_rt *rt, int fd)
 {
 	unsigned char	*info_header;
 
-	if (!(info_header = ft_calloc(BMP_INFO_HEADER_SIZE, sizeof(unsigned char))))
+	info_header = ft_calloc(BMP_INFO_HEADER_SIZE, sizeof(unsigned char));
+	if (!info_header)
 		handle_error("fail to malloc", rt);
 	info_header[0] = (unsigned char)(40);
 	info_header[4] = (unsigned char)(rt->res.x);
@@ -51,7 +53,7 @@ void	bitmap_info_header(t_mini_rt *rt, int fd)
 	info_header[12] = (unsigned char)(1);
 	info_header[14] = (unsigned char)(rt->cam->img.bpp);
 	write(fd, info_header, BMP_INFO_HEADER_SIZE);
-	ft_strdel((char**)&info_header);
+	ft_strdel((char **)&info_header);
 }
 
 void	create_bmp_image(t_mini_rt *rt, char *file_name)
@@ -63,7 +65,8 @@ void	create_bmp_image(t_mini_rt *rt, char *file_name)
 
 	i = rt->res.y;
 	ft_bzero(padding, 3);
-	if (!(fd = open(file_name, O_CREAT | O_WRONLY | O_TRUNC, 0644)))
+	fd = open(file_name, O_CREAT | O_WRONLY | O_TRUNC, 0644);
+	if (!fd)
 		handle_error("fail to export bmp file", rt);
 	padding_size = (4 - (rt->res.x * rt->img.bpp / 8) % 4) % 4;
 	bitmap_file_header(rt, padding_size, fd);

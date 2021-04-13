@@ -31,10 +31,11 @@ t_mini_rt rtt)
 	plan.point = cone->point;
 	rtt.t = INT_MAX;
 	plane(&rtt, &plan, inter, vec_normalize(cone->orient));
-	rtt.t <= cone->height ? rt->t = t : 0;
+	if (rtt.t <= cone->height)
+		rt->t = t;
 }
 
-void			cone(t_mini_rt *rt, t_element *cone, t_vec ori, t_vec dir)
+void	cone(t_mini_rt *rt, t_element *cone, t_vec ori, t_vec dir)
 {
 	t_solve		s;
 	t_mini_rt	rtt;

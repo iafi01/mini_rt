@@ -22,14 +22,16 @@ void	create_all_cam(t_mini_rt *rt)
 	while (tmp)
 	{
 		rt->cam = tmp->content;
-		if (!(rt->cam->img.ptr = mlx_new_image(rt->mlx_ptr, rt->res.x,
-			rt->res.y)))
+		rt->cam->img.ptr = mlx_new_image(rt->mlx_ptr, rt->res.x, \
+			rt->res.y);
+		if (!rt->cam->img.ptr)
 			handle_error("fail to create Minilibx image", rt);
-		if (!(rt->cam->img.add = mlx_get_data_addr(rt->cam->img.ptr,
-			&rt->cam->img.bpp, &rt->cam->img.size_line, &rt->cam->img.endian)))
+		rt->cam->img.add = mlx_get_data_addr(rt->cam->img.ptr, \
+			&rt->cam->img.bpp, &rt->cam->img.size_line, &rt->cam->img.endian);
+		if (!rt->cam->img.add)
 			handle_error("fail to get Minilibx image data", rt);
-		rt->cam_count > 1 ? printf("" BOLDGREEN ">> %d/%d"
-			" camera <<\n" RESET, count, rt->cam_count) : 0;
+		if (rt->cam_count > 1)
+			printf(""BOLDGREEN"%d/%d""_cam<<\n" RESET, count, rt->cam_count);
 		setup_rt(rt);
 		multi_thread(rt);
 		if (rt->save)
