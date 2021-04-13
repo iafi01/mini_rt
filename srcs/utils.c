@@ -58,3 +58,9 @@ void	progress_bar(t_thread *thread)
 	}
 	ft_putstr("" RESET "\n" "");
 }
+
+void	ft_prs_cone(t_mini_rt *rt, t_element *cone)
+{
+	free(cone);
+	handle_error("cone parsing error", rt);
+}

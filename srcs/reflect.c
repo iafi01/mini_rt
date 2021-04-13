@@ -40,8 +40,7 @@ t_vec	get_normal_vector(t_mini_rt *rt, t_vec p)
 		norm_vec = vec_normalize(rt->obj->orient);
 	else if (rt->obj->id == CONE)
 		norm_vec = vec_normalize(vec_sub(p, vec_add(rt->obj->point, \
-			vec_mul(rt->obj->orient, vec_len(vec_sub(p, rt->obj->point))
-			* -1))));
+		vec_mul(rt->obj->orient, vec_len(vec_sub(p, rt->obj->point)) * -1))));
 	else if (rt->obj->id == CYLINDER)
 		norm_vec = get_cylinder_normal(rt->obj, p);
 	else
@@ -71,17 +70,19 @@ void	reflect(t_mini_rt *rt)
 	ft_memcpy(&rtt, rt, sizeof(t_mini_rt));
 	rtt.ray.ori = rt->p;
 	rtt.ray.dir = get_normal_vector(rt, rtt.ray.ori);
-	rt->obj->ref < 0 ? rtt.ray.dir = vec_mul(rtt.ray.dir, -1) : rtt.ray.dir;
-	rt->obj->ref > 0 ? rtt.ray.dir = vec_normalize(vec_sub(rt->ray.dir,
-		vec_mul(vec_mul(rtt.ray.dir, vec_dot(rtt.ray.dir, rt->ray.dir)), 2)))
-		: rtt.ray.dir;
-	rt->obj->ref < 0 ? rtt.ray.dir = vec_normalize(vec_sub(rt->ray.dir,
-		vec_mul(vec_mul(rtt.ray.dir, vec_dot(vec_mul(rtt.ray.dir, rt->obj->ref),
-		rt->ray.dir)), 2))) : rtt.ray.dir;
+	if (rt->obj->ref < 0)
+		rtt.ray.dir = vec_mul(rtt.ray.dir, -1);
+	if (rt->obj->ref > 0)
+		rtt.ray.dir = vec_normalize(vec_sub(rt->ray.dir, \
+		vec_mul(vec_mul(rtt.ray.dir, vec_dot(rtt.ray.dir, rt->ray.dir)), 2)));
+	if (rt->obj->ref < 0)
+		rtt.ray.dir = vec_normalize(vec_sub(rt->ray.dir, \
+		vec_mul(vec_mul(rtt.ray.dir, vec_dot(vec_mul(rtt.ray.dir, rt->obj->ref), \
+		rt->ray.dir)), 2)));
 	rtt.ray.ori = vec_add(rtt.ray.ori, vec_mul(rtt.ray.dir, 0.2));
 	rtt.color = ray_intersect(&rtt);
-	rt->obj->ref > 0 ? rt->color = color_average3(rt->color, rtt.color,
-		rt->obj->ref) : rt->color;
-	rt->obj->ref < 0 ? rt->color = color_average3(rt->color, rtt.color, 1)
-		: rt->color;
+	if (rt->obj->ref > 0)
+		rt->color = color_average3(rt->color, rtt.color, rt->obj->ref);
+	if (rt->obj->ref < 0)
+		rt->color = color_average3(rt->color, rtt.color, 1);
 }
