@@ -32,23 +32,21 @@ void	find_objs(t_mini_rt *rt, t_element *obj, t_vec ori, t_vec dir)
 
 t_color	ray_intersect(t_mini_rt *rt)
 {
-	t_list		*tmp;
-
 	rt->obj = NULL;
 	rt->t = INT_MAX;
 	rt->k = INT_MAX;
 	ft_bzero(&rt->color, sizeof(t_color));
 	if (rt->sky)
 		rt->color = get_sky_coord(rt);
-	tmp = rt->objs_list;
-	while (tmp)
+	rt->tmp_raytrace = rt->objs_list;
+	while (rt->tmp_raytrace)
 	{
-		find_objs(rt, tmp->content, rt->ray.ori, rt->ray.dir);
+		find_objs(rt, rt->tmp_raytrace->content, rt->ray.ori, rt->ray.dir);
 		if (rt->t > 0 && rt->t < rt->k)
-			rt->obj = tmp->content;
+			rt->obj = rt->tmp_raytrace->content;
 		if (rt->t > 0 && rt->t < rt->k)
 			rt->k = rt->t;
-		tmp = tmp->next;
+		rt->tmp_raytrace = rt->tmp_raytrace->next;
 	}
 	if (rt->obj)
 	{
