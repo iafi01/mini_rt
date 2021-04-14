@@ -25,9 +25,9 @@
 # include <math.h>
 # include <stdio.h>
 # include <pthread.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 # define SPHERE 1
 # define PLANE 2
@@ -50,7 +50,7 @@
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 
-typedef struct	s_mini_rt
+typedef struct s_mini_rt
 {
 	void				*mlx_ptr;
 	void				*win_ptr;
@@ -91,10 +91,12 @@ typedef struct	s_mini_rt
 	t_list				*light_list;
 }				t_mini_rt;
 
-typedef struct	s_thread
+typedef struct s_thread
 {
 	int					cur_thr;
 	t_mini_rt			scene;
+	float				i;
+	float				j;
 }				t_thread;
 
 /*

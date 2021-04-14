@@ -13,34 +13,34 @@
 #ifndef ELEMENTS_H
 # define ELEMENTS_H
 
-typedef struct	s_vec
+typedef struct s_vec
 {
 	float		x;
 	float		y;
 	float		z;
 }				t_vec;
 
-typedef struct	s_color
+typedef struct s_color
 {
 	float		r;
 	float		g;
 	float		b;
 }				t_color;
 
-typedef struct	s_res
+typedef struct s_res
 {
 	int			x;
 	int			y;
 	int			parsed;
 }				t_res;
 
-typedef struct	s_ray
+typedef struct s_ray
 {
 	t_vec		ori;
 	t_vec		dir;
 }				t_ray;
 
-typedef struct	s_solve
+typedef struct s_solve
 {
 	float		a;
 	float		b;
@@ -54,14 +54,14 @@ typedef struct	s_solve
 	t_vec		cross;
 }				t_solve;
 
-typedef struct	s_ambient
+typedef struct s_ambient
 {
 	float		ratio;
 	int			parsed;
 	t_color		color;
 }				t_ambient;
 
-typedef struct	s_image
+typedef struct s_image
 {
 	void		*ptr;
 	char		*add;
@@ -70,7 +70,7 @@ typedef struct	s_image
 	int			endian;
 }				t_image;
 
-typedef struct	s_camera
+typedef struct s_camera
 {
 	t_vec		pov;
 	t_vec		orient;
@@ -80,7 +80,7 @@ typedef struct	s_camera
 	int			fov;
 }				t_camera;
 
-typedef struct	s_texture
+typedef struct s_texture
 {
 	void		*ptr;
 	char		*img;
@@ -91,7 +91,7 @@ typedef struct	s_texture
 	int			endian;
 }				t_texture;
 
-typedef struct	s_element
+typedef struct s_element
 {
 	int			id;
 	t_vec		point;

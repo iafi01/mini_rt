@@ -17,7 +17,9 @@ t_color	raiiinbow(t_mini_rt *rt)
 	t_color		color;
 	float		dist;
 
-	dist = (rt->obj->id == PLANE ? fmod(rt->k / 50, 3) : fmod(rt->k / 10, 3));
+	dist = fmod(rt->k / 10, 3);
+	if (rt->obj->id == PLANE)
+		dist = fmod(rt->k / 50, 3);
 	if (dist < 1)
 		color = (t_color){1, (dist - 0.5) * 2, 1 - dist * 2};
 	else if (dist >= 1 && dist < 2)
@@ -30,9 +32,12 @@ t_color	raiiinbow(t_mini_rt *rt)
 		dist -= 2;
 		color = (t_color){(dist - 0.5) * 2, 1 - dist * 2, 1};
 	}
-	color.r < 0 || color.r > 1 ? color.r = 0 : 0;
-	color.g < 0 || color.g > 1 ? color.g = 0 : 0;
-	color.b < 0 || color.b > 1 ? color.b = 0 : 0;
+	if (color.r < 0 || color.r > 1)
+		color.r = 0;
+	if (color.g < 0 || color.g > 1)
+		color.g = 0;
+	if (color.b < 0 || color.b > 1)
+		color.b = 0;
 	return (color);
 }
 

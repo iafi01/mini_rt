@@ -38,20 +38,24 @@ t_color	ray_intersect(t_mini_rt *rt)
 	rt->t = INT_MAX;
 	rt->k = INT_MAX;
 	ft_bzero(&rt->color, sizeof(t_color));
-	rt->sky ? rt->color = get_sky_coord(rt) : rt->color;
+	if (rt->sky)
+		rt->color = get_sky_coord(rt);
 	tmp = rt->objs_list;
 	while (tmp)
 	{
 		find_objs(rt, tmp->content, rt->ray.ori, rt->ray.dir);
-		if (rt->t > 0 && rt->t < rt->k && (rt->k = rt->t))
+		if (rt->t > 0 && rt->t < rt->k)
 			rt->obj = tmp->content;
+		if (rt->t > 0 && rt->t < rt->k)
+			rt->k = rt->t;
 		tmp = tmp->next;
 	}
 	if (rt->obj)
 	{
 		rt->p = vec_add(rt->ray.ori, vec_mul(rt->ray.dir, rt->k));
 		rt->color = get_color(rt);
-		rt->obj->ref ? reflect(rt) : 0;
+		if (rt->obj->ref)
+			reflect(rt);
 		rt->color = apply_lights(rt);
 	}
 	return (rt->color);
@@ -66,10 +70,12 @@ t_vec	calc_ray(t_mini_rt *rt, float x, float y)
 
 	norm_x = ((x / (float)rt->res.x) - 0.5);
 	norm_y = ((y / (float)rt->res.y) - 0.5);
-	rt->res.x < rt->res.y ? norm_x *= rt->aspect : 0;
-	rt->res.x > rt->res.y ? norm_y /= rt->aspect : 0;
-	image_point = vec_add(vec_add(vec_add(vec_mul(rt->cam->right, norm_x),
-		vec_mul(rt->cam->up, norm_y)), rt->ray.ori),
+	if (rt->res.x < rt->res.y)
+		norm_x *= rt->aspect;
+	if (rt->res.x > rt->res.y)
+		norm_y /= rt->aspect;
+	image_point = vec_add(vec_add(vec_add(vec_mul(rt->cam->right, norm_x), \
+		vec_mul(rt->cam->up, norm_y)), rt->ray.ori), \
 		vec_normalize(rt->cam->orient));
 	dir = vec_normalize(vec_sub(image_point, rt->ray.ori));
 	return (dir);
@@ -77,7 +83,7 @@ t_vec	calc_ray(t_mini_rt *rt, float x, float y)
 
 t_color	anti_aliasing(t_mini_rt *rt, float i, float j)
 {
-	t_color color;
+	t_color	color;
 	int		aa;
 	float	aax;
 	float	aay;
@@ -104,29 +110,29 @@ t_color	anti_aliasing(t_mini_rt *rt, float i, float j)
 
 void	raytracing(t_thread *th)
 {
-	float	i;
-	float	j;
 	float	st;
 
-	j = 0;
+	th->j = 0;
 	st = 0;
-	th->scene.st && th->cur_thr % 2 == 1 ? st = round(th->scene.res.x / 50) : 0;
-	while (j < th->scene.res.y && (i = th->cur_thr) >= 0)
+	if (th->scene.st && th->cur_thr % 2 == 1)
+		st = round(th->scene.res.x / 50);
+	while (th->j < th->scene.res.y && th->cur_thr >= 0)
 	{
-		while (i < th->scene.res.x && (th->scene.nbref = 0) == 0)
+		th->i = th->cur_thr;
+		th->scene.nbref = 0;
+		while (th->i < th->scene.res.x && th->scene.nbref == 0)
 		{
 			if (th->scene.anti_aliasing > 1)
-				th->scene.color = anti_aliasing(&th->scene, i, j);
-			else
-			{
-				th->scene.ray.dir = calc_ray(&th->scene, i - st, j);
+				th->scene.color = anti_aliasing(&th->scene, th->i, th->j);
+			if (th->scene.anti_aliasing <= 1)
+				th->scene.ray.dir = calc_ray(&th->scene, th->i - st, th->j);
+			if (th->scene.anti_aliasing <= 1)
 				th->scene.color = ray_intersect(&th->scene);
-			}
-			color_put(&th->scene, i, j);
-			i += THREAD_COUNT;
+			color_put(&th->scene, th->i, th->j);
+			th->i += THREAD_COUNT;
 		}
-		th->scene.percent = (int)(j * 100 / th->scene.res.y) + 1;
-		j++;
+		th->scene.percent = (int)(th->j * 100 / th->scene.res.y) + 1;
+		th->j++;
 	}
 	pthread_exit(NULL);
 }

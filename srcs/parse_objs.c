@@ -23,10 +23,10 @@ void	parse_sphere(t_mini_rt *rt)
 		handle_error("fail to malloc", rt);
 	if (check < 4 || check > 6 || !check_split(rt->split, 5) || \
 		(check == 6 && (!ft_strcmp(rt->split[5], "raiiinbow"))))
-	{
 		free(sphere);
+	if (check < 4 || check > 6 || !check_split(rt->split, 5) || \
+		(check == 6 && (!ft_strcmp(rt->split[5], "raiiinbow"))))
 		handle_error("sphere parsing error", rt);
-	}
 	sphere->id = 1;
 	sphere->point = split_vec(rt->split[1], rt, 0);
 	sphere->diameter = ft_atof(rt->split[2]);
@@ -109,10 +109,10 @@ void	parse_cylindre(t_mini_rt *rt)
 		handle_error("fail to malloc", rt);
 	if (check < 6 || check > 8 || !check_split(rt->split, 7) || \
 		(check == 8 && !ft_strcmp(rt->split[7], "raiiinbow")))
-	{
 		free(cylinder);
+	if (check < 6 || check > 8 || !check_split(rt->split, 7) || \
+		(check == 8 && !ft_strcmp(rt->split[7], "raiiinbow")))
 		handle_error("cylinder parsing error", rt);
-	}
 	cylinder->id = 4;
 	cylinder->point = split_vec(rt->split[1], rt, 0);
 	cylinder->orient = vec_normalize(split_vec(rt->split[2], rt, 1));
