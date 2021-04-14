@@ -38,11 +38,13 @@ t_color	raiiinbow(t_mini_rt *rt)
 
 void	create_texture(t_mini_rt *rt, t_element *elem, char *file_path)
 {
-	if (!(elem->tex.ptr = mlx_xpm_file_to_image(rt->mlx_ptr, file_path,
-		&elem->tex.width, &elem->tex.height)))
+	elem->tex.ptr = mlx_xpm_file_to_image(rt->mlx_ptr, file_path, \
+		&elem->tex.width, &elem->tex.height);
+	if (!elem->tex.ptr)
 		handle_error("fail creating texture", rt);
-	if (!(elem->tex.img = mlx_get_data_addr(elem->tex.ptr, &elem->tex.bpp,
-		&elem->tex.size_line, &elem->tex.endian)))
+	elem->tex.img = mlx_get_data_addr(elem->tex.ptr, &elem->tex.bpp, \
+		&elem->tex.size_line, &elem->tex.endian);
+	if (!elem->tex.img)
 		handle_error("fail creating texture", rt);
 }
 
