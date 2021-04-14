@@ -89,6 +89,7 @@ typedef struct s_mini_rt
 	t_list				*objs_list;
 	t_list				*cam_list;
 	t_list				*light_list;
+	t_list				*tmp_raytrace;
 }				t_mini_rt;
 
 typedef struct s_thread
