@@ -62,35 +62,38 @@ static size_t	w_s(char const *s, int pos, char *set)
 	return (len);
 }
 
+int	ft_arr(int *arr)
+{
+	arr[0] = -1;
+	arr[1] = 0;
+	arr[2] = 0;
+	return (*arr);
+}
+
 char	**ft_ssplit(char *s, char *set)
 {
-	char	**tab;
-	int		i;
-	int		j;
-	int		k;
+	char		**tab;
+	int			arr[3];
 
-	i = -1;
-	j = 0;
-	k = 0;
+	*arr = ft_arr(arr);
 	tab = malloc(sizeof(char *) * (count_words(s, set) + 1));
 	if (!tab)
 		return (NULL);
-	while (s[++i])
+	while (s[++arr[0]])
 	{
-		if (!in_s(s[i], set))
+		if (!in_s(s[arr[0]], set))
 		{
-			if (k == 0)
-				tab[j] = malloc(sizeof(char) * w_s(s, i, set) + 1);
-			if (k == 0)
-				if (!tab)
-					return (NULL);
-			tab[j][k] = s[i];
-			tab[j][++k] = '\0';
+			if (arr[2] == 0)
+				tab[arr[1]] = malloc(sizeof(char) * w_s(s, arr[0], set) + 1);
+			if (arr[2] == 0 && !tab)
+				return (NULL);
+			tab[arr[1]][arr[2]] = s[arr[0]];
+			tab[arr[1]][++arr[2]] = '\0';
 		}
-		if ((in_s(s[i], set) && !in_s(s[i + 1], set) && k > 0))
-			j++;
-		if ((in_s(s[i], set) && !in_s(s[i + 1], set) && k > 0))
-			k = 0;
+		if ((in_s(s[arr[0]], set) && !in_s(s[arr[0] + 1], set) && arr[2] > 0))
+			arr[1]++;
+		if ((in_s(s[arr[0]], set) && !in_s(s[arr[0] + 1], set) && arr[2] > 0))
+			arr[2] = 0;
 	}
 	tab[count_words(s, set)] = NULL;
 	return (tab);
