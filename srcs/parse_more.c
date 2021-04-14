@@ -27,20 +27,21 @@ void	parse_cone(t_mini_rt *rt)
 	int			check;
 
 	check = count_split(rt->split);
-	cone = ft_calloc(1, sizeof(t_element));
-	if (!cone)
+	if (!(cone = ft_calloc(1, sizeof(t_element))))
 		handle_error("fail to malloc", rt);
-	if (check < 6 || check > 8 || !check_split(rt->split, 7) || \
+	if (check < 6 || check > 8 || !check_split(rt->split, 7) ||
 		(check == 8 && !ft_strcmp(rt->split[7], "raiiinbow")))
-		ft_prs_cone(rt, cone);
+	{
+		free(cone);
+		handle_error("cone parsing error", rt);
+	}
 	cone->id = 7;
 	cone->point = split_vec(rt->split[1], rt, 0);
 	cone->orient = split_vec(rt->split[2], rt, 1);
 	cone->diameter = ft_atof(rt->split[3]);
 	cone->height = ft_atof(rt->split[4]);
 	cone->color = split_rgb(rt->split[5], rt);
-	if (check >= 7)
-		cone->ref = ft_atof(rt->split[6]);
+	check >= 7 ? cone->ref = ft_atof(rt->split[6]) : 0;
 	if (check == 8 && ft_strcmp(rt->split[7], "raiiinbow"))
 		cone->rainbow = 1;
 	ft_lstadd_back(&rt->objs_list, ft_lstnew(cone));
@@ -77,8 +78,7 @@ void	parse_dir_light(t_mini_rt *rt)
 {
 	t_element		*light;
 
-	light = ft_calloc(1, sizeof(t_element));
-	if (!light)
+	if (!(light = ft_calloc(1, sizeof(t_element))))
 		handle_error("fail to malloc", rt);
 	if (count_split(rt->split) != 4 || !check_split(rt->split, 0))
 	{
@@ -101,8 +101,7 @@ void	parse_sky(t_mini_rt *rt)
 
 	if (count_split(rt->split) != 7)
 		handle_error("skybox parsing error", rt);
-	sky = ft_calloc(1, sizeof(t_texture) * 7);
-	if (!sky)
+	if (!(sky = ft_calloc(1, sizeof(t_texture) * 7)))
 		handle_error("fail to malloc", rt);
 	i = 0;
 	while (rt->split[++i])

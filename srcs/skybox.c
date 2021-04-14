@@ -65,30 +65,23 @@ t_color	get_sky_coord(t_mini_rt *rt)
 
 	ft_bzero(&color, sizeof(t_color));
 	rt->ray.dir = vec_normalize(rt->ray.dir);
-	m = rt->ray.dir.z;
-	if (fabs(rt->ray.dir.z) >= fabs(rt->ray.dir.y) && fabs(rt->ray.dir.z) >= \
-	fabs(rt->ray.dir.x) && rt->ray.dir.z < 0 && (m > -10))
+	if (fabs(rt->ray.dir.z) >= fabs(rt->ray.dir.y) && fabs(rt->ray.dir.z)
+	>= fabs(rt->ray.dir.x) && rt->ray.dir.z < 0 && (m = rt->ray.dir.z) > -10)
 		color = get_sky_color(rt->sky[0], -rt->ray.dir.x, -rt->ray.dir.y, m);
-	else if (fabs(rt->ray.dir.z) >= fabs(rt->ray.dir.y) && fabs(rt->ray.dir.z) >= \
-	fabs(rt->ray.dir.x) && rt->ray.dir.z > 0 && (m > -10))
-	{
+	else if (fabs(rt->ray.dir.z) >= fabs(rt->ray.dir.y) && fabs(rt->ray.dir.z)
+	>= fabs(rt->ray.dir.x) && rt->ray.dir.z > 0 && (m = rt->ray.dir.z) > -10)
 		color = get_sky_color(rt->sky[1], rt->ray.dir.x, -rt->ray.dir.y, m);
-		m = rt->ray.dir.x;
-	}
-	else if (fabs(rt->ray.dir.x) > fabs(rt->ray.dir.z) && fabs(rt->ray.dir.x) > \
-	fabs(rt->ray.dir.y) && rt->ray.dir.x < 0 && (m > -10))
+	else if (fabs(rt->ray.dir.x) > fabs(rt->ray.dir.z) && fabs(rt->ray.dir.x)
+	> fabs(rt->ray.dir.y) && rt->ray.dir.x < 0 && (m = rt->ray.dir.x) > -10)
 		color = get_sky_color(rt->sky[2], rt->ray.dir.z, -rt->ray.dir.y, m);
-	else if (fabs(rt->ray.dir.x) > fabs(rt->ray.dir.z) && fabs(rt->ray.dir.x) > \
-	fabs(rt->ray.dir.y) && rt->ray.dir.x > 0 && (m > -10))
-	{
+	else if (fabs(rt->ray.dir.x) > fabs(rt->ray.dir.z) && fabs(rt->ray.dir.x)
+	> fabs(rt->ray.dir.y) && rt->ray.dir.x > 0 && (m = rt->ray.dir.x) > -10)
 		color = get_sky_color(rt->sky[3], -rt->ray.dir.z, -rt->ray.dir.y, m);
-		m = rt->ray.dir.y;
-	}
-	else if (fabs(rt->ray.dir.y) >= fabs(rt->ray.dir.z) && fabs(rt->ray.dir.y) >= \
-	fabs(rt->ray.dir.x) && rt->ray.dir.y < 0 && (m > -10))
+	else if (fabs(rt->ray.dir.y) >= fabs(rt->ray.dir.z) && fabs(rt->ray.dir.y)
+	>= fabs(rt->ray.dir.x) && rt->ray.dir.y < 0 && (m = rt->ray.dir.y) > -10)
 		color = get_sky_color(rt->sky[4], -rt->ray.dir.x, rt->ray.dir.z, m);
-	else if (fabs(rt->ray.dir.y) >= fabs(rt->ray.dir.z) && fabs(rt->ray.dir.y) >= \
-	fabs(rt->ray.dir.x) && rt->ray.dir.y > 0 && m > -10)
+	else if (fabs(rt->ray.dir.y) >= fabs(rt->ray.dir.z) && fabs(rt->ray.dir.y)
+	>= fabs(rt->ray.dir.x) && rt->ray.dir.y > 0 && (m = rt->ray.dir.y) > -10)
 		color = get_sky_color(rt->sky[5], rt->ray.dir.x, rt->ray.dir.z, m);
 	return (color);
 }

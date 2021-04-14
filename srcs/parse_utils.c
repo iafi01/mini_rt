@@ -12,7 +12,7 @@
 
 #include "../includes/mini_rt.h"
 
-int	check_id_bonus(t_mini_rt *rt)
+int			check_id_bonus(t_mini_rt *rt)
 {
 	if (ft_strncmp(rt->split[0], "co", 2))
 		parse_cone(rt);
@@ -33,7 +33,7 @@ int	check_id_bonus(t_mini_rt *rt)
 	return (1);
 }
 
-void	check_id(t_mini_rt *rt)
+void		check_id(t_mini_rt *rt)
 {
 	if (ft_strncmp(rt->split[0], "R", 1) && !rt->res.parsed)
 		parse_res(rt);
@@ -61,7 +61,7 @@ void	check_id(t_mini_rt *rt)
 		handle_error("parsing error", rt);
 }
 
-int	check_split(char **split, int max)
+int			check_split(char **split, int max)
 {
 	int		i;
 	int		j;
@@ -75,7 +75,7 @@ int	check_split(char **split, int max)
 			if (i == 3 && ft_strcmp(split[0], "sp")
 				&& ft_strcmp(split[i], ".xpm"))
 				break ;
-			if (!ft_isdigit(split[i][j]) && split[i][j] != ',' && \
+			if (!ft_isdigit(split[i][j]) && split[i][j] != ',' &&
 				split[i][j] != '.' && split[i][j] != '-' && (!max || i < max))
 				return (0);
 			j++;
@@ -85,7 +85,7 @@ int	check_split(char **split, int max)
 	return (1);
 }
 
-t_vec	split_vec(char *str, t_mini_rt *rt, int orient)
+t_vec		split_vec(char *str, t_mini_rt *rt, int orient)
 {
 	t_vec	v;
 	char	**split;
@@ -101,15 +101,15 @@ t_vec	split_vec(char *str, t_mini_rt *rt, int orient)
 	v.y = ft_atof(split[1]);
 	v.z = ft_atof(split[2]);
 	free_split(split);
-	if (orient && ((v.x > 1 || v.y > 1 || v.z > 1 || v.x < -1 || v.y < -1 || \
-	v.z < -1) || (!v.x && !v.y && !v.z)))
+	if (orient && ((v.x > 1 || v.y > 1 || v.z > 1 || v.x < -1 || v.y < -1
+		|| v.z < -1) || (!v.x && !v.y && !v.z)))
 		handle_error("invalid vector parsing", rt);
 	return (v);
 }
 
-t_color	split_rgb(char *str, t_mini_rt *rt)
+t_color		split_rgb(char *str, t_mini_rt *rt)
 {
-	t_color	c;
+	t_color c;
 	char	**split;
 
 	split = ft_split(str, ',');

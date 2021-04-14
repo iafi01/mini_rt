@@ -38,14 +38,12 @@ t_color	ray_intersect(t_mini_rt *rt)
 	rt->t = INT_MAX;
 	rt->k = INT_MAX;
 	ft_bzero(&rt->color, sizeof(t_color));
-	if (rt->sky)
-		rt->color = get_sky_coord(rt);
+	rt->sky ? rt->color = get_sky_coord(rt) : rt->color;
 	tmp = rt->objs_list;
 	while (tmp)
 	{
 		find_objs(rt, tmp->content, rt->ray.ori, rt->ray.dir);
-		rt->k = rt->t
-		if (rt->t > 0 && rt->t < rt->k && rt->k))
+		if (rt->t > 0 && rt->t < rt->k && (rt->k = rt->t))
 			rt->obj = tmp->content;
 		tmp = tmp->next;
 	}
@@ -53,8 +51,7 @@ t_color	ray_intersect(t_mini_rt *rt)
 	{
 		rt->p = vec_add(rt->ray.ori, vec_mul(rt->ray.dir, rt->k));
 		rt->color = get_color(rt);
-		if (rt->obj->ref)
-			reflect(rt);
+		rt->obj->ref ? reflect(rt) : 0;
 		rt->color = apply_lights(rt);
 	}
 	return (rt->color);
@@ -69,12 +66,10 @@ t_vec	calc_ray(t_mini_rt *rt, float x, float y)
 
 	norm_x = ((x / (float)rt->res.x) - 0.5);
 	norm_y = ((y / (float)rt->res.y) - 0.5);
-	if (rt->res.x < rt->res.y)
-		norm_x *= rt->aspect;
-	if (rt->res.x > rt->res.y)
-		norm_y /= rt->aspect;
-	image_point = vec_add(vec_add(vec_add(vec_mul(rt->cam->right, norm_x), \
-		vec_mul(rt->cam->up, norm_y)), rt->ray.ori), \
+	rt->res.x < rt->res.y ? norm_x *= rt->aspect : 0;
+	rt->res.x > rt->res.y ? norm_y /= rt->aspect : 0;
+	image_point = vec_add(vec_add(vec_add(vec_mul(rt->cam->right, norm_x),
+		vec_mul(rt->cam->up, norm_y)), rt->ray.ori),
 		vec_normalize(rt->cam->orient));
 	dir = vec_normalize(vec_sub(image_point, rt->ray.ori));
 	return (dir);
@@ -82,7 +77,7 @@ t_vec	calc_ray(t_mini_rt *rt, float x, float y)
 
 t_color	anti_aliasing(t_mini_rt *rt, float i, float j)
 {
-	t_color	color;
+	t_color color;
 	int		aa;
 	float	aax;
 	float	aay;
@@ -115,13 +110,10 @@ void	raytracing(t_thread *th)
 
 	j = 0;
 	st = 0;
-	if (th->scene.st && th->cur_thr % 2 == 1)
-		st = round(th->scene.res.x / 50);
-	i = th->cur_thr;
-	while (j < th->scene.res.y && i >= 0)
+	th->scene.st && th->cur_thr % 2 == 1 ? st = round(th->scene.res.x / 50) : 0;
+	while (j < th->scene.res.y && (i = th->cur_thr) >= 0)
 	{
-		th->scene.nbref = 0;
-		while (i < th->scene.res.x && th->scene.nbref == 0)
+		while (i < th->scene.res.x && (th->scene.nbref = 0) == 0)
 		{
 			if (th->scene.anti_aliasing > 1)
 				th->scene.color = anti_aliasing(&th->scene, i, j);
